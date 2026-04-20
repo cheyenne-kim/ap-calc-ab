@@ -131,6 +131,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <button onclick="show('whenyousee',this)">🔍 When You See...</button>
   <button onclick="show('rr',this)">📐 Related Rates</button>
   <button onclick="show('implicit',this)">∂ Implicit Differentiation</button>
+  <button onclick="show('optimization',this)">📦 Optimization</button>
   <button onclick="show('mixed',this)">🎯 Mixed Practice</button>
   <button onclick="show('frq',this)">✍️ FRQ Practice</button>
   <button id="btn-mistakes" onclick="window.location.href='ap-calc-mistakes.html'">⚠️ Common Mistakes</button>
@@ -2328,6 +2329,100 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   </div>
 </div>
 
+<!-- OPTIMIZATION -->
+<div class="section" id="sec-optimization">
+  <h2>Optimization</h2>
+  <span class="unit-weight">Unit 5 · Analytic Applications — classic calculator and no-calculator setup skill</span>
+  <div class="intro">Optimization problems ask you to maximize or minimize a quantity under a constraint. The workflow is almost always: define variables, write the target equation, use the constraint to get one variable, differentiate, solve, and justify the extremum.</div>
+
+  <div class="fgrid">
+    <div class="fc"><h4>Step 1</h4><span class="f">Draw a diagram and label variables.</span><p>State what each variable represents, including units when given.</p></div>
+    <div class="fc"><h4>Step 2</h4><span class="f">Write the objective function.</span><p>This is the quantity you want to maximize or minimize: area, volume, cost, distance, time, etc.</p></div>
+    <div class="fc"><h4>Step 3</h4><span class="f">Use the constraint to eliminate a variable.</span><p>Perimeter, volume, or geometry equations usually let you rewrite the objective in one variable.</p></div>
+    <div class="fc"><h4>Step 4</h4><span class="f">Differentiate and solve \(f'(x)=0\).</span><p>Also check endpoints if the domain is closed or restricted.</p></div>
+    <div class="fc"><h4>Step 5</h4><span class="f">Justify max or min.</span><p>Use sign changes, the second derivative test, or endpoint comparison.</p></div>
+    <div class="fc"><h4>Common Trap</h4><span class="f">Answer the question asked.</span><p>If it asks for dimensions, give dimensions. If it asks for max area, give area.</p></div>
+  </div>
+
+  <div class="pc" id="p-opt1">
+    <div class="ph"><div class="pn">1</div><span class="diff de">Easy</span></div>
+    <div class="pt">A rectangle has perimeter \(40\) units. What dimensions maximize its area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt1','A')">A) \(5\times15\)</button>
+      <button class="cb" onclick="chk(this,'p-opt1','B')">B) \(10\times10\)</button>
+      <button class="cb" onclick="chk(this,'p-opt1','C')">C) \(8\times12\)</button>
+      <button class="cb" onclick="chk(this,'p-opt1','D')">D) \(4\times16\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt1',this)">Show Solution</button><span class="fm" id="fb-p-opt1"></span></div>
+    <div class="sb" id="s-opt1"><strong>Answer: B) \(10\times10\)</strong><br>Let sides be \(x\) and \(y\). Constraint: \(2x+2y=40\Rightarrow y=20-x\).<br>Area: \(A=x(20-x)=20x-x^2\). \(A'=20-2x=0\Rightarrow x=10\), so \(y=10\). Since \(A''=-2<0\), this is a maximum.</div>
+  </div>
+
+  <div class="pc" id="p-opt2">
+    <div class="ph"><div class="pn">2</div><span class="diff dm">Medium</span></div>
+    <div class="pt">A farmer has \(120\) meters of fencing for three sides of a rectangular pen along a river. No fence is needed along the river. What dimensions maximize the enclosed area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt2','A')">A) \(30\) m by \(60\) m</button>
+      <button class="cb" onclick="chk(this,'p-opt2','B')">B) \(40\) m by \(40\) m</button>
+      <button class="cb" onclick="chk(this,'p-opt2','C')">C) \(20\) m by \(80\) m</button>
+      <button class="cb" onclick="chk(this,'p-opt2','D')">D) \(60\) m by \(60\) m</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt2',this)">Show Solution</button><span class="fm" id="fb-p-opt2"></span></div>
+    <div class="sb" id="s-opt2"><strong>Answer: A) \(30\) m by \(60\) m</strong><br>Let \(x\) be each side perpendicular to the river and \(y\) be the side parallel to the river. Constraint: \(2x+y=120\Rightarrow y=120-2x\).<br>Area: \(A=x(120-2x)=120x-2x^2\). \(A'=120-4x=0\Rightarrow x=30\), so \(y=60\). \(A''=-4<0\), so this maximizes area.</div>
+  </div>
+
+  <div class="pc" id="p-opt3">
+    <div class="ph"><div class="pn">3</div><span class="diff dm">Medium</span></div>
+    <div class="pt">Find the point on the line \(y=2x+1\) closest to the origin.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt3','A')">A) \((-2/5,\,1/5)\)</button>
+      <button class="cb" onclick="chk(this,'p-opt3','B')">B) \((0,\,1)\)</button>
+      <button class="cb" onclick="chk(this,'p-opt3','C')">C) \((1/2,\,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-opt3','D')">D) \((-1/2,\,0)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt3',this)">Show Solution</button><span class="fm" id="fb-p-opt3"></span></div>
+    <div class="sb" id="s-opt3"><strong>Answer: A) \((-2/5,\,1/5)\)</strong><br>Minimize distance squared: \(D^2=x^2+y^2=x^2+(2x+1)^2=5x^2+4x+1\).<br>\(\dfrac{d}{dx}D^2=10x+4=0\Rightarrow x=-\dfrac{2}{5}\). Then \(y=2(-2/5)+1=\dfrac{1}{5}\). Since the quadratic opens upward, this is the minimum.</div>
+  </div>
+
+  <div class="pc" id="p-opt4">
+    <div class="ph"><div class="pn">4</div><span class="diff dm">Medium</span></div>
+    <div class="pt">A cylinder has volume \(54\pi\text{ cm}^3\). What radius minimizes its surface area if the cylinder is closed?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt4','A')">A) \(r=2\) cm</button>
+      <button class="cb" onclick="chk(this,'p-opt4','B')">B) \(r=3\) cm</button>
+      <button class="cb" onclick="chk(this,'p-opt4','C')">C) \(r=6\) cm</button>
+      <button class="cb" onclick="chk(this,'p-opt4','D')">D) \(r=9\) cm</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt4',this)">Show Solution</button><span class="fm" id="fb-p-opt4"></span></div>
+    <div class="sb" id="s-opt4"><strong>Answer: B) \(r=3\) cm</strong><br>Volume constraint: \(\pi r^2h=54\pi\Rightarrow h=\dfrac{54}{r^2}\).<br>Closed surface area: \(S=2\pi r^2+2\pi rh=2\pi r^2+\dfrac{108\pi}{r}\).<br>\(S'=4\pi r-\dfrac{108\pi}{r^2}=0\Rightarrow4r^3=108\Rightarrow r^3=27\Rightarrow r=3\). This gives a minimum since \(S''=4\pi+\dfrac{216\pi}{r^3}>0\).</div>
+  </div>
+
+  <div class="pc" id="p-opt5">
+    <div class="ph"><div class="pn">5</div><span class="diff dh">Hard</span></div>
+    <div class="pt">A rectangle is inscribed under the parabola \(y=16-x^2\) and above the \(x\)-axis, symmetric about the \(y\)-axis. What width gives the maximum area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt5','A')">A) \(4/\sqrt3\)</button>
+      <button class="cb" onclick="chk(this,'p-opt5','B')">B) \(8/\sqrt3\)</button>
+      <button class="cb" onclick="chk(this,'p-opt5','C')">C) \(4\sqrt3\)</button>
+      <button class="cb" onclick="chk(this,'p-opt5','D')">D) \(8\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt5',this)">Show Solution</button><span class="fm" id="fb-p-opt5"></span></div>
+    <div class="sb" id="s-opt5"><strong>Answer: B) \(8/\sqrt3\)</strong><br>Let the upper right corner be \((x,\,16-x^2)\). Width \(=2x\), height \(=16-x^2\).<br>Area: \(A(x)=2x(16-x^2)=32x-2x^3\), for \(0\le x\le4\).<br>\(A'=32-6x^2=0\Rightarrow x^2=\dfrac{16}{3}\Rightarrow x=\dfrac{4}{\sqrt3}\). Width \(=2x=\)<strong>\(\dfrac{8}{\sqrt3}\)</strong>. Endpoints give area \(0\), so this is the maximum.</div>
+  </div>
+
+  <div class="pc" id="p-opt6">
+    <div class="ph"><div class="pn">6</div><span class="diff dh">Hard</span></div>
+    <div class="pt">A poster has total area \(96\text{ in}^2\). The margins are \(1\) inch on the left and right and \(2\) inches on the top and bottom. What page dimensions maximize the printed area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-opt6','A')">A) \(4\sqrt3\) in by \(8\sqrt3\) in</button>
+      <button class="cb" onclick="chk(this,'p-opt6','B')">B) \(6\) in by \(16\) in</button>
+      <button class="cb" onclick="chk(this,'p-opt6','C')">C) \(8\) in by \(12\) in</button>
+      <button class="cb" onclick="chk(this,'p-opt6','D')">D) \(12\) in by \(8\) in</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-opt6',this)">Show Solution</button><span class="fm" id="fb-p-opt6"></span></div>
+    <div class="sb" id="s-opt6"><strong>Answer: A) \(4\sqrt3\) in by \(8\sqrt3\) in</strong><br>Let page width \(x\), height \(y\), so \(xy=96\). Printed area is \((x-2)(y-4)\). Substitute \(y=96/x\):<br>\(P(x)=(x-2)\left(\dfrac{96}{x}-4\right)=104-4x-\dfrac{192}{x}\).<br>\(P'(x)=-4+\dfrac{192}{x^2}=0\Rightarrow x^2=48\Rightarrow x=4\sqrt3\). This gives \(y=\dfrac{96}{4\sqrt3}=8\sqrt3\). Since \(P''(x)=-384/x^3<0\), this maximizes printed area.</div>
+  </div>
+</div>
+
 <!-- MIXED PRACTICE -->
 <div class="section" id="sec-mixed">
   <h2>Mixed Practice</h2>
@@ -2812,6 +2907,7 @@ const ANS = {
   'p-g2-1':'B','p-g2-2':'C','p-g2-3':'B','p-g2-4':'A','p-g2-5':'C','p-g2-6':'D','p-g2-7':'B',
   'p-g3-1':'B','p-g3-2':'A','p-g3-3':'C','p-g3-4':'B','p-g3-5':'A','p-g3-6':'D','p-g3-7':'C',
   'p-rr1':'B','p-rr2':'C','p-rr3':'B','p-rr4':'A','p-rr5':'C','p-rr6':'A',
+  'p-opt1':'B','p-opt2':'A','p-opt3':'A','p-opt4':'B','p-opt5':'B','p-opt6':'A',
   'p-id1':'A','p-id2':'C','p-id3':'B','p-id4':'B','p-id5':'B','p-id6':'C','p-id7':'C'
 };
 const total = Object.keys(ANS).length;
