@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Calculus AB Common Mistakes</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f4ff; color: #1a1a2e; min-height: 100vh; }
+header { background: linear-gradient(135deg, #1a1a6e 0%, #2d2d9e 50%, #4a4adf 100%); color: white; padding: 1.5rem 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+header h1 { font-size: 2rem; letter-spacing: 1px; }
+header p { opacity: 0.86; margin-top: 0.25rem; font-size: 1rem; }
+.topbar { background: #fff; border-bottom: 2px solid #e0e7ff; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.back { background: white; color: #4a4adf; border: 2px solid #4a4adf; padding: 0.45rem 0.9rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+.back:hover { background: #eef2ff; }
+main { max-width: 980px; margin: 0 auto; padding: 2rem; }
+h2 { font-size: 1.55rem; color: #1a1a6e; margin-bottom: 0.4rem; }
+.intro { background: #eef2ff; border-left: 4px solid #4a4adf; padding: 0.9rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.25rem; font-size: 0.94rem; line-height: 1.6; }
+.section-title { margin: 1.3rem 0 0.7rem; color: #4a4adf; font-size: 1.08rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
+.card { background: white; border-radius: 10px; padding: 0.95rem 1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 8px rgba(74,74,223,0.05); }
+.card h4 { font-size: 0.74rem; text-transform: uppercase; color: #7c3aed; letter-spacing: 0.5px; margin-bottom: 0.45rem; }
+.card .rule { font-size: 0.98rem; color: #1a1a6e; background: #f5f3ff; padding: 0.45rem 0.7rem; border-radius: 5px; display: block; min-height: 2.2rem; }
+.card p { font-size: 0.82rem; color: #555; margin-top: 0.45rem; line-height: 1.45; }
+.tip { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px; padding: 0.95rem 1.1rem; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6; }
+.tip strong { color: #9a3412; display: block; margin-bottom: 0.3rem; }
+@media (max-width: 700px) {
+  header { padding: 1.15rem 1rem; }
+  header h1 { font-size: 1.45rem; }
+  .topbar { padding: 0.75rem 1rem; align-items: flex-start; flex-direction: column; }
+  main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>AP Calculus AB Common Mistakes</h1>
+  <p>Fast checks for derivatives, integrals, theorems, and FRQs</p>
+</header>
+<div class="topbar">
+  <span>Use this as a pre-test checklist before mixed practice or free response.</span>
+  <a class="back" href="ap-calc-study.html">Back to Study Guide</a>
+</div>
+<main>
+  <h2>Common Mistakes to Avoid</h2>
+  <div class="intro">These are the errors that cost the most points on AP Calculus AB. The goal is not just to memorize them, but to recognize the pattern before it happens.</div>
+
+  <h3 class="section-title">Derivatives</h3>
+  <div class="grid">
+    <div class="card"><h4>Chain Rule</h4><span class="rule">Differentiate the inside</span><p>For sin(x^2), e^(3x), ln(2x), and (x^2+1)^5, multiply by the derivative of the inner function.</p></div>
+    <div class="card"><h4>Product Rule</h4><span class="rule">(fg)' = f'g + fg'</span><p>Do not differentiate each factor and multiply the answers. Keep both product-rule terms.</p></div>
+    <div class="card"><h4>Constants</h4><span class="rule">d/dx[5] = 0</span><p>Constants disappear. e^2 is a constant; e^x is not.</p></div>
+    <div class="card"><h4>Trig Signs</h4><span class="rule">d/dx[cos x] = -sin x</span><p>The negative on cosine is easy to drop. Also remember d/dx[tan x] = sec^2 x.</p></div>
+    <div class="card"><h4>Implicit Diff</h4><span class="rule">d/dx[y^2] = 2y dy/dx</span><p>Every term with y needs a dy/dx factor unless y is treated as a constant by the problem.</p></div>
+    <div class="card"><h4>Quotient Rule</h4><span class="rule">(f'g - fg') / g^2</span><p>The subtraction order matters. A sign error can flip the whole numerator.</p></div>
+  </div>
+
+  <h3 class="section-title">Integrals</h3>
+  <div class="grid">
+    <div class="card"><h4>Missing + C</h4><span class="rule">Indefinite integral</span><p>Add + C until an initial condition or definite bound removes it.</p></div>
+    <div class="card"><h4>u-Sub Bounds</h4><span class="rule">Change the limits</span><p>For definite integrals, convert x-bounds to u-bounds or substitute back before evaluating.</p></div>
+    <div class="card"><h4>dx Replacement</h4><span class="rule">Replace the whole differential</span><p>If u = x^2, then du = 2x dx. Do not leave unmatched x terms behind.</p></div>
+    <div class="card"><h4>Power Rule Exception</h4><span class="rule">Integral of 1/x</span><p>Integral of x^-1 is ln|x| + C, not x^0 / 0.</p></div>
+    <div class="card"><h4>FTC Chain Rule</h4><span class="rule">Upper bound x^2</span><p>d/dx of integral from 0 to x^2 of f(t) dt is f(x^2) times 2x.</p></div>
+    <div class="card"><h4>Flipped Limits</h4><span class="rule">Reverse means negative</span><p>Integral from b to a equals the negative of the integral from a to b.</p></div>
+  </div>
+
+  <h3 class="section-title">Theorems and FRQs</h3>
+  <div class="grid">
+    <div class="card"><h4>MVT / EVT</h4><span class="rule">Check hypotheses</span><p>State continuity on the closed interval and differentiability on the open interval when needed.</p></div>
+    <div class="card"><h4>Critical Points</h4><span class="rule">f' = 0 is not enough</span><p>Use a sign change or another test before calling something a max or min.</p></div>
+    <div class="card"><h4>Concavity</h4><span class="rule">Use f''</span><p>Increasing and concave up are different ideas. Concavity comes from the second derivative.</p></div>
+    <div class="card"><h4>Units</h4><span class="rule">Always include them</span><p>Velocity, acceleration, area, volume, and rates all need correct units in context problems.</p></div>
+    <div class="card"><h4>Distance vs. Displacement</h4><span class="rule">Use absolute value for distance</span><p>Integral of velocity is displacement. Integral of speed is total distance.</p></div>
+    <div class="card"><h4>Speeding Up</h4><span class="rule">Same sign</span><p>A particle speeds up when velocity and acceleration have the same sign.</p></div>
+  </div>
+
+  <div class="tip">
+    <strong>Top 5 Quick Checks</strong>
+    Check for + C, chain rule, changed u-sub bounds, theorem hypotheses, and units. Those five habits save a surprising number of points.
+  </div>
+</main>
+</body>
+</html>

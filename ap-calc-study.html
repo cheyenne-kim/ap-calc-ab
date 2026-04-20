@@ -106,26 +106,28 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
 <div class="container">
 <nav>
   <h3>Start Here</h3>
-  <button onclick="show('home')" class="active">🏠 Overview</button>
+  <button onclick="show('home',this)" class="active">🏠 Overview</button>
   <div class="nav-div"></div>
   <h3>Units</h3>
-  <button onclick="show('u1')">1. Limits &amp; Continuity <span class="pct">10-12%</span></button>
-  <button onclick="show('u2')">2. Differentiation: Basics <span class="pct">10-12%</span></button>
-  <button onclick="show('u3')">3. Diff: Chain/Implicit/Inv <span class="pct">9-13%</span></button>
-  <button onclick="show('u4')">4. Contextual Applications <span class="pct">10-15%</span></button>
-  <button onclick="show('u5')">5. Analytic Applications <span class="pct">15-18%</span></button>
-  <button onclick="show('u6')">6. Integration <span class="pct">17-20%</span></button>
-  <button onclick="show('u7')">7. Differential Equations <span class="pct">6-12%</span></button>
-  <button onclick="show('u8')">8. Applications of Integ. <span class="pct">10-15%</span></button>
+  <button onclick="show('u1',this)">1. Limits &amp; Continuity <span class="pct">10-12%</span></button>
+  <button onclick="show('u2',this)">2. Differentiation: Basics <span class="pct">10-12%</span></button>
+  <button onclick="show('u3',this)">3. Diff: Chain/Implicit/Inv <span class="pct">9-13%</span></button>
+  <button onclick="show('u4',this)">4. Contextual Applications <span class="pct">10-15%</span></button>
+  <button onclick="show('u5',this)">5. Analytic Applications <span class="pct">15-18%</span></button>
+  <button onclick="show('u6',this)">6. Integration <span class="pct">17-20%</span></button>
+  <button onclick="show('u7',this)">7. Differential Equations <span class="pct">6-12%</span></button>
+  <button onclick="show('u8',this)">8. Applications of Integ. <span class="pct">10-15%</span></button>
   <div class="nav-div"></div>
   <h3>Resources</h3>
-  <button onclick="show('formulas')">📋 Formula Sheet</button>
-  <button onclick="show('tips')">💡 Exam Tips</button>
-  <button onclick="show('graphs')">📈 Graph of f′(x) Problems</button>
-  <button onclick="show('whenyousee')">🔍 When You See...</button>
-  <button onclick="show('rr')">📐 Related Rates</button>
-  <button onclick="show('implicit')">∂ Implicit Differentiation</button>
-  <button onclick="show('mixed')">🎯 Mixed Practice</button>
+  <button onclick="show('formulas',this)">📋 Formula Sheet</button>
+  <button onclick="show('tips',this)">💡 Exam Tips</button>
+  <button onclick="show('graphs',this)">📈 Graph of f′(x) Problems</button>
+  <button onclick="show('whenyousee',this)">🔍 When You See...</button>
+  <button onclick="show('rr',this)">📐 Related Rates</button>
+  <button onclick="show('implicit',this)">∂ Implicit Differentiation</button>
+  <button onclick="show('mixed',this)">🎯 Mixed Practice</button>
+  <button onclick="show('frq',this)">✍️ FRQ Practice</button>
+  <button id="btn-mistakes" onclick="window.location.href='ap-calc-mistakes.html'">⚠️ Common Mistakes</button>
 </nav>
 
 <main>
@@ -339,12 +341,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
     <div class="pt">Find the equation of the tangent line to <span class="m">\(f(x)=x^3-2x\)</span> at \(x=1\).</div>
     <div class="choices">
       <button class="cb" onclick="chk(this,'p-d3','A')">A) y = x − 2</button>
-      <button class="cb" onclick="chk(this,'p-d3','B')">B) y = x − 2</button>
-      <button class="cb" onclick="chk(this,'p-d3','C')">C) y = x − 2</button>
+      <button class="cb" onclick="chk(this,'p-d3','B')">B) y = x + 2</button>
+      <button class="cb" onclick="chk(this,'p-d3','C')">C) y = −x</button>
       <button class="cb" onclick="chk(this,'p-d3','D')">D) y = 3x − 4</button>
     </div>
     <div class="pa"><button class="st" onclick="sol('s-d3',this)">Show Solution</button><span class="fm" id="fb-p-d3"></span></div>
-    <div class="sb" id="s-d3"><strong>Answer: D) y = x − 2</strong><br>f(1) = 1−2 = −1 (point: (1,−1)). f′(x) = 3x²−2, so f′(1) = 1 (slope).<br>Tangent: y − (−1) = 1(x − 1) → <strong>y = x − 2</strong></div>
+    <div class="sb" id="s-d3"><strong>Answer: A) y = x − 2</strong><br>f(1) = 1−2 = −1 (point: (1,−1)). f′(x) = 3x²−2, so f′(1) = 1 (slope).<br>Tangent: y − (−1) = 1(x − 1) → <strong>y = x − 2</strong></div>
   </div>
 
   <div class="pc" id="p-d4">
@@ -2599,13 +2601,188 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   </div>
 </div>
 
+<!-- FRQ PRACTICE -->
+<div class="section" id="sec-frq">
+  <h2>FRQ Practice</h2>
+  <div class="intro">Free-response questions make up <strong>50% of your AP score</strong> (6 questions in 90 minutes). Unlike MC, you must show full work — a correct answer without work earns zero. The rubric rewards each step, so partial credit is always possible. Practice writing complete, organized responses.</div>
+
+  <div class="tip"><strong>FRQ Format</strong>Section II: 6 questions · 90 minutes total<br>• Part A (30 min, calculator): 2 problems — typically motion, area/volume, or applied integral<br>• Part B (60 min, no calculator): 4 problems — typically limits/derivatives, FTC, diff eq, curve analysis<br>Each problem is worth 9 points; each part (a)(b)(c)(d) is worth 2–4 points.</div>
+
+  <h3 class="sh">FRQ Scoring Principles</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>Show All Work</h4><span class="f">No work = no credit</span><p>Even if the answer is obvious, write the setup. Examiners award points for each step, not just the answer.</p></div>
+    <div class="fc"><h4>Import Error</h4><span class="f">Carry forward wrong values</span><p>If you get part (a) wrong but use it correctly in (b), you can still earn full credit on (b). Don't restart — keep going.</p></div>
+    <div class="fc"><h4>Units</h4><span class="f">Always include units</span><p>A rate without units (like "ft/sec") loses the unit point. Check every answer that has a real-world context.</p></div>
+    <div class="fc"><h4>Justify Conclusions</h4><span class="f">Say WHY</span><p>"f′(x) changes from + to − at x=2, so f has a local maximum there." State the reasoning, not just the conclusion.</p></div>
+    <div class="fc"><h4>Declare Variables</h4><span class="f">Related rates especially</span><p>Start with "Let x = ..." and "Let y = ..." before writing equations. Examiners look for this.</p></div>
+    <div class="fc"><h4>Round Correctly</h4><span class="f">3 decimal places</span><p>On calculator problems, give at least 3 decimal places unless told otherwise. Don't round intermediate steps.</p></div>
+  </div>
+
+  <h3 class="sh">FRQ 1 — Particle Motion (Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">1</div><span class="diff de">Typical AP Level</span><span class="topic-tag">Units 4 & 6 · Particle Motion</span></div>
+    <div class="pt">A particle moves along the x-axis. The velocity of the particle at time \(t\) is given by \(v(t)=t^2-4t+3\) for \(0\le t\le 5\). The particle is at position \(x=2\) at time \(t=0\).<br><br>
+    (a) Find all times \(t\) in \([0,5]\) when the particle changes direction. Justify your answer.<br>
+    (b) Find the position of the particle at \(t=4\).<br>
+    (c) Find the total distance traveled by the particle from \(t=0\) to \(t=4\).<br>
+    (d) Find the acceleration of the particle at \(t=3\) and determine whether the particle is speeding up or slowing down at that instant. Justify.</div>
+    <div class="pa"><button class="st" onclick="sol('s-frq1',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq1">
+      <strong>(a)</strong> Set \(v(t)=0\): \(t^2-4t+3=(t-1)(t-3)=0\Rightarrow t=1,3\).<br>
+      \(v\) changes sign: \((0,1)\): \(v>0\); \((1,3)\): \(v<0\); \((3,5)\): \(v>0\). ✓ Changes direction at <strong>\(t=1\) and \(t=3\)</strong>.<br><br>
+      <strong>(b)</strong> \(x(4)=x(0)+\displaystyle\int_0^4 v(t)\,dt = 2+\int_0^4(t^2-4t+3)\,dt\)<br>
+      \(=2+\left[\tfrac{t^3}{3}-2t^2+3t\right]_0^4=2+\left(\tfrac{64}{3}-32+12\right)=2+\tfrac{64}{3}-20=\tfrac{6+64-60}{3}=\)<strong>\(\tfrac{10}{3}\)</strong><br><br>
+      <strong>(c)</strong> Total distance = \(\displaystyle\int_0^4|v(t)|\,dt\). Split at zeros \(t=1,3\):<br>
+      \(=\int_0^1 v\,dt - \int_1^3 v\,dt + \int_3^4 v\,dt\)<br>
+      \(=\left[\tfrac{4}{3}-2+3\right]-\left[\tfrac{4}{3}\right]+\left[\tfrac{4}{3}-2+3-\tfrac{4}{3}+2-3\right]=\tfrac{7}{3}+\tfrac{4}{3}+\tfrac{4}{3}=\)<strong>\(\tfrac{16}{3}\) units</strong><br><br>
+      <strong>(d)</strong> \(a(t)=v'(t)=2t-4\Rightarrow a(3)=2(3)-4=\)<strong>2</strong>.<br>
+      \(v(3)=9-12+3=0\). Immediately after \(t=3\), \(v>0\) and \(a>0\), so the particle is <strong>speeding up</strong> (same signs).
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 2 — Area & Volume (Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">2</div><span class="diff de">Typical AP Level</span><span class="topic-tag">Unit 8 · Area Between Curves & Volume</span></div>
+    <div class="pt">Let \(f(x)=x^2\) and \(g(x)=2x\).<br><br>
+    (a) Find the x-coordinates of the points of intersection of \(f\) and \(g\).<br>
+    (b) Find the area of the region enclosed by the graphs of \(f\) and \(g\).<br>
+    (c) The region from (b) is rotated about the x-axis. Set up but do not evaluate the integral for the volume of the resulting solid using the washer method.<br>
+    (d) Find the value of \(k\), \(0<k<2\), such that the vertical line \(x=k\) divides the enclosed region into two equal areas.</div>
+    <div class="pa"><button class="st" onclick="sol('s-frq2',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq2">
+      <strong>(a)</strong> Set \(x^2=2x\Rightarrow x^2-2x=0\Rightarrow x(x-2)=0\Rightarrow\) intersect at <strong>\(x=0\) and \(x=2\)</strong>.<br><br>
+      <strong>(b)</strong> On \([0,2]\), \(g(x)\ge f(x)\). Area \(=\displaystyle\int_0^2(2x-x^2)\,dx=\left[x^2-\tfrac{x^3}{3}\right]_0^2=4-\tfrac{8}{3}=\)<strong>\(\tfrac{4}{3}\)</strong><br><br>
+      <strong>(c)</strong> Washer method (outer radius \(R=g(x)=2x\), inner \(r=f(x)=x^2\)):<br>
+      \(V=\pi\displaystyle\int_0^2\left[(2x)^2-(x^2)^2\right]dx=\pi\int_0^2(4x^2-x^4)\,dx\) ← <em>do not evaluate</em><br><br>
+      <strong>(d)</strong> Need \(\displaystyle\int_0^k(2x-x^2)\,dx=\tfrac{1}{2}\cdot\tfrac{4}{3}=\tfrac{2}{3}\).<br>
+      \(\left[x^2-\tfrac{x^3}{3}\right]_0^k=k^2-\tfrac{k^3}{3}=\tfrac{2}{3}\). Solve (calculator): <strong>\(k\approx 0.812\)</strong> (the real root of \(3k^2-k^3=2\) in \((0,2)\)).
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 3 — FTC & Accumulation (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">3</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 6 · FTC Parts 1 & 2</span></div>
+    <div class="pt">Let \(f(t)=4-t^2\).<br>
+    Define \(g(x)=\displaystyle\int_0^x f(t)\,dt\).<br><br>
+    (a) Find \(g(0)\) and \(g'(2)\).<br>
+    (b) On what intervals is \(g\) increasing? Justify using \(g'\).<br>
+    (c) Does \(g\) have a local minimum, local maximum, or neither at \(x=2\)? Justify.<br>
+    (d) Using a right Riemann sum with 4 equal subintervals, approximate \(g(4)\). Is this an overestimate or underestimate? Explain.</div>
+    <div class="pa"><button class="st" onclick="sol('s-frq3',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq3">
+      <strong>(a)</strong> \(g(0)=\int_0^0 f(t)\,dt=\)<strong>0</strong>. By FTC Part 1, \(g'(x)=f(x)=4-x^2\), so \(g'(2)=f(2)=\)<strong>0</strong>.<br><br>
+      <strong>(b)</strong> \(g\) is increasing when \(g'(x)=4-x^2>0\). This occurs when \(-2<x<2\). On the interval shown in this problem, \(g\) is increasing on <strong>\((0,2)\)</strong>.<br><br>
+      <strong>(c)</strong> At \(x=2\), \(g'(x)=4-x^2\) changes from positive to negative, so by the First Derivative Test, \(g\) has a <strong>local maximum</strong> at \(x=2\).<br><br>
+      <strong>(d)</strong> Right Riemann sum, \(\Delta x=1\), right endpoints \(x=1,2,3,4\):<br>
+      \(\approx f(1)(1)+f(2)(1)+f(3)(1)+f(4)(1)=3+0+(-5)+(-12)=\)<strong>-14</strong>.<br>
+      Since \(f(t)=4-t^2\) is decreasing on \([0,4]\), right endpoints give smaller values than the function's average on each subinterval, so the right sum is an <strong>underestimate</strong>.
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 4 — Differential Equations (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">4</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 7 · Differential Equations</span></div>
+    <div class="pt">Consider the differential equation \(\dfrac{dy}{dx}=2x-y\).<br><br>
+    (a) On the axes provided (sketch in your notes), draw a slope field for the given differential equation at the nine points \((\pm1, \pm1), (0,0), (0,\pm1), (\pm1,0)\).<br>
+    (b) The particular solution \(y=f(x)\) satisfies \(f(0)=1\). Use Euler's method with two steps of equal size \(\Delta x=0.5\) to approximate \(f(1)\).<br>
+    (c) Find the particular solution \(y=f(x)\) satisfying \(f(0)=1\) by solving the differential equation. (Hint: it is a first-order linear DE; try \(y=Ae^{-x}+2x-2\).)<br>
+    (d) Using your answer to (c), find \(\lim_{x\to\infty}f(x)\) if it exists.</div>
+    <div class="pa"><button class="st" onclick="sol('s-frq4',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq4">
+      <strong>(a)</strong> At each point \((x,y)\), draw a short segment with slope \(2x-y\). E.g.: at \((0,0)\): slope 0 (horizontal); at \((1,0)\): slope 2; at \((0,1)\): slope \(-1\); at \((1,1)\): slope 1. Segments steepen as \(x\) grows.<br><br>
+      <strong>(b)</strong> Euler's method from \((0,1)\), \(\Delta x=0.5\):<br>
+      Step 1: slope \(=2(0)-1=-1\). New \(y=1+(-1)(0.5)=0.5\). Now at \((0.5,\,0.5)\).<br>
+      Step 2: slope \(=2(0.5)-0.5=0.5\). New \(y=0.5+(0.5)(0.5)=0.75\).<br>
+      Approximation: \(f(1)\approx\)<strong>0.75</strong><br><br>
+      <strong>(c)</strong> Try \(y=Ae^{-x}+2x-2\). Then \(y'=-Ae^{-x}+2\). Check: \(2x-y=2x-(Ae^{-x}+2x-2)=2-Ae^{-x}=y'\). ✓<br>
+      Apply \(f(0)=1\): \(A(1)+0-2=1\Rightarrow A=3\). Particular solution: \(y=3e^{-x}+2x-2\).<br><br>
+      <strong>(d)</strong> As \(x\to\infty\): \(3e^{-x}\to 0\) and \(2x-2\to\infty\). So \(\lim_{x\to\infty}f(x)=\)<strong>\(\infty\)</strong> (no finite limit).
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 5 — Curve Analysis (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">5</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 5 · Analytic Applications</span></div>
+    <div class="pt">Let \(f(x)=x^3-6x^2+9x+1\).<br><br>
+    (a) Find all critical points of \(f\). Classify each as a local minimum, local maximum, or neither using the first derivative test.<br>
+    (b) Find the intervals on which \(f\) is concave up and concave down. Find all inflection points.<br>
+    (c) Does the Mean Value Theorem guarantee a value of \(c\) in \((0,4)\) where \(f'(c)=\frac{f(4)-f(0)}{4-0}\)? If so, find all such values of \(c\).<br>
+    (d) Find the absolute maximum and minimum values of \(f\) on \([0,4]\).</div>
+    <div class="pa"><button class="st" onclick="sol('s-frq5',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq5">
+      <strong>(a)</strong> \(f'(x)=3x^2-12x+9=3(x^2-4x+3)=3(x-1)(x-3)\). Critical points: \(x=1\) and \(x=3\).<br>
+      Sign of \(f'\): \((−∞,1)\): +, \((1,3)\): −, \((3,∞)\): +.<br>
+      \(x=1\): + to − → <strong>local max</strong>, \(f(1)=1-6+9+1=5\).<br>
+      \(x=3\): − to + → <strong>local min</strong>, \(f(3)=27-54+27+1=1\).<br><br>
+      <strong>(b)</strong> \(f''(x)=6x-12=6(x-2)\). \(f''>0\) when \(x>2\) (concave up); \(f''<0\) when \(x<2\) (concave down).<br>
+      <strong>Inflection point</strong> at \(x=2\): \(f(2)=8-24+18+1=3\). Point: \((2,3)\).<br><br>
+      <strong>(c)</strong> \(f\) is a polynomial → continuous on \([0,4]\), differentiable on \((0,4)\). MVT applies. ✓<br>
+      Average rate: \(\frac{f(4)-f(0)}{4}=\frac{(64-96+36+1)-1}{4}=\frac{4}{4}=1\).<br>
+      Solve \(f'(c)=1\): \(3c^2-12c+9=1\Rightarrow 3c^2-12c+8=0\Rightarrow c=\frac{12\pm\sqrt{48}}{6}=2\pm\frac{2\sqrt{3}}{3}\).<br>
+      Both \(c=2-\frac{2\sqrt{3}}{3}\approx0.845\) and \(c=2+\frac{2\sqrt{3}}{3}\approx3.155\) lie in \((0,4)\). ✓<br><br>
+      <strong>(d)</strong> Evaluate \(f\) at critical points and endpoints on \([0,4]\):<br>
+      \(f(0)=1,\; f(1)=5,\; f(3)=1,\; f(4)=5\).<br>
+      <strong>Absolute max: 5</strong> (at \(x=1\) and \(x=4\)). <strong>Absolute min: 1</strong> (at \(x=0\) and \(x=3\)).
+    </div>
+  </div>
+
+  <div class="tip"><strong>FRQ Writing Tips</strong>
+  • Start each part on a new line labeled (a), (b), (c), (d).<br>
+  • Write the formula or theorem you're using before applying it ("By FTC Part 1..." or "Setting f′(x) = 0...").<br>
+  • Box or underline your final answer.<br>
+  • Never erase work — cross it out. Examiners ignore crossed-out work.<br>
+  • If you run out of time, write the setup and say what you would do next — partial credit is always available.
+  </div>
+</div>
+
+<div class="section" id="sec-mistakes">
+  <h2>Common Mistakes to Avoid</h2>
+  <div class="intro">Quick reminders for the errors that cost the most points on AP Calculus AB. Read this section before timed practice or FRQs.</div>
+
+  <h3 class="sh">Derivatives</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>Chain Rule</h4><span class="f">Differentiate the inside</span><p>For sin(x²), e^(3x), ln(2x), and (x²+1)^5, multiply by the derivative of the inner function.</p></div>
+    <div class="fc"><h4>Product Rule</h4><span class="f">(fg)' = f'g + fg'</span><p>Do not differentiate each factor and multiply the answers. Keep both product-rule terms.</p></div>
+    <div class="fc"><h4>Constants</h4><span class="f">d/dx[5] = 0</span><p>Constants disappear. e² is a constant; e^x is not.</p></div>
+    <div class="fc"><h4>Trig Signs</h4><span class="f">d/dx[cos x] = -sin x</span><p>The negative on cosine is easy to drop. Also remember d/dx[tan x] = sec²x.</p></div>
+    <div class="fc"><h4>Implicit Diff</h4><span class="f">d/dx[y²] = 2y dy/dx</span><p>Every term with y needs a dy/dx factor unless y is treated as a constant by the problem.</p></div>
+    <div class="fc"><h4>Quotient Rule</h4><span class="f">(f'g - fg') / g²</span><p>The subtraction order matters. A sign error can flip the whole numerator.</p></div>
+  </div>
+
+  <h3 class="sh">Integrals</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>Missing + C</h4><span class="f">Indefinite integral</span><p>Add + C until an initial condition or definite bound removes it.</p></div>
+    <div class="fc"><h4>u-Sub Bounds</h4><span class="f">Change the limits</span><p>For definite integrals, convert x-bounds to u-bounds or substitute back before evaluating.</p></div>
+    <div class="fc"><h4>dx Replacement</h4><span class="f">Replace the whole differential</span><p>If u = x², then du = 2x dx. Do not leave unmatched x terms behind.</p></div>
+    <div class="fc"><h4>Power Rule Exception</h4><span class="f">Integral of 1/x</span><p>Integral of x^-1 is ln|x| + C, not x^0 / 0.</p></div>
+    <div class="fc"><h4>FTC Chain Rule</h4><span class="f">Upper bound x²</span><p>d/dx of integral from 0 to x² of f(t) dt is f(x²) times 2x.</p></div>
+    <div class="fc"><h4>Flipped Limits</h4><span class="f">Reverse means negative</span><p>Integral from b to a equals the negative of the integral from a to b.</p></div>
+  </div>
+
+  <h3 class="sh">Theorems and FRQs</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>MVT / EVT</h4><span class="f">Check hypotheses</span><p>State continuity on the closed interval and differentiability on the open interval when needed.</p></div>
+    <div class="fc"><h4>Critical Points</h4><span class="f">f' = 0 is not enough</span><p>Use a sign change or another test before calling something a max or min.</p></div>
+    <div class="fc"><h4>Concavity</h4><span class="f">Use f''</span><p>Increasing and concave up are different ideas. Concavity comes from the second derivative.</p></div>
+    <div class="fc"><h4>Units</h4><span class="f">Always include them</span><p>Velocity, acceleration, area, volume, and rates all need correct units in context problems.</p></div>
+    <div class="fc"><h4>Distance vs. Displacement</h4><span class="f">Use absolute value for distance</span><p>Integral of velocity is displacement. Integral of speed is total distance.</p></div>
+    <div class="fc"><h4>Speeding Up</h4><span class="f">Same sign</span><p>A particle speeds up when velocity and acceleration have the same sign.</p></div>
+  </div>
+
+  <h3 class="sh">Top 5 Quick Checks</h3>
+  <div class="tip">
+    <strong>Before submitting:</strong>
+    Check for + C, chain rule, changed u-sub bounds, theorem hypotheses, and units. Those five habits save a surprising number of points.
+  </div>
+</div>
+
 </main>
 </div>
 
 <script>
 const ANS = {
   'p-l1':'C','p-l2':'C','p-l3':'A','p-l4':'B','p-l5':'C',
-  'p-d1':'A','p-d2':'B','p-d3':'D','p-d4':'A',
+  'p-d1':'A','p-d2':'B','p-d3':'A','p-d4':'A',
   'p-c1':'B','p-c2':'C','p-c3':'B','p-c4':'B','p-c5':'C',
   'p-ca1':'B','p-ca2':'B','p-ca3':'A','p-ca4':'B',
   'p-aa1':'D','p-aa2':'B','p-aa3':'C','p-aa4':'B','p-aa5':'B',
@@ -2633,6 +2810,7 @@ const ANS = {
 };
 const total = Object.keys(ANS).length;
 let done = JSON.parse(localStorage.getItem('apcalc_done') || '{}');
+const answerIds = Object.keys(ANS);
 
 function saveDone() {
   localStorage.setItem('apcalc_done', JSON.stringify(done));
@@ -2646,10 +2824,11 @@ function chk(btn, pid, chosen) {
   btns.forEach(b => {
     b.disabled = true;
     if (b === btn && chosen !== correct) b.classList.add('wrong');
-    if (b.textContent.trim().startsWith(correct + ')')) b.classList.add('correct');
+    if (b.textContent.trim()[0] === correct) b.classList.add('correct');
   });
   const ok = chosen === correct;
   done[pid] = ok;
+  if (!ok) done[pid + '_chosen'] = chosen;
   saveDone();
   const fb = document.getElementById('fb-' + pid);
   fb.textContent = ok ? '✓ Correct!' : '✗ Incorrect';
@@ -2663,30 +2842,39 @@ function sol(id, btn) {
   btn.textContent = v ? 'Hide Solution' : 'Show Solution';
 }
 
-function show(name) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+function show(name, btn) {
+  document.querySelectorAll('.section').forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById('sec-' + name).classList.add('active');
-  event.currentTarget.classList.add('active');
+  var sec = document.getElementById('sec-' + name);
+  sec.classList.add('active');
+  sec.style.display = 'block';
+  if (btn) btn.classList.add('active');
   window.scrollTo(0, 0);
 }
 
 function updateProgress() {
-  const answered = Object.keys(done).length;
-  const correct = Object.values(done).filter(Boolean).length;
+  const answeredIds = answerIds.filter(id => done.hasOwnProperty(id));
+  const answered = answeredIds.length;
+  const correct = answeredIds.filter(id => done[id] === true).length;
   document.getElementById('progressFill').style.width = (answered / total * 100) + '%';
-  document.getElementById('progressLabel').textContent = correct + ' / ' + answered + ' correct';
+  document.getElementById('progressLabel').textContent = correct + ' correct · ' + answered + ' / ' + total + ' answered';
 }
 
 function restoreAnswers() {
-  Object.entries(done).forEach(([pid, ok]) => {
+  answerIds.forEach(pid => {
+    if (!done.hasOwnProperty(pid)) return;
+    const ok = done[pid];
     const card = document.getElementById(pid);
     if (!card) return;
-    const correct = ANS[pid];
+    const correctLetter = ANS[pid];
     card.querySelectorAll('.cb').forEach(b => {
       b.disabled = true;
-      if (b.textContent.trim().startsWith(correct + ')')) b.classList.add('correct');
-      else if (!ok && b.classList.contains('wrong')) b.classList.add('wrong');
+      const letter = b.textContent.trim()[0];
+      if (letter === correctLetter) {
+        b.classList.add('correct');
+      } else if (!ok && done[pid + '_chosen'] === letter) {
+        b.classList.add('wrong');
+      }
     });
     const fb = document.getElementById('fb-' + pid);
     if (fb) { fb.textContent = ok ? '✓ Correct!' : '✗ Incorrect'; fb.className = 'fm ' + (ok ? 'fc-ok' : 'fc-no'); }
@@ -2695,6 +2883,7 @@ function restoreAnswers() {
 }
 
 function resetAll() {
+  if (!confirm('Reset all progress?')) return;
   done = {};
   saveDone();
   updateProgress();
@@ -2705,6 +2894,7 @@ function resetAll() {
 }
 
 restoreAnswers();
+document.getElementById('sec-home').style.display = 'block';
 </script>
 </body>
 </html>
