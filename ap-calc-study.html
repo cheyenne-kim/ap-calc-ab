@@ -2810,9 +2810,10 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
       \(=2+\left[\tfrac{t^3}{3}-2t^2+3t\right]_0^4=2+\left(\tfrac{64}{3}-32+12\right)=2+\tfrac{64}{3}-20=\tfrac{6+64-60}{3}=\)<strong>\(\tfrac{10}{3}\)</strong><br><br>
       <strong>(c)</strong> Total distance = \(\displaystyle\int_0^4|v(t)|\,dt\). Split at zeros \(t=1,3\):<br>
       \(=\int_0^1 v\,dt - \int_1^3 v\,dt + \int_3^4 v\,dt\)<br>
-      \(=\left[\tfrac{4}{3}-2+3\right]-\left[\tfrac{4}{3}\right]+\left[\tfrac{4}{3}-2+3-\tfrac{4}{3}+2-3\right]=\tfrac{7}{3}+\tfrac{4}{3}+\tfrac{4}{3}=\)<strong>\(\tfrac{16}{3}\) units</strong><br><br>
+      Let \(F(t)=\tfrac{t^3}{3}-2t^2+3t\). Then \(F(0)=0\), \(F(1)=\tfrac{4}{3}\), \(F(3)=0\), and \(F(4)=\tfrac{4}{3}\).<br>
+      Total distance \(=\left(F(1)-F(0)\right)-\left(F(3)-F(1)\right)+\left(F(4)-F(3)\right)=\tfrac{4}{3}+\tfrac{4}{3}+\tfrac{4}{3}=\)<strong>\(4\) units</strong><br><br>
       <strong>(d)</strong> \(a(t)=v'(t)=2t-4\Rightarrow a(3)=2(3)-4=\)<strong>2</strong>.<br>
-      \(v(3)=9-12+3=0\). Immediately after \(t=3\), \(v>0\) and \(a>0\), so the particle is <strong>speeding up</strong> (same signs).
+      \(v(3)=9-12+3=0\), so at that instant the particle is at rest. Since the velocity is zero at \(t=3\), the particle is <strong>neither speeding up nor slowing down at that instant</strong>. Just before \(t=3\), \(v<0\) and \(a>0\), so it is slowing down; just after \(t=3\), \(v>0\) and \(a>0\), so it is speeding up.
     </div>
   </div>
 
