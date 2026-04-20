@@ -12,6 +12,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; min-height: 100vh; }
 .katex { font-size: 1.03em; }
+.katex-display { margin: 0.55rem 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.08rem; }
 header { background: linear-gradient(135deg, #1a1a6e 0%, #2d2d9e 50%, #4a4adf 100%); color: white; padding: 1.5rem 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
 header h1 { font-size: 2rem; letter-spacing: 1px; }
 header p { opacity: 0.85; margin-top: 0.25rem; font-size: 1rem; }
@@ -33,6 +34,16 @@ main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 .section h2 { font-size: 1.5rem; margin-bottom: 0.4rem; color: #1a1a6e; }
 .unit-weight { display: inline-block; background: #eef2ff; color: #4a4adf; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; margin-bottom: 0.75rem; }
 .intro { background: #eef2ff; border-left: 4px solid #4a4adf; padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.25rem; font-size: 0.92rem; line-height: 1.6; }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin: 0 0 1.25rem; }
+.video-card { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 0.85rem; align-items: center; background: #fff; border: 1px solid #d0d8ff; border-radius: 10px; padding: 0.75rem; color: #1a1a2e; text-decoration: none; box-shadow: 0 2px 8px rgba(74,74,223,0.06); transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.video-card:hover { transform: translateY(-1px); border-color: #4a4adf; box-shadow: 0 8px 18px rgba(74,74,223,0.12); }
+.video-thumb { position: relative; aspect-ratio: 16 / 9; border-radius: 7px; overflow: hidden; background: #1a1a2e; }
+.video-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-play { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 1.35rem; text-shadow: 0 1px 4px rgba(0,0,0,0.45); background: rgba(26,26,110,0.12); }
+.video-copy { min-width: 0; }
+.video-label { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.7px; font-weight: 800; color: #7c3aed; margin-bottom: 0.25rem; }
+.video-title { display: block; font-size: 0.92rem; font-weight: 750; line-height: 1.35; color: #1a1a6e; }
+.video-meta { display: block; margin-top: 0.3rem; font-size: 0.76rem; line-height: 1.35; color: #666; }
 .fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
 .fc { background: white; border-radius: 10px; padding: 0.9rem 1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 8px rgba(74,74,223,0.05); }
 .fc h4 { font-size: 0.72rem; text-transform: uppercase; color: #7c3aed; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
@@ -47,10 +58,13 @@ main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 .dm { background: #fef9c3; color: #854d0e; }
 .dh { background: #fee2e2; color: #991b1b; }
 .topic-tag { font-size: 0.7rem; color: #888; }
-.pt { font-size: 0.96rem; line-height: 1.7; color: #222; margin-bottom: 0.95rem; overflow-wrap: anywhere; }
+.pt { font-size: 0.96rem; line-height: 1.8; color: #222; margin-bottom: 1rem; overflow-wrap: break-word; }
+.pt .katex { line-height: 1.45; }
+.pt .katex-display { margin-top: 0.7rem; }
 .m { background: #f5f3ff; padding: 0.16rem 0.5rem; border-radius: 4px; color: #3730a3; display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
 .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); align-items: stretch; gap: 0.55rem; margin-bottom: 0.95rem; }
-.cb { min-height: 3rem; padding: 0.65rem 0.85rem; border: 2px solid #d0d8ff; border-radius: 8px; background: #fafafe; cursor: pointer; text-align: left; font-family: inherit; font-size: 0.9rem; line-height: 1.45; transition: all 0.15s; color: #333; overflow-wrap: anywhere; }
+.cb { min-height: 3.2rem; padding: 0.72rem 0.9rem; border: 2px solid #d0d8ff; border-radius: 8px; background: #fafafe; cursor: pointer; text-align: left; font-family: inherit; font-size: 0.9rem; line-height: 1.55; transition: all 0.15s; color: #333; overflow-wrap: break-word; overflow-x: auto; }
+.cb .katex { line-height: 1.35; white-space: nowrap; }
 .cb:hover { border-color: #4a4adf; background: #eef2ff; }
 .cb.correct { border-color: #16a34a; background: #dcfce7; color: #14532d; font-weight: 600; }
 .cb.wrong { border-color: #dc2626; background: #fee2e2; color: #7f1d1d; }
@@ -58,9 +72,11 @@ main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 .pa { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
 .st { background: none; border: 2px solid #4a4adf; color: #4a4adf; padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: all 0.15s; }
 .st:hover { background: #4a4adf; color: white; }
-.sb { display: none; margin-top: 0.8rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 0.95rem 1.1rem; font-size: 0.9rem; line-height: 1.75; color: #14532d; overflow-x: auto; }
+.sb { display: none; margin-top: 0.9rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 1.05rem 1.15rem; font-size: 0.9rem; line-height: 1.85; color: #14532d; overflow-x: auto; }
 .sb.vis { display: block; }
 .sb strong { color: #166534; }
+.sb .katex { line-height: 1.45; }
+.sb .katex-display { margin: 0.75rem 0; }
 .fm { font-size: 0.82rem; font-weight: 600; }
 .fc-ok { color: #16a34a; }
 .fc-no { color: #dc2626; }
@@ -87,6 +103,8 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   nav a.active { border-bottom-color: #4a4adf; border-left-color: transparent; }
   nav .pct { display: none; }
   main { padding: 1rem; }
+  .video-card { grid-template-columns: 96px minmax(0, 1fr); gap: 0.7rem; }
+  .video-title { font-size: 0.86rem; }
   .choices { grid-template-columns: 1fr; }
   .fgrid { grid-template-columns: 1fr; }
   .wys-grid { display: block; overflow: visible; }
@@ -162,6 +180,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 1: Limits &amp; Continuity</h2>
   <span class="unit-weight">Exam weight: 10–12%</span>
   <div class="intro">A limit describes what a function <em>approaches</em> as x nears a value — not necessarily what it equals there. Continuity at x=a requires: f(a) exists, the limit exists, and they are equal.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=G8zkXA5TXgg" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/G8zkXA5TXgg/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 1 Tutorial</span><span class="video-title">Limits and Continuity Review</span><span class="video-meta">Math &amp; Coding Tutor · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>One-Sided Limits</h4><span class="f">\(\lim_{x\to a^-}f(x)\) and \(\lim_{x\to a^+}f(x)\)</span><p>Two-sided limit exists only if both sides agree</p></div>
     <div class="fc"><h4>L'Hôpital's Rule</h4><span class="f">\(\lim\dfrac{f}{g}=\lim\dfrac{f'}{g'}\)</span><p>Only for \(0/0\) or \(\infty/\infty\) indeterminate forms</p></div>
@@ -308,6 +332,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 2: Differentiation — Basics</h2>
   <span class="unit-weight">Exam weight: 10–12%</span>
   <div class="intro">The derivative f′(x) = lim[h→0] (f(x+h)−f(x))/h measures the instantaneous rate of change and the slope of the tangent line.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=fC6hYVrYdgk" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/fC6hYVrYdgk/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 2 Tutorial</span><span class="video-title">Derivatives and Basic Rules Review</span><span class="video-meta">Math &amp; Coding Tutor · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Power Rule</h4><span class="f">\(\dfrac{d}{dx}[x^n]=nx^{n-1}\)</span></div>
     <div class="fc"><h4>Product Rule</h4><span class="f">\((fg)'=f'g+fg'\)</span></div>
@@ -440,6 +470,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 3: Differentiation — Chain, Implicit, Inverse</h2>
   <span class="unit-weight">Exam weight: 9–13%</span>
   <div class="intro">The chain rule handles composite functions. Implicit differentiation lets you find dy/dx without solving for y. Inverse function derivatives flip the original derivative.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=41ekroROgpk" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/41ekroROgpk/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 3 Tutorial</span><span class="video-title">Chain Rule, Implicit, and Inverse Derivatives</span><span class="video-meta">Math &amp; Coding Tutor · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Chain Rule</h4><span class="f">\([f(g(x))]'=f'(g(x))\cdot g'(x)\)</span><p>Derivative of outer × derivative of inner</p></div>
     <div class="fc"><h4>Implicit Diff</h4><span class="f">\(\dfrac{d}{dx}[y^2]=2y\dfrac{dy}{dx}\)</span><p>Treat \(y\) as a function of \(x\); apply chain rule</p></div>
@@ -585,6 +621,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 4: Contextual Applications of Differentiation</h2>
   <span class="unit-weight">Exam weight: 10–15%</span>
   <div class="intro">Apply derivatives to real-world situations: motion (position/velocity/acceleration), related rates, local linearity (tangent line approximation), and L'Hôpital's Rule.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=p3T47iSIPQQ" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/p3T47iSIPQQ/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 4 Tutorial</span><span class="video-title">Contextual Applications of Differentiation</span><span class="video-meta">dlpa · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Particle Motion</h4><span class="f">\(v(t)=s'(t),\quad a(t)=v'(t)\)</span><p>At rest: \(v=0\); speeding up: \(v\) and \(a\) same sign</p></div>
     <div class="fc"><h4>Related Rates</h4><span class="f">Differentiate both sides w.r.t. \(t\)</span><p>Set up geometric equation, then differentiate implicitly</p></div>
@@ -715,6 +757,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 5: Analytic Applications of Differentiation</h2>
   <span class="unit-weight">Exam weight: 15–18% ★ High priority</span>
   <div class="intro">Use derivatives to analyze function behavior: where it increases/decreases, where it curves, and where extrema occur. Know MVT and EVT cold — they appear every year.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=dzAcyxYfRaE" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/dzAcyxYfRaE/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 5 Tutorial</span><span class="video-title">Extrema, Concavity, and Optimization Review</span><span class="video-meta">Math &amp; Coding Tutor · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>MVT</h4><span class="f">\(f'(c)=\dfrac{f(b)-f(a)}{b-a}\)</span><p>Requires \(f\) continuous on \([a,b]\), differentiable on \((a,b)\)</p></div>
     <div class="fc"><h4>EVT</h4><span class="f">\(f\) continuous on \([a,b]\)</span><p>Guarantees an absolute max and min exist</p></div>
@@ -860,6 +908,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 6: Integration and Accumulation of Change</h2>
   <span class="unit-weight">Exam weight: 17–20% ★ Highest priority</span>
   <div class="intro">Integration accumulates change. The Fundamental Theorem of Calculus is the most important result: it connects differentiation and integration. Master Riemann sums, FTC both parts, and u-substitution.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=7kDx352rIVs" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/7kDx352rIVs/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 6 Tutorial</span><span class="video-title">Riemann Sums, FTC, Integrals, and U-Sub</span><span class="video-meta">Math &amp; Coding Tutor · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Riemann Sum (Right)</h4><span class="f">\(\displaystyle\sum_{i=1}^n f(x_i)\,\Delta x\)</span><p>Approximates area under a curve using rectangles</p></div>
     <div class="fc"><h4>Power Rule (∫)</h4><span class="f">\(\displaystyle\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C\)</span><p>For \(n\neq -1\); don't forget \(+C\)</p></div>
@@ -975,15 +1029,25 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
 
   <div class="pc" id="p-i9">
     <div class="ph"><div class="pn">9</div><span class="diff dm">Medium</span></div>
-    <div class="pt">Evaluate using u-substitution: \(\displaystyle\int\frac{x^2}{x^3+1}\,dx\)</div>
+    <div class="pt">Evaluate using u-substitution:
+      \[\displaystyle\int\frac{x^2}{x^3+1}\,dx\]
+    </div>
     <div class="choices">
-      <button class="cb" onclick="chk(this,'p-i9','A')">A) ln|x³+1| + C</button>
-      <button class="cb" onclick="chk(this,'p-i9','B')">B) (1/3)ln|x³+1| + C</button>
-      <button class="cb" onclick="chk(this,'p-i9','C')">C) 3ln|x³+1| + C</button>
-      <button class="cb" onclick="chk(this,'p-i9','D')">D) x³/[3(x³+1)] + C</button>
+      <button class="cb" onclick="chk(this,'p-i9','A')">A) \(\ln|x^3+1|+C\)</button>
+      <button class="cb" onclick="chk(this,'p-i9','B')">B) \(\dfrac{1}{3}\ln|x^3+1|+C\)</button>
+      <button class="cb" onclick="chk(this,'p-i9','C')">C) \(3\ln|x^3+1|+C\)</button>
+      <button class="cb" onclick="chk(this,'p-i9','D')">D) \(\dfrac{x^3}{3(x^3+1)}+C\)</button>
     </div>
     <div class="pa"><button class="st" onclick="sol('s-i9',this)">Show Solution</button><span class="fm" id="fb-p-i9"></span></div>
-    <div class="sb" id="s-i9"><strong>Answer: B) (1/3)ln|x³+1| + C</strong><br>Let \(u=x^3+1\), \(du=3x^2\,dx\Rightarrow x^2\,dx=du/3\).<br>\(\displaystyle\int\frac{1}{u}\cdot\frac{du}{3}=\frac{1}{3}\ln|u|+C=\)<strong>\(\dfrac{1}{3}\ln|x^3+1|+C\)</strong></div>
+    <div class="sb" id="s-i9"><strong>Answer: B)</strong> \(\dfrac{1}{3}\ln|x^3+1|+C\)<br>
+      Let \(u=x^3+1\), so \(du=3x^2\,dx\). That means \(x^2\,dx=\dfrac{1}{3}du\).<br>
+      \[
+        \displaystyle\int\frac{x^2}{x^3+1}\,dx
+        =\frac{1}{3}\int\frac{1}{u}\,du
+        =\frac{1}{3}\ln|u|+C
+      \]
+      Substitute back: <strong>\(\dfrac{1}{3}\ln|x^3+1|+C\)</strong>.
+    </div>
   </div>
 
   <div class="pc" id="p-i10">
@@ -1018,6 +1082,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 7: Differential Equations</h2>
   <span class="unit-weight">Exam weight: 6–12%</span>
   <div class="intro">A differential equation involves a function and its derivative. The main techniques are separation of variables and slope fields. Exponential growth/decay is the most common model.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=YCgWXMWX0EM" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/YCgWXMWX0EM/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 7 Tutorial</span><span class="video-title">Differential Equations One-Shot Review</span><span class="video-meta">Lets Unbound · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Separation of Variables</h4><span class="f">\(\dfrac{dy}{g(y)}=f(x)\,dx\)</span><p>Separate \(y\)'s and \(x\)'s, then integrate both sides</p></div>
     <div class="fc"><h4>Exponential Growth/Decay</h4><span class="f">\(\dfrac{dy}{dt}=ky\;\Rightarrow\; y=Ce^{kt}\)</span><p>\(k>0\): growth; \(k<0\): decay; \(C=y(0)\)</p></div>
@@ -1161,6 +1231,12 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h2>Unit 8: Applications of Integration</h2>
   <span class="unit-weight">Exam weight: 10–15%</span>
   <div class="intro">Integrals measure accumulation: area, volume, average value, net change. Volume of revolution (disc and washer methods) appears almost every year on the AP exam.</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/watch?v=9XJpqjHnM1g" target="_blank" rel="noopener">
+      <span class="video-thumb"><img src="https://img.youtube.com/vi/9XJpqjHnM1g/hqdefault.jpg" alt=""><span class="video-play">▶</span></span>
+      <span class="video-copy"><span class="video-label">Unit 8 Tutorial</span><span class="video-title">Applications of Integration One-Shot Review</span><span class="video-meta">Lets Unbound · YouTube</span></span>
+    </a>
+  </div>
   <div class="fgrid">
     <div class="fc"><h4>Area Between Curves</h4><span class="f">\(\displaystyle\int_a^b[\text{top}-\text{bottom}]\,dx\)</span><p>Find intersections for bounds; verify which is on top</p></div>
     <div class="fc"><h4>Average Value</h4><span class="f">\(\dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,dx\)</span></div>
