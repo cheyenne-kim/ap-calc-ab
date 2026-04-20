@@ -10,7 +10,8 @@
   onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false})"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f4ff; color: #1a1a2e; min-height: 100vh; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; min-height: 100vh; }
+.katex { font-size: 1.03em; }
 header { background: linear-gradient(135deg, #1a1a6e 0%, #2d2d9e 50%, #4a4adf 100%); color: white; padding: 1.5rem 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
 header h1 { font-size: 2rem; letter-spacing: 1px; }
 header p { opacity: 0.85; margin-top: 0.25rem; font-size: 1rem; }
@@ -26,18 +27,19 @@ nav button:hover { background: #f0f4ff; color: #4a4adf; }
 nav button.active { background: #eef2ff; color: #4a4adf; font-weight: 700; border-left-color: #4a4adf; }
 nav .pct { font-size: 0.7rem; color: #aaa; float: right; }
 nav .nav-div { border-top: 1px solid #e0e7ff; margin: 0.5rem 0; }
-main { flex: 1; padding: 2rem; max-width: 920px; }
+main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 .section { display: none; }
 .section.active { display: block; }
 .section h2 { font-size: 1.5rem; margin-bottom: 0.4rem; color: #1a1a6e; }
 .unit-weight { display: inline-block; background: #eef2ff; color: #4a4adf; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; margin-bottom: 0.75rem; }
 .intro { background: #eef2ff; border-left: 4px solid #4a4adf; padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.25rem; font-size: 0.92rem; line-height: 1.6; }
-.fgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
+.fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
 .fc { background: white; border-radius: 10px; padding: 0.9rem 1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 8px rgba(74,74,223,0.05); }
 .fc h4 { font-size: 0.72rem; text-transform: uppercase; color: #7c3aed; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
-.fc .f { font-size: 1rem; color: #1a1a6e; background: #f5f3ff; padding: 0.45rem 0.7rem; border-radius: 5px; display: block; min-height: 2.2rem; display: flex; align-items: center; }
+.fc .f { font-size: 1rem; color: #1a1a6e; background: #f5f3ff; padding: 0.65rem 0.75rem; border-radius: 5px; min-height: 3rem; display: block; line-height: 1.65; overflow-x: auto; overflow-y: hidden; max-width: 100%; white-space: normal; }
+.fc .f .katex { margin: 0 0.08rem; }
 .fc p { font-size: 0.78rem; color: #666; margin-top: 0.35rem; line-height: 1.4; }
-.pc { background: white; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 10px rgba(74,74,223,0.06); }
+.pc { background: white; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 10px rgba(74,74,223,0.06); overflow: hidden; }
 .ph { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
 .pn { background: #4a4adf; color: white; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
 .diff { font-size: 0.7rem; padding: 0.18rem 0.55rem; border-radius: 99px; font-weight: 700; }
@@ -45,10 +47,10 @@ main { flex: 1; padding: 2rem; max-width: 920px; }
 .dm { background: #fef9c3; color: #854d0e; }
 .dh { background: #fee2e2; color: #991b1b; }
 .topic-tag { font-size: 0.7rem; color: #888; }
-.pt { font-size: 0.95rem; line-height: 1.65; color: #222; margin-bottom: 0.9rem; }
-.m { background: #f5f3ff; padding: 0.12rem 0.5rem; border-radius: 4px; color: #3730a3; display: inline-block; }
-.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-bottom: 0.9rem; }
-.cb { padding: 0.55rem 0.8rem; border: 2px solid #d0d8ff; border-radius: 8px; background: #fafafe; cursor: pointer; text-align: left; font-size: 0.85rem; transition: all 0.15s; color: #333; }
+.pt { font-size: 0.96rem; line-height: 1.7; color: #222; margin-bottom: 0.95rem; overflow-wrap: anywhere; }
+.m { background: #f5f3ff; padding: 0.16rem 0.5rem; border-radius: 4px; color: #3730a3; display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); align-items: stretch; gap: 0.55rem; margin-bottom: 0.95rem; }
+.cb { min-height: 3rem; padding: 0.65rem 0.85rem; border: 2px solid #d0d8ff; border-radius: 8px; background: #fafafe; cursor: pointer; text-align: left; font-family: inherit; font-size: 0.9rem; line-height: 1.45; transition: all 0.15s; color: #333; overflow-wrap: anywhere; }
 .cb:hover { border-color: #4a4adf; background: #eef2ff; }
 .cb.correct { border-color: #16a34a; background: #dcfce7; color: #14532d; font-weight: 600; }
 .cb.wrong { border-color: #dc2626; background: #fee2e2; color: #7f1d1d; }
@@ -56,7 +58,7 @@ main { flex: 1; padding: 2rem; max-width: 920px; }
 .pa { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
 .st { background: none; border: 2px solid #4a4adf; color: #4a4adf; padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: all 0.15s; }
 .st:hover { background: #4a4adf; color: white; }
-.sb { display: none; margin-top: 0.8rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; line-height: 1.7; color: #14532d; }
+.sb { display: none; margin-top: 0.8rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 0.95rem 1.1rem; font-size: 0.9rem; line-height: 1.75; color: #14532d; overflow-x: auto; }
 .sb.vis { display: block; }
 .sb strong { color: #166534; }
 .fm { font-size: 0.82rem; font-weight: 600; }
@@ -67,7 +69,7 @@ main { flex: 1; padding: 2rem; max-width: 920px; }
 h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
 .btn-sec { background: white; color: #4a4adf; border: 2px solid #4a4adf; padding: 0.45rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.15s; }
 .btn-sec:hover { background: #eef2ff; }
-.wys-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #d0d8ff; border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
+.wys-grid { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.1fr); gap: 0; border: 1px solid #d0d8ff; border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
 .wys-row { display: contents; }
 .wys-row > div { padding: 0.6rem 0.85rem; font-size: 0.83rem; border-bottom: 1px solid #e8eeff; line-height: 1.5; }
 .wys-row > div:first-child { background: #f5f7ff; font-weight: 600; color: #1a1a6e; border-right: 1px solid #d0d8ff; }
@@ -86,6 +88,10 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   nav .pct { display: none; }
   main { padding: 1rem; }
   .choices { grid-template-columns: 1fr; }
+  .fgrid { grid-template-columns: 1fr; }
+  .wys-grid { display: block; overflow: visible; }
+  .wys-row { display: block; }
+  .wys-row > div:first-child { border-right: none; }
 }
 </style>
 </head>
@@ -1301,10 +1307,10 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
 
   <h3 class="sh">Unit 1: Limits</h3>
   <div class="fgrid">
-    <div class="fc"><h4>One-Sided Limits</h4><span class="f">\(\lim_{x\to a}\) exists iff \(\lim_{x\to a^-}=\lim_{x\to a^+}\)</span></div>
+    <div class="fc"><h4>One-Sided Limits</h4><span class="f">\(\lim_{x\to a} f(x)\) exists iff the left and right limits are equal.</span></div>
     <div class="fc"><h4>L'Hôpital</h4><span class="f">\(\lim\dfrac{f}{g}=\lim\dfrac{f'}{g'}\)</span><p>Only for \(0/0\) or \(\infty/\infty\)</p></div>
     <div class="fc"><h4>sin(x)/x</h4><span class="f">\(\lim_{x\to0}\dfrac{\sin x}{x}=1\)</span></div>
-    <div class="fc"><h4>IVT</h4><span class="f">\(f\) continuous \(\Rightarrow\) hits all values between \(f(a)\) and \(f(b)\)</span></div>
+    <div class="fc"><h4>IVT</h4><span class="f">If \(f\) is continuous on \([a,b]\), it hits every value between \(f(a)\) and \(f(b)\).</span></div>
   </div>
 
   <h3 class="sh">Units 2–3: Derivatives</h3>
@@ -1313,7 +1319,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
     <div class="fc"><h4>Power</h4><span class="f">\(\dfrac{d}{dx}[x^n]=nx^{n-1}\)</span></div>
     <div class="fc"><h4>Product</h4><span class="f">\((fg)'=f'g+fg'\)</span></div>
     <div class="fc"><h4>Quotient</h4><span class="f">\(\left(\dfrac{f}{g}\right)'=\dfrac{f'g-fg'}{g^2}\)</span></div>
-    <div class="fc"><h4>Chain</h4><span class="f">\([f(g(x)))'=f'(g(x))\cdot g'(x)\)</span></div>
+    <div class="fc"><h4>Chain</h4><span class="f">\(\bigl[f(g(x))\bigr]'=f'(g(x))\cdot g'(x)\)</span></div>
     <div class="fc"><h4>sin / cos</h4><span class="f">\(\dfrac{d}{dx}[\sin x]=\cos x\)</span><p>\(\dfrac{d}{dx}[\cos x]=-\sin x\)</p></div>
     <div class="fc"><h4>tan / sec</h4><span class="f">\(\dfrac{d}{dx}[\tan x]=\sec^2 x\)</span><p>\(\dfrac{d}{dx}[\sec x]=\sec x\tan x\)</p></div>
     <div class="fc"><h4>cot / csc</h4><span class="f">\(\dfrac{d}{dx}[\cot x]=-\csc^2 x\)</span><p>\(\dfrac{d}{dx}[\csc x]=-\csc x\cot x\)</p></div>
@@ -1326,7 +1332,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <h3 class="sh">Unit 5: Analysis Theorems</h3>
   <div class="fgrid">
     <div class="fc"><h4>MVT</h4><span class="f">\(f'(c)=\dfrac{f(b)-f(a)}{b-a}\)</span><p>Requires continuous on \([a,b]\), differentiable on \((a,b)\)</p></div>
-    <div class="fc"><h4>EVT</h4><span class="f">\(f\) cont. on \([a,b]\Rightarrow\) abs. max &amp; min exist</span></div>
+    <div class="fc"><h4>EVT</h4><span class="f">If \(f\) is continuous on \([a,b]\), absolute max and min values exist.</span></div>
     <div class="fc"><h4>1st Deriv. Test</h4><span class="f">\(f':+\to-\Rightarrow\) local max</span><p>\(f':-\to+\Rightarrow\) local min</p></div>
     <div class="fc"><h4>2nd Deriv. Test</h4><span class="f">\(f'(c)=0,\;f''(c)>0\Rightarrow\) min</span><p>\(f''(c)<0\Rightarrow\) max</p></div>
     <div class="fc"><h4>Linearization</h4><span class="f">\(L(x)=f(a)+f'(a)(x-a)\)</span></div>
@@ -2389,7 +2395,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
       <button class="cb" onclick="chk(this,'p-m5','D')">D) 0</button>
     </div>
     <div class="pa"><button class="st" onclick="sol('s-m5',this)">Show Solution</button><span class="fm" id="fb-p-m5"></span></div>
-    <div class="sb" id="s-m5"><strong>Answer: B) 2</strong><br>Separate: dy/y = sinx dx. Integrate: ln|y| = −cosx + C.<br>y = Ae^(−cosx). y(0) = Ae^(−1) = 2 → A = 2e.<br>y(π) = 2e·e^(−cosπ) = 2e·e^(1) = 2e² ... <em>wait: cosπ = −1, so y(π) = 2e·e^(−(−1)) = 2e·e = 2e².</em><br>Hmm — let's recheck A: y(0)=Ae^(−cos0)=Ae^(−1)=2 → A=2e. y(π)=2e·e^1=2e². Answer: <strong>C) 2e²</strong></div>
+    <div class="sb" id="s-m5"><strong>Answer: C) 2e²</strong><br>Separate: \(\dfrac{dy}{y}=\sin x\,dx\). Integrate: \(\ln|y|=-\cos x+C\), so \(y=Ae^{-\cos x}\).<br>Use \(y(0)=2\): \(Ae^{-1}=2\Rightarrow A=2e\).<br>Then \(y(\pi)=2e\cdot e^{-\cos\pi}=2e\cdot e^1=\)<strong>\(2e^2\)</strong></div>
   </div>
 
   <div class="pc" id="p-m6">
