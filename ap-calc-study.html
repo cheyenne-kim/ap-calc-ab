@@ -77,6 +77,16 @@ main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 .sb strong { color: #166534; }
 .sb .katex { line-height: 1.45; }
 .sb .katex-display { margin: 0.75rem 0; }
+#sec-frq .pc { padding: 1.35rem 1.5rem; border-left: 4px solid #7c3aed; }
+#sec-frq .pt { background: #fafafe; border: 1px solid #e0e7ff; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 0.9rem; }
+#sec-frq .sb { background: #f8fff9; border-color: #bbf7d0; color: #17462a; }
+.frq-parts { margin: 0.85rem 0 0; padding-left: 1.15rem; }
+.frq-parts li { margin: 0.45rem 0; line-height: 1.7; padding-left: 0.2rem; }
+.frq-table { width: 100%; border-collapse: collapse; margin: 0.85rem 0; font-size: 0.9rem; overflow: hidden; border-radius: 8px; }
+.frq-table th, .frq-table td { border: 1px solid #d0d8ff; padding: 0.55rem 0.7rem; text-align: center; }
+.frq-table th { background: #eef2ff; color: #1a1a6e; font-weight: 750; }
+.frq-table td { background: #fff; }
+.frq-answer { display: inline-block; background: #dcfce7; border: 1px solid #86efac; color: #166534; border-radius: 6px; padding: 0.08rem 0.45rem; font-weight: 750; }
 .fm { font-size: 0.82rem; font-weight: 600; }
 .fc-ok { color: #16a34a; }
 .fc-no { color: #dc2626; }
@@ -2911,6 +2921,85 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
       <strong>(d)</strong> Evaluate \(f\) at critical points and endpoints on \([0,4]\):<br>
       \(f(0)=1,\; f(1)=5,\; f(3)=1,\; f(4)=5\).<br>
       <strong>Absolute max: 5</strong> (at \(x=1\) and \(x=4\)). <strong>Absolute min: 1</strong> (at \(x=0\) and \(x=3\)).
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 6 — Related Rates (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">6</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 4 · Related Rates</span></div>
+    <div class="pt">A 13-foot ladder leans against a vertical wall. Let \(x\) be the distance from the base of the ladder to the wall, and let \(y\) be the height of the top of the ladder above the ground. The base of the ladder slides away from the wall at a rate of \(2\) ft/sec.
+      <ol class="frq-parts">
+        <li>Write an equation relating \(x\) and \(y\).</li>
+        <li>Find \(\dfrac{dy}{dt}\) when \(x=5\) ft. Include units and interpret the sign.</li>
+        <li>At the same instant, find the rate of change of the area of the right triangle formed by the wall, ground, and ladder.</li>
+        <li>Let \(\theta\) be the angle between the ladder and the ground. Find \(\dfrac{d\theta}{dt}\) when \(x=5\) ft.</li>
+      </ol>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-frq6',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq6">
+      <strong>(a)</strong> The ladder length is constant, so \(x^2+y^2=13^2=169\).<br><br>
+      <strong>(b)</strong> Differentiate with respect to \(t\): \(2x\dfrac{dx}{dt}+2y\dfrac{dy}{dt}=0\), so \(\dfrac{dy}{dt}=-\dfrac{x}{y}\dfrac{dx}{dt}\).<br>
+      When \(x=5\), \(y=\sqrt{169-25}=12\). Therefore \(\dfrac{dy}{dt}=-\dfrac{5}{12}(2)=\)<span class="frq-answer">\(-\dfrac{5}{6}\) ft/sec</span>. The top of the ladder is moving down.<br><br>
+      <strong>(c)</strong> \(A=\dfrac{1}{2}xy\). Then \(\dfrac{dA}{dt}=\dfrac{1}{2}\left(x\dfrac{dy}{dt}+y\dfrac{dx}{dt}\right)\).<br>
+      \(\dfrac{dA}{dt}=\dfrac{1}{2}\left(5\left(-\dfrac{5}{6}\right)+12(2)\right)=\dfrac{1}{2}\left(-\dfrac{25}{6}+\dfrac{144}{6}\right)=\)<span class="frq-answer">\(\dfrac{119}{12}\) ft\(^2\)/sec</span>.<br><br>
+      <strong>(d)</strong> Since \(\cos\theta=\dfrac{x}{13}\), differentiate: \(-\sin\theta\dfrac{d\theta}{dt}=\dfrac{1}{13}\dfrac{dx}{dt}\).<br>
+      At \(x=5\), \(\sin\theta=\dfrac{y}{13}=\dfrac{12}{13}\). Thus \(-\dfrac{12}{13}\dfrac{d\theta}{dt}=\dfrac{2}{13}\), so \(\dfrac{d\theta}{dt}=\)<span class="frq-answer">\(-\dfrac{1}{6}\) rad/sec</span>.
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 7 — Table &amp; Accumulation (Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">7</div><span class="diff de">Typical AP Level</span><span class="topic-tag">Unit 6 · Accumulation from Tables</span></div>
+    <div class="pt">Water is pumped into a tank at a rate \(r(t)\), measured in gallons per hour, for \(0\le t\le 10\). Selected values of \(r(t)\) are shown in the table.
+      <table class="frq-table">
+        <tr><th>\(t\) hours</th><td>0</td><td>2</td><td>5</td><td>7</td><td>10</td></tr>
+        <tr><th>\(r(t)\) gal/hr</th><td>6</td><td>10</td><td>8</td><td>12</td><td>14</td></tr>
+      </table>
+      At time \(t=0\), the tank contains 50 gallons of water.
+      <ol class="frq-parts">
+        <li>Use a trapezoidal sum with the subintervals shown in the table to approximate \(\displaystyle\int_0^{10}r(t)\,dt\).</li>
+        <li>Using your answer from part (a), estimate the average rate at which water enters the tank over \(0\le t\le 10\).</li>
+        <li>Estimate \(r'(6)\). Include units.</li>
+        <li>Estimate the amount of water in the tank at \(t=10\).</li>
+      </ol>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-frq7',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq7">
+      <strong>(a)</strong> Trapezoidal sum:<br>
+      \((2)\dfrac{6+10}{2}+(3)\dfrac{10+8}{2}+(2)\dfrac{8+12}{2}+(3)\dfrac{12+14}{2}\)<br>
+      \(=16+27+20+39=\)<span class="frq-answer">102 gallons</span>.<br><br>
+      <strong>(b)</strong> Average rate \(=\dfrac{1}{10-0}\displaystyle\int_0^{10}r(t)\,dt\approx\dfrac{102}{10}=\)<span class="frq-answer">10.2 gal/hr</span>.<br><br>
+      <strong>(c)</strong> Since \(6\) is between \(5\) and \(7\), use the slope from \(t=5\) to \(t=7\):<br>
+      \(r'(6)\approx\dfrac{r(7)-r(5)}{7-5}=\dfrac{12-8}{2}=\)<span class="frq-answer">2 gal/hr\(^2\)</span>.<br><br>
+      <strong>(d)</strong> Amount at \(t=10\) \(\approx 50+\displaystyle\int_0^{10}r(t)\,dt=50+102=\)<span class="frq-answer">152 gallons</span>.
+    </div>
+  </div>
+
+  <h3 class="sh">FRQ 8 — Implicit Differentiation &amp; Linearization (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">8</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Units 3 &amp; 4 · Implicit Differentiation</span></div>
+    <div class="pt">A curve is defined implicitly by \(x^2+xy+y^2=7\). The point \((2,1)\) lies on the curve.
+      <ol class="frq-parts">
+        <li>Find \(\dfrac{dy}{dx}\) in terms of \(x\) and \(y\).</li>
+        <li>Write an equation of the tangent line to the curve at \((2,1)\).</li>
+        <li>Use the tangent line from part (b) to approximate the \(y\)-value on the curve when \(x=2.1\).</li>
+        <li>Find \(\dfrac{d^2y}{dx^2}\) at \((2,1)\) and state whether the curve is concave up or concave down there.</li>
+      </ol>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-frq8',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq8">
+      <strong>(a)</strong> Differentiate \(x^2+xy+y^2=7\):<br>
+      \(2x+\left(x\dfrac{dy}{dx}+y\right)+2y\dfrac{dy}{dx}=0\).<br>
+      \((x+2y)\dfrac{dy}{dx}=-(2x+y)\), so \(\dfrac{dy}{dx}=\)<span class="frq-answer">\(-\dfrac{2x+y}{x+2y}\)</span>.<br><br>
+      <strong>(b)</strong> At \((2,1)\), \(\dfrac{dy}{dx}=-\dfrac{2(2)+1}{2+2(1)}=-\dfrac{5}{4}\).<br>
+      Tangent line: <span class="frq-answer">\(y-1=-\dfrac{5}{4}(x-2)\)</span>.<br><br>
+      <strong>(c)</strong> Using \(L(x)=1-\dfrac{5}{4}(x-2)\),<br>
+      \(L(2.1)=1-\dfrac{5}{4}(0.1)=1-0.125=\)<span class="frq-answer">0.875</span>.<br><br>
+      <strong>(d)</strong> Differentiate \(2x+y+xy'+2yy'=0\):<br>
+      \(2+y'+y'+xy''+2(y')^2+2yy''=0\).<br>
+      \((x+2y)y''=-2-2y'-2(y')^2\). At \((2,1)\), \(y'=-\dfrac{5}{4}\), so<br>
+      \(4y''=-2+\dfrac{5}{2}-2\left(\dfrac{25}{16}\right)=-\dfrac{21}{8}\). Therefore \(y''=\)<span class="frq-answer">\(-\dfrac{21}{32}\)</span>.<br>
+      Since \(y''<0\), the curve is <strong>concave down</strong> at \((2,1)\).
     </div>
   </div>
 
