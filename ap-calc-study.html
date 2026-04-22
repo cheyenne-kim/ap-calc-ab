@@ -2796,6 +2796,136 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
     <div class="pa"><button class="st" onclick="sol('s-m21',this)">Show Solution</button><span class="fm" id="fb-p-m21"></span></div>
     <div class="sb" id="s-m21"><strong>Answer: B) 4/3 ft/s</strong><br>Similar triangles: \(\dfrac{20}{x+s}=\dfrac{5}{s}\Rightarrow 20s=5(x+s)\Rightarrow 15s=5x\Rightarrow s=\dfrac{x}{3}\).<br>\(\dfrac{ds}{dt}=\dfrac{1}{3}\dfrac{dx}{dt}=\dfrac{1}{3}(4)=\)<strong>\(\dfrac{4}{3}\) ft/s</strong></div>
   </div>
+
+  <div class="pc" id="p-m22">
+    <div class="ph"><div class="pn">22</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 1 · Limit Properties</span></div>
+    <div class="pt">Evaluate \(\displaystyle\lim_{x\to0}\frac{\ln(1+3x)-\sin(2x)}{x}\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m22','A')">A) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-m22','B')">B) \(1\)</button>
+      <button class="cb" onclick="chk(this,'p-m22','C')">C) \(5\)</button>
+      <button class="cb" onclick="chk(this,'p-m22','D')">D) DNE</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m22',this)">Show Solution</button><span class="fm" id="fb-p-m22"></span></div>
+    <div class="sb" id="s-m22"><strong>Answer: B) \(1\)</strong><br>This is \(0/0\), so use L'Hôpital: \(\displaystyle\lim_{x\to0}\left(\dfrac{3}{1+3x}-2\cos(2x)\right)=3-2=\)<strong>1</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m23">
+    <div class="ph"><div class="pn">23</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 3 · Inverse Functions</span></div>
+    <div class="pt">Let \(f\) be differentiable and one-to-one. If \(f(2)=5\) and \(f'(2)=3\), what is \((f^{-1})'(5)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m23','A')">A) \(3\)</button>
+      <button class="cb" onclick="chk(this,'p-m23','B')">B) \(2/5\)</button>
+      <button class="cb" onclick="chk(this,'p-m23','C')">C) \(1/3\)</button>
+      <button class="cb" onclick="chk(this,'p-m23','D')">D) \(5/2\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m23',this)">Show Solution</button><span class="fm" id="fb-p-m23"></span></div>
+    <div class="sb" id="s-m23"><strong>Answer: C) \(1/3\)</strong><br>\((f^{-1})'(a)=\dfrac{1}{f'(f^{-1}(a))}\). Since \(f(2)=5\), \(f^{-1}(5)=2\). Thus \((f^{-1})'(5)=\dfrac{1}{f'(2)}=\)<strong>\(\dfrac{1}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m24">
+    <div class="ph"><div class="pn">24</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 6 · FTC + Chain Rule</span></div>
+    <div class="pt">If \(F(x)=\displaystyle\int_{x^2}^{3x}\sqrt{1+t^2}\,dt\), find \(F'(1)\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m24','A')">A) \(3\sqrt{10}-2\sqrt2\)</button>
+      <button class="cb" onclick="chk(this,'p-m24','B')">B) \(\sqrt{10}-\sqrt2\)</button>
+      <button class="cb" onclick="chk(this,'p-m24','C')">C) \(2\sqrt2-3\sqrt{10}\)</button>
+      <button class="cb" onclick="chk(this,'p-m24','D')">D) \(3\sqrt2-2\sqrt{10}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m24',this)">Show Solution</button><span class="fm" id="fb-p-m24"></span></div>
+    <div class="sb" id="s-m24"><strong>Answer: A) \(3\sqrt{10}-2\sqrt2\)</strong><br>For variable bounds, \(F'(x)=\sqrt{1+(3x)^2}\cdot3-\sqrt{1+(x^2)^2}\cdot2x\).<br>At \(x=1\): \(F'(1)=3\sqrt{10}-2\sqrt2\).</div>
+  </div>
+
+  <div class="pc" id="p-m25">
+    <div class="ph"><div class="pn">25</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 5 · First Derivative Test</span></div>
+    <div class="pt">Suppose \(f'(x)=x(x-2)^2(x+1)\). Which statement about \(f\) is true?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m25','A')">A) Local min at \(x=-1\); local max at \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-m25','B')">B) Local max at \(x=-1\); local min at \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-m25','C')">C) Local max at \(x=2\) only</button>
+      <button class="cb" onclick="chk(this,'p-m25','D')">D) No local extrema</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m25',this)">Show Solution</button><span class="fm" id="fb-p-m25"></span></div>
+    <div class="sb" id="s-m25"><strong>Answer: B) Local max at \(x=-1\); local min at \(x=0\)</strong><br>Because \((x-2)^2\ge0\), the sign mainly comes from \(x(x+1)\). \(f'\) is positive on \((-\infty,-1)\), negative on \((-1,0)\), and positive on \((0,\infty)\).<br>So \(f'\) changes \(+\to-\) at \(-1\) and \(-\to+\) at \(0\). At \(x=2\), \(f'=0\) but the sign does not change.</div>
+  </div>
+
+  <div class="pc" id="p-m26">
+    <div class="ph"><div class="pn">26</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 8 · Cross Sections</span></div>
+    <div class="pt">The base of a solid is the region between \(y=x\) and \(y=x^2\) for \(0\le x\le1\). Cross sections perpendicular to the \(x\)-axis are semicircles. What is the volume?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m26','A')">A) \(\pi/120\)</button>
+      <button class="cb" onclick="chk(this,'p-m26','B')">B) \(\pi/60\)</button>
+      <button class="cb" onclick="chk(this,'p-m26','C')">C) \(\pi/240\)</button>
+      <button class="cb" onclick="chk(this,'p-m26','D')">D) \(\pi/30\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m26',this)">Show Solution</button><span class="fm" id="fb-p-m26"></span></div>
+    <div class="sb" id="s-m26"><strong>Answer: C) \(\pi/240\)</strong><br>The diameter is \(d=x-x^2\). A semicircle with diameter \(d\) has area \(A=\dfrac{1}{2}\pi\left(\dfrac{d}{2}\right)^2=\dfrac{\pi}{8}d^2\).<br>\(V=\dfrac{\pi}{8}\int_0^1(x-x^2)^2dx=\dfrac{\pi}{8}\int_0^1(x^2-2x^3+x^4)dx=\dfrac{\pi}{8}\left(\dfrac13-\dfrac12+\dfrac15\right)=\)<strong>\(\dfrac{\pi}{240}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m27">
+    <div class="ph"><div class="pn">27</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 7 · Euler's Method</span></div>
+    <div class="pt">For \(\dfrac{dy}{dx}=x+y\), \(y(0)=1\). Use Euler's method with two steps of size \(0.5\) to approximate \(y(1)\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m27','A')">A) \(2.5\)</button>
+      <button class="cb" onclick="chk(this,'p-m27','B')">B) \(2.25\)</button>
+      <button class="cb" onclick="chk(this,'p-m27','C')">C) \(2\)</button>
+      <button class="cb" onclick="chk(this,'p-m27','D')">D) \(3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m27',this)">Show Solution</button><span class="fm" id="fb-p-m27"></span></div>
+    <div class="sb" id="s-m27"><strong>Answer: A) \(2.5\)</strong><br>Start at \((0,1)\). Slope \(=0+1=1\), so \(y(0.5)\approx1+0.5(1)=1.5\).<br>At \((0.5,1.5)\), slope \(=2\), so \(y(1)\approx1.5+0.5(2)=\)<strong>2.5</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m28">
+    <div class="ph"><div class="pn">28</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 4 · Particle Motion</span></div>
+    <div class="pt">A particle has velocity \(v(t)=t^2-4t+3\). What is the total distance traveled on \(0\le t\le4\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m28','A')">A) \(4/3\)</button>
+      <button class="cb" onclick="chk(this,'p-m28','B')">B) \(8/3\)</button>
+      <button class="cb" onclick="chk(this,'p-m28','C')">C) \(10/3\)</button>
+      <button class="cb" onclick="chk(this,'p-m28','D')">D) \(4\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m28',this)">Show Solution</button><span class="fm" id="fb-p-m28"></span></div>
+    <div class="sb" id="s-m28"><strong>Answer: D) \(4\)</strong><br>Total distance is \(\int_0^4|v(t)|dt\), not just displacement. Zeros: \(t=1,3\).<br>With \(F(t)=\tfrac{t^3}{3}-2t^2+3t\), \(F(0)=0\), \(F(1)=\tfrac43\), \(F(3)=0\), \(F(4)=\tfrac43\).<br>Distance \(=\tfrac43+\tfrac43+\tfrac43=\)<strong>4</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m29">
+    <div class="ph"><div class="pn">29</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 4 · Related Rates</span></div>
+    <div class="pt">A cone satisfies \(h=2r\). If its volume is increasing at \(6\pi\text{ cm}^3/\text{s}\), find \(\dfrac{dr}{dt}\) when \(r=3\) cm.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m29','A')">A) \(1/6\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m29','B')">B) \(1/3\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m29','C')">C) \(2/3\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m29','D')">D) \(3\) cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m29',this)">Show Solution</button><span class="fm" id="fb-p-m29"></span></div>
+    <div class="sb" id="s-m29"><strong>Answer: B) \(1/3\) cm/s</strong><br>\(V=\dfrac13\pi r^2h=\dfrac13\pi r^2(2r)=\dfrac{2}{3}\pi r^3\).<br>\(\dfrac{dV}{dt}=2\pi r^2\dfrac{dr}{dt}\). At \(r=3\): \(6\pi=18\pi\dfrac{dr}{dt}\), so \(\dfrac{dr}{dt}=\)<strong>\(\dfrac13\) cm/s</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m30">
+    <div class="ph"><div class="pn">30</div><span class="diff dm">Medium-Hard</span><span class="topic-tag">Unit 6 · Approximations</span></div>
+    <div class="pt">If \(f\) is increasing and concave down on \([a,b]\), which statement is always true?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m30','A')">A) Left sum overestimates; trapezoidal sum overestimates</button>
+      <button class="cb" onclick="chk(this,'p-m30','B')">B) Right sum underestimates; trapezoidal sum overestimates</button>
+      <button class="cb" onclick="chk(this,'p-m30','C')">C) Left sum underestimates; trapezoidal sum underestimates</button>
+      <button class="cb" onclick="chk(this,'p-m30','D')">D) Right sum underestimates; midpoint sum underestimates</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m30',this)">Show Solution</button><span class="fm" id="fb-p-m30"></span></div>
+    <div class="sb" id="s-m30"><strong>Answer: C) Left sum underestimates; trapezoidal sum underestimates</strong><br>For an increasing function, left rectangles are below the curve, so the left sum underestimates. For a concave down function, secant-line trapezoids lie below the curve, so the trapezoidal sum also underestimates.</div>
+  </div>
+
+  <div class="pc" id="p-m31">
+    <div class="ph"><div class="pn">31</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 7 · Separable DE</span></div>
+    <div class="pt">The solution to \(\dfrac{dy}{dx}=xy^2\) satisfies \(y(0)=1\). What is \(y(1)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m31','A')">A) \(e\)</button>
+      <button class="cb" onclick="chk(this,'p-m31','B')">B) \(1/2\)</button>
+      <button class="cb" onclick="chk(this,'p-m31','C')">C) \(2\)</button>
+      <button class="cb" onclick="chk(this,'p-m31','D')">D) \(1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m31',this)">Show Solution</button><span class="fm" id="fb-p-m31"></span></div>
+    <div class="sb" id="s-m31"><strong>Answer: C) \(2\)</strong><br>Separate: \(y^{-2}dy=x\,dx\). Integrate: \(-\dfrac{1}{y}=\dfrac{x^2}{2}+C\).<br>Use \(y(0)=1\): \(-1=C\). Thus \(-\dfrac{1}{y}=\dfrac{x^2}{2}-1\), so \(\dfrac{1}{y}=1-\dfrac{x^2}{2}\).<br>At \(x=1\), \(\dfrac1y=\dfrac12\Rightarrow y=\)<strong>2</strong>.</div>
+  </div>
 </div>
 
 <!-- FRQ PRACTICE -->
@@ -3070,6 +3200,8 @@ const ANS = {
   'p-m7':'B','p-m8':'C','p-m9':'B','p-m10':'C','p-m11':'B',
   'p-m12':'D','p-m13':'A','p-m14':'D','p-m15':'A','p-m16':'C',
   'p-m17':'B','p-m18':'C','p-m19':'B','p-m20':'B','p-m21':'B',
+  'p-m22':'B','p-m23':'C','p-m24':'A','p-m25':'B','p-m26':'C',
+  'p-m27':'A','p-m28':'D','p-m29':'B','p-m30':'C','p-m31':'C',
   'p-gp1':'B','p-gp2':'C','p-gp3':'B','p-gp4':'D','p-gp5':'C','p-gp6':'D',
   'p-gp7':'C','p-gp8':'B','p-gp9':'B','p-gp10':'C','p-gp11':'B','p-gp12':'D','p-gp13':'A','p-gp14':'B',
   'p-l6':'C','p-l7':'A','p-l8':'B','p-l9':'C','p-l10':'B',
