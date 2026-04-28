@@ -160,6 +160,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <a href="#rr" data-section="rr">📐 Related Rates</a>
   <a href="#implicit" data-section="implicit">∂ Implicit Differentiation</a>
   <a href="#optimization" data-section="optimization">📦 Optimization</a>
+  <a href="#areavol" data-section="areavol">🧊 Area &amp; Volume</a>
   <a href="#mixed" data-section="mixed">🎯 Mixed Practice</a>
   <a href="#frq" data-section="frq">✍️ FRQ Practice</a>
   <a id="btn-mistakes" href="ap-calc-mistakes.html">⚠️ Common Mistakes</a>
@@ -2519,6 +2520,120 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   </div>
 </div>
 
+<!-- AREA & VOLUME -->
+<div class="section" id="sec-areavol">
+  <h2>Area &amp; Volume Practice</h2>
+  <span class="unit-weight">Unit 8 focus · area between curves, discs, washers, and interpretation</span>
+  <div class="intro">This section drills one of the most common AP Calculus AB application themes: setting up the correct integral before you compute. Always identify bounds, decide which function is on top or outside, and check whether the question wants area, net change, or volume.</div>
+
+  <div class="fgrid">
+    <div class="fc"><h4>Area Setup</h4><span class="f">\(\displaystyle\int_a^b(\text{top}-\text{bottom})\,dx\)</span><p>If the curves switch order, split the integral.</p></div>
+    <div class="fc"><h4>About the x-axis</h4><span class="f">Disc: \(\displaystyle V=\pi\int_a^b [f(x)]^2\,dx\)</span><p>No hole means radius only.</p></div>
+    <div class="fc"><h4>Washer Warning</h4><span class="f">\(\displaystyle V=\pi\int_a^b(R^2-r^2)\,dx\)</span><p>Outer radius first, then inner radius.</p></div>
+    <div class="fc"><h4>Quick Check</h4><span class="f">Area can be negative only if you forgot absolute structure.</span><p>Geometric area should come out positive.</p></div>
+  </div>
+
+  <div class="pc" id="p-av1">
+    <div class="ph"><div class="pn">1</div><span class="diff de">Easy</span><span class="topic-tag">Area Between Curves</span></div>
+    <div class="pt">Find the area between \(y=2x\) and \(y=x^2\) on the interval \([0,2]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av1','A')">A) \( \dfrac{2}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-av1','B')">B) \( \dfrac{4}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-av1','C')">C) \( \dfrac{8}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-av1','D')">D) \( 4 \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av1',this)">Show Solution</button><span class="fm" id="fb-p-av1"></span></div>
+    <div class="sb" id="s-av1"><strong>Answer: B) \(4/3\)</strong><br>On \([0,2]\), \(2x\ge x^2\).<br>Area \(=\displaystyle\int_0^2(2x-x^2)\,dx=\left[x^2-\frac{x^3}{3}\right]_0^2=4-\frac{8}{3}=\)<strong>\(\frac{4}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-av2">
+    <div class="ph"><div class="pn">2</div><span class="diff de">Easy</span><span class="topic-tag">Disc Method</span></div>
+    <div class="pt">Find the volume generated when the region under \(y=x\) from \(x=0\) to \(x=3\) is revolved about the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av2','A')">A) \(3\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-av2','B')">B) \(6\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-av2','C')">C) \(9\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-av2','D')">D) \(18\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av2',this)">Show Solution</button><span class="fm" id="fb-p-av2"></span></div>
+    <div class="sb" id="s-av2"><strong>Answer: C) \(9\pi\)</strong><br>Disc method: \(V=\pi\displaystyle\int_0^3 x^2\,dx=\pi\left[\frac{x^3}{3}\right]_0^3=\pi\cdot 9=\)<strong>\(9\pi\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-av3">
+    <div class="ph"><div class="pn">3</div><span class="diff dm">Medium</span><span class="topic-tag">Washer Method</span></div>
+    <div class="pt">The region bounded by \(y=4\) and \(y=x^2\) is rotated about the \(x\)-axis. What is the volume?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av3','A')">A) \( \dfrac{128\pi}{5} \)</button>
+      <button class="cb" onclick="chk(this,'p-av3','B')">B) \( \dfrac{256\pi}{5} \)</button>
+      <button class="cb" onclick="chk(this,'p-av3','C')">C) \( \dfrac{256\pi}{15} \)</button>
+      <button class="cb" onclick="chk(this,'p-av3','D')">D) \( \dfrac{512\pi}{15} \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av3',this)">Show Solution</button><span class="fm" id="fb-p-av3"></span></div>
+    <div class="sb" id="s-av3"><strong>Answer: B) \(256\pi/5\)</strong><br>Intersections: \(x^2=4\Rightarrow x=\pm2\). About the \(x\)-axis, outer radius \(R=4\), inner radius \(r=x^2\).<br>\[
+V=\pi\int_{-2}^{2}(16-x^4)\,dx
+=2\pi\int_0^2(16-x^4)\,dx
+=2\pi\left[16x-\frac{x^5}{5}\right]_0^2
+\]
+=2\pi\left(32-\frac{32}{5}\right)
+\]
+Since \(32-\frac{32}{5}=\frac{128}{5}\), we get \(V=2\pi\cdot\frac{128}{5}=\)<strong>\(\frac{256\pi}{5}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-av4">
+    <div class="ph"><div class="pn">4</div><span class="diff dm">Medium</span><span class="topic-tag">Area Between Curves</span></div>
+    <div class="pt">Find the total area enclosed by \(y=\sin x\) and \(y=\cos x\) on \(\left[0,\frac{\pi}{2}\right]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av4','A')">A) \(2\sqrt2-2\)</button>
+      <button class="cb" onclick="chk(this,'p-av4','B')">B) \(\sqrt2-1\)</button>
+      <button class="cb" onclick="chk(this,'p-av4','C')">C) \(2-\sqrt2\)</button>
+      <button class="cb" onclick="chk(this,'p-av4','D')">D) \(1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av4',this)">Show Solution</button><span class="fm" id="fb-p-av4"></span></div>
+    <div class="sb" id="s-av4"><strong>Answer: A) \(2\sqrt2-2\)</strong><br>The curves meet when \(\sin x=\cos x\Rightarrow x=\frac{\pi}{4}\).<br>Area \(=\displaystyle\int_0^{\pi/4}(\cos x-\sin x)\,dx+\int_{\pi/4}^{\pi/2}(\sin x-\cos x)\,dx\).<br>By symmetry this is \(2\displaystyle\int_0^{\pi/4}(\cos x-\sin x)\,dx\).<br>\[
+2[\sin x+\cos x]_0^{\pi/4}=2\left(\frac{\sqrt2}{2}+\frac{\sqrt2}{2}-1\right)=2(\sqrt2-1)=\]<strong>\(2\sqrt2-2\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-av5">
+    <div class="ph"><div class="pn">5</div><span class="diff dh">Hard</span><span class="topic-tag">Volume with Shifted Axis</span></div>
+    <div class="pt">The region under \(y=\sqrt{x}\) from \(x=0\) to \(x=4\) is rotated about the line \(y=-1\). What is the volume?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av5','A')">A) \(18\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-av5','B')">B) \(24\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-av5','C')">C) \( \dfrac{68\pi}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-av5','D')">D) \( \dfrac{116\pi}{3} \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av5',this)">Show Solution</button><span class="fm" id="fb-p-av5"></span></div>
+    <div class="sb" id="s-av5"><strong>Answer: C) \(68\pi/3\)</strong><br>Rotating about \(y=-1\) gives discs of radius \(R=\sqrt{x}+1\).<br>\[
+V=\pi\int_0^4(\sqrt{x}+1)^2\,dx
+=\pi\int_0^4(x+2\sqrt{x}+1)\,dx
+\]
+\[
+=\pi\left[\frac{x^2}{2}+\frac{4}{3}x^{3/2}+x\right]_0^4
+=\pi\left(8+\frac{32}{3}+4\right)
+=\pi\cdot\frac{68}{3}
+\]
+So \(V=\)<strong>\(\frac{68\pi}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-av6">
+    <div class="ph"><div class="pn">6</div><span class="diff dh">Hard</span><span class="topic-tag">Cross Sections / Area</span></div>
+    <div class="pt">The base of a solid is the region enclosed by \(y=4-x^2\) and the \(x\)-axis. Cross sections perpendicular to the \(x\)-axis are squares. What is the volume of the solid?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-av6','A')">A) \( \dfrac{256}{15} \)</button>
+      <button class="cb" onclick="chk(this,'p-av6','B')">B) \( \dfrac{512}{15} \)</button>
+      <button class="cb" onclick="chk(this,'p-av6','C')">C) \( \dfrac{1024}{15} \)</button>
+      <button class="cb" onclick="chk(this,'p-av6','D')">D) \( \dfrac{64}{3} \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-av6',this)">Show Solution</button><span class="fm" id="fb-p-av6"></span></div>
+    <div class="sb" id="s-av6"><strong>Answer: B) \(512/15\)</strong><br>The side length of a square cross section is \(s(x)=4-x^2\). So area \(A(x)=s(x)^2=(4-x^2)^2\).<br>Bounds: \(4-x^2=0\Rightarrow x=\pm2\).<br>\[
+V=\int_{-2}^{2}(4-x^2)^2\,dx
+=\int_{-2}^{2}(16-8x^2+x^4)\,dx
+=\frac{512}{15}
+\]
+So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
+  </div>
+</div>
+
 <!-- MIXED PRACTICE -->
 <div class="section" id="sec-mixed">
   <h2>Mixed Practice</h2>
@@ -3133,6 +3248,35 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
     </div>
   </div>
 
+  <h3 class="sh">FRQ 9 — Differential Equations: Logistic Model (No Calculator)</h3>
+  <div class="pc" style="border-color:#d0d8ff;">
+    <div class="ph"><div class="pn" style="background:#7c3aed;">9</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 7 · Separable Differential Equations</span></div>
+    <div class="pt">A population \(y\), measured in thousands, changes according to the differential equation \(\dfrac{dy}{dt}=y(4-y)\), where \(t\) is measured in years. At time \(t=0\), the population is \(y=1\).
+      <ol class="frq-parts">
+        <li>Describe the slopes in the slope field when \(y=0\), \(0<y<4\), \(y=4\), and \(y>4\).</li>
+        <li>Use Euler's method with two steps of equal size \(\Delta t=0.5\) to approximate \(y(1)\).</li>
+        <li>Solve the differential equation for the particular solution satisfying \(y(0)=1\).</li>
+        <li>Use your solution from part (c) to find \(\displaystyle\lim_{t\to\infty}y(t)\), and explain what this means in context.</li>
+      </ol>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-frq9',this)">Show Full Solution</button></div>
+    <div class="sb" id="s-frq9">
+      <strong>(a)</strong> Since \(\dfrac{dy}{dt}=y(4-y)\):<br>
+      When \(y=0\), the slope is \(0\). When \(0<y<4\), the slope is positive. When \(y=4\), the slope is \(0\). When \(y>4\), the slope is negative.<br><br>
+      <strong>(b)</strong> Euler's method from \((0,1)\) with \(\Delta t=0.5\):<br>
+      Step 1: slope \(=1(4-1)=3\), so \(y(0.5)\approx1+0.5(3)=2.5\).<br>
+      Step 2: slope \(=2.5(4-2.5)=3.75\), so \(y(1)\approx2.5+0.5(3.75)=\)<span class="frq-answer">4.375</span>.<br><br>
+      <strong>(c)</strong> Separate variables:<br>
+      \(\dfrac{dy}{y(4-y)}=dt\). Using partial fractions, \(\dfrac{1}{y(4-y)}=\dfrac14\left(\dfrac1y+\dfrac{1}{4-y}\right)\).<br>
+      \(\dfrac14\ln\left|\dfrac{y}{4-y}\right|=t+C\Rightarrow \ln\left|\dfrac{y}{4-y}\right|=4t+C\).<br>
+      Thus \(\dfrac{y}{4-y}=Ae^{4t}\). Use \(y(0)=1\): \(\dfrac{1}{3}=A\).<br>
+      \(\dfrac{y}{4-y}=\dfrac13e^{4t}\Rightarrow 3y=e^{4t}(4-y)\Rightarrow y(3+e^{4t})=4e^{4t}\).<br>
+      Particular solution: <span class="frq-answer">\(y(t)=\dfrac{4e^{4t}}{3+e^{4t}}\)</span>.<br><br>
+      <strong>(d)</strong> \(\displaystyle\lim_{t\to\infty}\dfrac{4e^{4t}}{3+e^{4t}}=4\).<br>
+      In context, the population approaches <span class="frq-answer">4 thousand</span> over time. This is the carrying capacity because growth is positive below \(y=4\) and negative above \(y=4\).
+    </div>
+  </div>
+
   <div class="tip"><strong>FRQ Writing Tips</strong>
   • Start each part on a new line labeled (a), (b), (c), (d).<br>
   • Write the formula or theorem you're using before applying it ("By FTC Part 1..." or "Setting f′(x) = 0...").<br>
@@ -3215,6 +3359,7 @@ const ANS = {
   'p-g2-1':'B','p-g2-2':'C','p-g2-3':'B','p-g2-4':'A','p-g2-5':'C','p-g2-6':'D','p-g2-7':'B',
   'p-g3-1':'B','p-g3-2':'A','p-g3-3':'C','p-g3-4':'B','p-g3-5':'A','p-g3-6':'D','p-g3-7':'C',
   'p-rr1':'B','p-rr2':'C','p-rr3':'B','p-rr4':'A','p-rr5':'C','p-rr6':'A',
+  'p-av1':'B','p-av2':'C','p-av3':'B','p-av4':'A','p-av5':'C','p-av6':'B',
   'p-opt1':'B','p-opt2':'A','p-opt3':'A','p-opt4':'B','p-opt5':'B','p-opt6':'A',
   'p-id1':'A','p-id2':'C','p-id3':'B','p-id4':'B','p-id5':'B','p-id6':'C','p-id7':'C'
 };
