@@ -161,6 +161,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <a href="#implicit" data-section="implicit">∂ Implicit Differentiation</a>
   <a href="#optimization" data-section="optimization">📦 Optimization</a>
   <a href="#areavol" data-section="areavol">🧊 Area &amp; Volume</a>
+  <a href="#review" data-section="review">📝 Review</a>
   <a href="#mixed" data-section="mixed">🎯 Mixed Practice</a>
   <a href="#frq" data-section="frq">✍️ FRQ Practice</a>
   <a id="btn-mistakes" href="ap-calc-mistakes.html">⚠️ Common Mistakes</a>
@@ -3717,11 +3718,426 @@ So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
   </div>
 </div>
 
+<!-- REVIEW PAGE -->
+<div class="section" id="sec-review">
+  <h2>Review</h2>
+  <span class="unit-weight">Focused final review · area/volume, optimization, related rates, implicit diff, motion, and curve analysis</span>
+  <div class="intro">This page is built as a last big pass through the highest-friction AP Calc AB ideas: geometry setup, rate relationships, particle interpretation, and derivative-based reasoning about extrema and concavity. The set is intentionally mixed in difficulty so it feels closer to a real review day than a worksheet of one-note problems.</div>
+
+  <div class="fgrid">
+    <div class="fc"><h4>Best Habit</h4><span class="f">Set up the quantity before you compute it.</span><p>That matters especially for volume, optimization, and related rates.</p></div>
+    <div class="fc"><h4>For Motion</h4><span class="f">Velocity, acceleration, distance, displacement are different.</span><p>Distance uses \(|v|\); speeding up needs \(v\) and \(a\) with the same sign.</p></div>
+    <div class="fc"><h4>For Curve Analysis</h4><span class="f">Local extrema come from \(f'\); concavity comes from \(f''\).</span><p>Keep those tests separate.</p></div>
+  </div>
+
+  <h3 class="sh">Area &amp; Volume</h3>
+  <div class="pc" id="p-r1">
+    <div class="ph"><div class="pn">1</div><span class="diff de">Easy</span><span class="topic-tag">Area</span></div>
+    <div class="pt">Find the area between \(y=x\) and \(y=x^2\) on \([0,1]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r1','A')">A) \(1/6\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','B')">B) \(1/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','C')">C) \(1/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','D')">D) \(2/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r1',this)">Show Solution</button><span class="fm" id="fb-p-r1"></span></div>
+    <div class="sb" id="s-r1"><strong>Answer: A) \(1/6\)</strong><br>On \([0,1]\), \(x\ge x^2\). Area \(=\int_0^1(x-x^2)\,dx=\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1=\frac12-\frac13=\)<strong>\(\frac16\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r2">
+    <div class="ph"><div class="pn">2</div><span class="diff dm">Medium</span><span class="topic-tag">Disc Method</span></div>
+    <div class="pt">Find the volume when the region under \(y=2x\) from \(x=0\) to \(x=1\) is revolved about the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r2','A')">A) \(2\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','B')">B) \(4\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','C')">C) \(2\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','D')">D) \(4\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r2',this)">Show Solution</button><span class="fm" id="fb-p-r2"></span></div>
+    <div class="sb" id="s-r2"><strong>Answer: B) \(4\pi/3\)</strong><br>\(V=\pi\int_0^1(2x)^2\,dx=4\pi\int_0^1x^2\,dx=4\pi\left[\frac{x^3}{3}\right]_0^1=\)<strong>\(\frac{4\pi}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r3">
+    <div class="ph"><div class="pn">3</div><span class="diff dh">Hard</span><span class="topic-tag">Washer Method</span></div>
+    <div class="pt">Find the volume when the region between \(y=x\) and \(y=0\) on \([0,2]\) is rotated about \(y=2\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r3','A')">A) \(8\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','B')">B) \(16\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','C')">C) \(20\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','D')">D) \(8\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r3',this)">Show Solution</button><span class="fm" id="fb-p-r3"></span></div>
+    <div class="sb" id="s-r3"><strong>Answer: B) \(16\pi/3\)</strong><br>Outer radius \(R=2\), inner radius \(r=2-x\).<br>\(V=\pi\int_0^2\left(4-(2-x)^2\right)dx=\pi\int_0^2(4x-x^2)\,dx\)<br>\(=\pi\left[2x^2-\frac{x^3}{3}\right]_0^2=\pi\left(8-\frac83\right)=\)<strong>\(\frac{16\pi}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r4">
+    <div class="ph"><div class="pn">4</div><span class="diff de">Easy</span><span class="topic-tag">Total Area</span></div>
+    <div class="pt">Find the total area enclosed by \(y=4-x^2\) and the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r4','A')">A) 8</button>
+      <button class="cb" onclick="chk(this,'p-r4','B')">B) \(16/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r4','C')">C) \(32/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r4','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r4',this)">Show Solution</button><span class="fm" id="fb-p-r4"></span></div>
+    <div class="sb" id="s-r4"><strong>Answer: C) \(32/3\)</strong><br>Zeros at \(x=\pm2\). Area \(=\int_{-2}^{2}(4-x^2)\,dx=\left[4x-\frac{x^3}{3}\right]_{-2}^{2}=\)<strong>\(\frac{32}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r5">
+    <div class="ph"><div class="pn">5</div><span class="diff dh">Hard</span><span class="topic-tag">Volume</span></div>
+    <div class="pt">Find the volume when the region between \(y=x^2\) and \(y=2x\) is rotated about the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r5','A')">A) \(32\pi/15\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','B')">B) \(64\pi/15\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','C')">C) \(16\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','D')">D) \(8\pi/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r5',this)">Show Solution</button><span class="fm" id="fb-p-r5"></span></div>
+    <div class="sb" id="s-r5"><strong>Answer: B) \(64\pi/15\)</strong><br>Intersections at \(x=0,2\). Outer radius \(R=2x\), inner radius \(r=x^2\).<br>\(V=\pi\int_0^2((2x)^2-(x^2)^2)\,dx=\pi\int_0^2(4x^2-x^4)\,dx=\)<strong>\(\frac{64\pi}{15}\)</strong>.</div>
+  </div>
+
+  <h3 class="sh">Optimization</h3>
+  <div class="pc" id="p-r6">
+    <div class="ph"><div class="pn">6</div><span class="diff de">Easy</span><span class="topic-tag">Optimization</span></div>
+    <div class="pt">A rectangle has perimeter 20. What is its maximum possible area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r6','A')">A) 16</button>
+      <button class="cb" onclick="chk(this,'p-r6','B')">B) 20</button>
+      <button class="cb" onclick="chk(this,'p-r6','C')">C) 25</button>
+      <button class="cb" onclick="chk(this,'p-r6','D')">D) 40</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r6',this)">Show Solution</button><span class="fm" id="fb-p-r6"></span></div>
+    <div class="sb" id="s-r6"><strong>Answer: C) 25</strong><br>The maximum area rectangle for a fixed perimeter is a square. Side \(=20/4=5\), so area \(=5^2=\)<strong>25</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r7">
+    <div class="ph"><div class="pn">7</div><span class="diff dm">Medium</span><span class="topic-tag">Fencing</span></div>
+    <div class="pt">A farmer has 100 meters of fencing for three sides of a rectangle along a river. What dimensions maximize the area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r7','A')">A) \(20\) by \(60\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','B')">B) \(25\) by \(50\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','C')">C) \(30\) by \(40\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','D')">D) \(10\) by \(80\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r7',this)">Show Solution</button><span class="fm" id="fb-p-r7"></span></div>
+    <div class="sb" id="s-r7"><strong>Answer: B) \(25\) by \(50\)</strong><br>Let \(x\) be each side perpendicular to the river and \(y\) the side along the river. Then \(2x+y=100\Rightarrow y=100-2x\).<br>\(A=x(100-2x)\), so \(A'=100-4x=0\Rightarrow x=25\). Then \(y=50\).</div>
+  </div>
+
+  <div class="pc" id="p-r8">
+    <div class="ph"><div class="pn">8</div><span class="diff dh">Hard</span><span class="topic-tag">Open-Top Box</span></div>
+    <div class="pt">An open-top box with a square base has volume \(108\text{ cm}^3\). What dimensions minimize surface area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r8','A')">A) side \(=3\), height \(=12\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','B')">B) side \(=6\), height \(=3\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','C')">C) side \(=9\), height \(=4/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','D')">D) side \(=4\), height \(=27/4\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r8',this)">Show Solution</button><span class="fm" id="fb-p-r8"></span></div>
+    <div class="sb" id="s-r8"><strong>Answer: B) side \(=6\), height \(=3\)</strong><br>Let base side \(x\), height \(h\). Volume: \(x^2h=108\Rightarrow h=108/x^2\).<br>Surface area: \(S=x^2+4xh=x^2+432/x\). Then \(S'=2x-432/x^2=0\Rightarrow 2x^3=432\Rightarrow x^3=216\Rightarrow x=6\). Then \(h=108/36=3\).</div>
+  </div>
+
+  <div class="pc" id="p-r9">
+    <div class="ph"><div class="pn">9</div><span class="diff dm">Medium</span><span class="topic-tag">Inscribed Rectangle</span></div>
+    <div class="pt">A rectangle is inscribed under the line \(y=8-2x\) in the first quadrant with sides on the axes. What is the maximum area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r9','A')">A) 6</button>
+      <button class="cb" onclick="chk(this,'p-r9','B')">B) 8</button>
+      <button class="cb" onclick="chk(this,'p-r9','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-r9','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r9',this)">Show Solution</button><span class="fm" id="fb-p-r9"></span></div>
+    <div class="sb" id="s-r9"><strong>Answer: B) 8</strong><br>\(A=x(8-2x)=8x-2x^2\). Then \(A'=8-4x=0\Rightarrow x=2\), and \(y=4\). Max area \(=2\cdot4=\)<strong>8</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r10">
+    <div class="ph"><div class="pn">10</div><span class="diff dh">Hard</span><span class="topic-tag">Closest Point</span></div>
+    <div class="pt">Which point on the line \(y=2x+3\) is closest to the origin?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r10','A')">A) \((-1,1)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','B')">B) \((-6/5,3/5)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','C')">C) \((0,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','D')">D) \((1,5)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r10',this)">Show Solution</button><span class="fm" id="fb-p-r10"></span></div>
+    <div class="sb" id="s-r10"><strong>Answer: B) \((-6/5,3/5)\)</strong><br>Minimize distance squared: \(D^2=x^2+(2x+3)^2=5x^2+12x+9\).<br>\((D^2)'=10x+12=0\Rightarrow x=-6/5\). Then \(y=2(-6/5)+3=3/5\).</div>
+  </div>
+
+  <h3 class="sh">Related Rates</h3>
+  <div class="pc" id="p-r11">
+    <div class="ph"><div class="pn">11</div><span class="diff de">Easy</span><span class="topic-tag">Sphere</span></div>
+    <div class="pt">Air is pumped into a sphere so that its volume increases at \(36\pi\text{ cm}^3/\text{s}\). How fast is the radius increasing when \(r=3\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r11','A')">A) \(1\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','B')">B) \(2\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','C')">C) \(3\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','D')">D) \(4\) cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r11',this)">Show Solution</button><span class="fm" id="fb-p-r11"></span></div>
+    <div class="sb" id="s-r11"><strong>Answer: A) \(1\) cm/s</strong><br>\(V=\frac43\pi r^3\Rightarrow \frac{dV}{dt}=4\pi r^2\frac{dr}{dt}\).<br>At \(r=3\): \(36\pi=36\pi \frac{dr}{dt}\), so \(\frac{dr}{dt}=1\).</div>
+  </div>
+
+  <div class="pc" id="p-r12">
+    <div class="ph"><div class="pn">12</div><span class="diff dm">Medium</span><span class="topic-tag">Ladder</span></div>
+    <div class="pt">A 13-ft ladder leans against a wall. The base slides away at \(5\) ft/s. How fast is the top sliding down when the base is \(5\) ft from the wall?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r12','A')">A) \(25/12\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','B')">B) \(5/12\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','C')">C) \(12/5\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','D')">D) \(5\) ft/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r12',this)">Show Solution</button><span class="fm" id="fb-p-r12"></span></div>
+    <div class="sb" id="s-r12"><strong>Answer: A) \(25/12\) ft/s</strong><br>\(x^2+y^2=169\). Differentiate: \(2x\frac{dx}{dt}+2y\frac{dy}{dt}=0\Rightarrow \frac{dy}{dt}=-\frac{x}{y}\frac{dx}{dt}\).<br>When \(x=5\), \(y=12\). Thus \(\frac{dy}{dt}=-(5/12)(5)=-25/12\). The top slides <strong>down</strong> at \(25/12\) ft/s.</div>
+  </div>
+
+  <div class="pc" id="p-r13">
+    <div class="ph"><div class="pn">13</div><span class="diff dh">Hard</span><span class="topic-tag">Cone</span></div>
+    <div class="pt">A cone satisfies \(h=2r\). If its volume is increasing at \(6\pi\text{ cm}^3/\text{s}\), find \(\dfrac{dr}{dt}\) when \(r=3\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r13','A')">A) \(1/6\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','B')">B) \(1/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','C')">C) \(2/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','D')">D) \(1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r13',this)">Show Solution</button><span class="fm" id="fb-p-r13"></span></div>
+    <div class="sb" id="s-r13"><strong>Answer: B) \(1/3\)</strong><br>\(V=\frac13\pi r^2h=\frac13\pi r^2(2r)=\frac23\pi r^3\). Then \(\frac{dV}{dt}=2\pi r^2\frac{dr}{dt}\).<br>At \(r=3\): \(6\pi=18\pi\frac{dr}{dt}\), so \(\frac{dr}{dt}=1/3\).</div>
+  </div>
+
+  <div class="pc" id="p-r14">
+    <div class="ph"><div class="pn">14</div><span class="diff dm">Medium</span><span class="topic-tag">Circle</span></div>
+    <div class="pt">The area of a circle is increasing at \(8\pi\text{ cm}^2/\text{s}\). How fast is the radius increasing when \(r=4\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r14','A')">A) \(1/4\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','B')">B) \(1/2\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','C')">C) \(1\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','D')">D) \(2\) cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r14',this)">Show Solution</button><span class="fm" id="fb-p-r14"></span></div>
+    <div class="sb" id="s-r14"><strong>Answer: C) \(1\) cm/s</strong><br>\(A=\pi r^2\Rightarrow \frac{dA}{dt}=2\pi r\frac{dr}{dt}\).<br>At \(r=4\): \(8\pi=8\pi\frac{dr}{dt}\), so \(\frac{dr}{dt}=1\).</div>
+  </div>
+
+  <div class="pc" id="p-r15">
+    <div class="ph"><div class="pn">15</div><span class="diff dh">Hard</span><span class="topic-tag">Shadow</span></div>
+    <div class="pt">A 20-ft streetlight casts a shadow of a 5-ft person walking away from the light at \(4\) ft/s. How fast is the shadow length increasing?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r15','A')">A) \(1\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','B')">B) \(4/3\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','C')">C) \(5/3\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','D')">D) \(4\) ft/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r15',this)">Show Solution</button><span class="fm" id="fb-p-r15"></span></div>
+    <div class="sb" id="s-r15"><strong>Answer: B) \(4/3\) ft/s</strong><br>Similar triangles: \(\dfrac{20}{x+s}=\dfrac{5}{s}\Rightarrow 20s=5x+5s\Rightarrow 15s=5x\Rightarrow s=x/3\).<br>Differentiate: \(\frac{ds}{dt}=\frac13\frac{dx}{dt}=\frac13(4)=\)<strong>\(4/3\)</strong> ft/s.</div>
+  </div>
+
+  <h3 class="sh">Implicit Differentiation</h3>
+  <div class="pc" id="p-r16">
+    <div class="ph"><div class="pn">16</div><span class="diff de">Easy</span><span class="topic-tag">Slope</span></div>
+    <div class="pt">For \(x^2+y^2=25\), what is \(\dfrac{dy}{dx}\) at the point \((3,4)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r16','A')">A) \(-3/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','B')">B) \(-4/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','C')">C) \(3/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','D')">D) \(4/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r16',this)">Show Solution</button><span class="fm" id="fb-p-r16"></span></div>
+    <div class="sb" id="s-r16"><strong>Answer: A) \(-3/4\)</strong><br>Differentiate: \(2x+2y\frac{dy}{dx}=0\Rightarrow \frac{dy}{dx}=-x/y\). At \((3,4)\), slope \(=-3/4\).</div>
+  </div>
+
+  <div class="pc" id="p-r17">
+    <div class="ph"><div class="pn">17</div><span class="diff dm">Medium</span><span class="topic-tag">Formula</span></div>
+    <div class="pt">If \(x^2y+y^3=10\), then \(\dfrac{dy}{dx}=\)</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r17','A')">A) \(-\dfrac{2xy}{x^2+3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','B')">B) \(-\dfrac{x^2}{3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','C')">C) \(\dfrac{2xy}{x^2+3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','D')">D) \(-\dfrac{2x+y}{x+2y}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r17',this)">Show Solution</button><span class="fm" id="fb-p-r17"></span></div>
+    <div class="sb" id="s-r17"><strong>Answer: A) \(-\dfrac{2xy}{x^2+3y^2}\)</strong><br>Differentiate: \(2xy+x^2\frac{dy}{dx}+3y^2\frac{dy}{dx}=0\).<br>\((x^2+3y^2)\frac{dy}{dx}=-2xy\), so \(\frac{dy}{dx}=-\dfrac{2xy}{x^2+3y^2}\).</div>
+  </div>
+
+  <div class="pc" id="p-r18">
+    <div class="ph"><div class="pn">18</div><span class="diff dm">Medium</span><span class="topic-tag">Tangent Line</span></div>
+    <div class="pt">For the curve \(x^2+xy+y^2=7\), what is the slope of the tangent line at \((1,2)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r18','A')">A) \(-4/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','B')">B) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','C')">C) \(-5/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','D')">D) \(4/5\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r18',this)">Show Solution</button><span class="fm" id="fb-p-r18"></span></div>
+    <div class="sb" id="s-r18"><strong>Answer: A) \(-4/5\)</strong><br>\((x+2y)\frac{dy}{dx}=-(2x+y)\), so \(\frac{dy}{dx}=-\dfrac{2x+y}{x+2y}\).<br>At \((1,2)\): \(-\dfrac{4}{5}\).</div>
+  </div>
+
+  <div class="pc" id="p-r19">
+    <div class="ph"><div class="pn">19</div><span class="diff dh">Hard</span><span class="topic-tag">Second Derivative</span></div>
+    <div class="pt">For the circle \(x^2+y^2=25\), what is \(\dfrac{d^2y}{dx^2}\) at the point \((0,5)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r19','A')">A) \(-1/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','B')">B) \(1/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','C')">C) \(-5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','D')">D) \(0\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r19',this)">Show Solution</button><span class="fm" id="fb-p-r19"></span></div>
+    <div class="sb" id="s-r19"><strong>Answer: A) \(-1/5\)</strong><br>For \(x^2+y^2=25\), one useful result is \(\dfrac{d^2y}{dx^2}=-\dfrac{25}{y^3}\). At \((0,5)\), this becomes \(-25/125=\)<strong>\(-1/5\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r20">
+    <div class="ph"><div class="pn">20</div><span class="diff dh">Hard</span><span class="topic-tag">Horizontal Tangents</span></div>
+    <div class="pt">For the curve \(x^2+xy+y^2=3\), which \(x\)-values give horizontal tangents?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r20','A')">A) \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','B')">B) \(x=\pm1\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','C')">C) \(x=\pm\sqrt3\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','D')">D) \(x=1\) only</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r20',this)">Show Solution</button><span class="fm" id="fb-p-r20"></span></div>
+    <div class="sb" id="s-r20"><strong>Answer: B) \(x=\pm1\)</strong><br>Horizontal tangents mean \(\frac{dy}{dx}=0\), so \(2x+y=0\Rightarrow y=-2x\). Substitute into the curve:<br>\(x^2-2x^2+4x^2=3\Rightarrow 3x^2=3\Rightarrow x=\pm1\).</div>
+  </div>
+
+  <h3 class="sh">Particle Motion</h3>
+  <div class="pc" id="p-r21">
+    <div class="ph"><div class="pn">21</div><span class="diff de">Easy</span><span class="topic-tag">Velocity</span></div>
+    <div class="pt">If \(s(t)=t^3-3t^2\), what is the velocity at \(t=1\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r21','A')">A) \(-3\)</button>
+      <button class="cb" onclick="chk(this,'p-r21','B')">B) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-r21','C')">C) 0</button>
+      <button class="cb" onclick="chk(this,'p-r21','D')">D) 3</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r21',this)">Show Solution</button><span class="fm" id="fb-p-r21"></span></div>
+    <div class="sb" id="s-r21"><strong>Answer: A) \(-3\)</strong><br>\(v(t)=s'(t)=3t^2-6t\). At \(t=1\), \(v=3-6=\)<strong>\(-3\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r22">
+    <div class="ph"><div class="pn">22</div><span class="diff dm">Medium</span><span class="topic-tag">Distance</span></div>
+    <div class="pt">A particle has velocity \(v(t)=t-2\) on \([0,5]\). What is the total distance traveled?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r22','A')">A) \(11/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','B')">B) \(13/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','C')">C) \(15/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','D')">D) 7</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r22',this)">Show Solution</button><span class="fm" id="fb-p-r22"></span></div>
+    <div class="sb" id="s-r22"><strong>Answer: B) \(13/2\)</strong><br>Velocity changes sign at \(t=2\). Distance \(=\int_0^2(2-t)\,dt+\int_2^5(t-2)\,dt=2+\frac92=\)<strong>\(\frac{13}{2}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r23">
+    <div class="ph"><div class="pn">23</div><span class="diff dh">Hard</span><span class="topic-tag">Speeding Up</span></div>
+    <div class="pt">A particle has position \(s(t)=t^3-3t^2-9t\). On which interval is the particle speeding up for \(t>0\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r23','A')">A) \((0,1)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','B')">B) \((1,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','C')">C) \((3,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','D')">D) \((0,\infty)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r23',this)">Show Solution</button><span class="fm" id="fb-p-r23"></span></div>
+    <div class="sb" id="s-r23"><strong>Answer: C) \((3,\infty)\)</strong><br>\(v(t)=3t^2-6t-9=3(t-3)(t+1)\), so for \(t>0\), \(v<0\) on \((0,3)\) and \(v>0\) on \((3,\infty)\).<br>\(a(t)=6t-6\), so \(a>0\) for \(t>1\). Speeding up requires same sign. That happens on <strong>\((3,\infty)\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r24">
+    <div class="ph"><div class="pn">24</div><span class="diff dm">Medium</span><span class="topic-tag">Direction Change</span></div>
+    <div class="pt">If \(v(t)=(t-1)(t-3)\), at what times does the particle change direction?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r24','A')">A) \(t=1\) only</button>
+      <button class="cb" onclick="chk(this,'p-r24','B')">B) \(t=3\) only</button>
+      <button class="cb" onclick="chk(this,'p-r24','C')">C) \(t=1\) and \(t=3\)</button>
+      <button class="cb" onclick="chk(this,'p-r24','D')">D) never</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r24',this)">Show Solution</button><span class="fm" id="fb-p-r24"></span></div>
+    <div class="sb" id="s-r24"><strong>Answer: C) \(t=1\) and \(t=3\)</strong><br>The sign of \(v\) is positive for \(t<1\), negative for \(1<t<3\), and positive again for \(t>3\). So the particle changes direction at <strong>both</strong> zeros.</div>
+  </div>
+
+  <div class="pc" id="p-r25">
+    <div class="ph"><div class="pn">25</div><span class="diff de">Easy</span><span class="topic-tag">Displacement</span></div>
+    <div class="pt">A particle has velocity \(v(t)=2t-2\) on \([0,3]\). What is its displacement?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r25','A')">A) 1</button>
+      <button class="cb" onclick="chk(this,'p-r25','B')">B) 2</button>
+      <button class="cb" onclick="chk(this,'p-r25','C')">C) 3</button>
+      <button class="cb" onclick="chk(this,'p-r25','D')">D) 4</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r25',this)">Show Solution</button><span class="fm" id="fb-p-r25"></span></div>
+    <div class="sb" id="s-r25"><strong>Answer: C) 3</strong><br>Displacement \(=\int_0^3(2t-2)\,dt=[t^2-2t]_0^3=9-6=\)<strong>3</strong>.</div>
+  </div>
+
+  <h3 class="sh">Min / Max / Concavity</h3>
+  <div class="pc" id="p-r26">
+    <div class="ph"><div class="pn">26</div><span class="diff dm">Medium</span><span class="topic-tag">First Derivative Test</span></div>
+    <div class="pt">If \(f'(x)=(x-1)(x+2)\), where does \(f\) have a local maximum?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r26','A')">A) \(x=-2\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','B')">B) \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','C')">C) both \(x=-2\) and \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','D')">D) neither</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r26',this)">Show Solution</button><span class="fm" id="fb-p-r26"></span></div>
+    <div class="sb" id="s-r26"><strong>Answer: A) \(x=-2\)</strong><br>\(f'\) changes from positive to negative at \(x=-2\), so \(f\) has a local maximum there. At \(x=1\), \(f'\) changes from negative to positive, so \(f\) has a local minimum there.</div>
+  </div>
+
+  <div class="pc" id="p-r27">
+    <div class="ph"><div class="pn">27</div><span class="diff de">Easy</span><span class="topic-tag">Concavity</span></div>
+    <div class="pt">If \(f''(x)=x-3\), on what interval is \(f\) concave down?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r27','A')">A) \((-\infty,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r27','B')">B) \((3,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r27','C')">C) all real numbers</button>
+      <button class="cb" onclick="chk(this,'p-r27','D')">D) nowhere</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r27',this)">Show Solution</button><span class="fm" id="fb-p-r27"></span></div>
+    <div class="sb" id="s-r27"><strong>Answer: A) \((-\infty,3)\)</strong><br>Concave down means \(f''<0\). Since \(x-3<0\) when \(x<3\), the answer is <strong>\((-\infty,3)\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r28">
+    <div class="ph"><div class="pn">28</div><span class="diff dm">Medium</span><span class="topic-tag">Absolute Maximum</span></div>
+    <div class="pt">Find the absolute maximum value of \(f(x)=-x^2+6x+1\) on \([0,5]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r28','A')">A) 9</button>
+      <button class="cb" onclick="chk(this,'p-r28','B')">B) 10</button>
+      <button class="cb" onclick="chk(this,'p-r28','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-r28','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r28',this)">Show Solution</button><span class="fm" id="fb-p-r28"></span></div>
+    <div class="sb" id="s-r28"><strong>Answer: B) 10</strong><br>Vertex at \(x=-\frac{b}{2a}=3\). Then \(f(3)=-9+18+1=10\). Endpoints give \(f(0)=1\), \(f(5)=6\), so the absolute maximum is <strong>10</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r29">
+    <div class="ph"><div class="pn">29</div><span class="diff dh">Hard</span><span class="topic-tag">Increasing / Decreasing</span></div>
+    <div class="pt">If \(f'(x)=x^2-4\), on which interval is \(f\) decreasing?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r29','A')">A) \((-\infty,-2)\cup(2,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','B')">B) \((-2,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','C')">C) \((-\infty,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','D')">D) \((-2,\infty)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r29',this)">Show Solution</button><span class="fm" id="fb-p-r29"></span></div>
+    <div class="sb" id="s-r29"><strong>Answer: B) \((-2,2)\)</strong><br>\(f\) is decreasing where \(f'<0\). Solve \(x^2-4<0\Rightarrow x^2<4\Rightarrow -2<x<2\).</div>
+  </div>
+
+  <div class="pc" id="p-r30">
+    <div class="ph"><div class="pn">30</div><span class="diff dh">Hard</span><span class="topic-tag">Inflection Point</span></div>
+    <div class="pt">If \(f''(x)=(x-2)^3\), at which \(x\)-value does \(f\) have an inflection point?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r30','A')">A) \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','B')">B) \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','C')">C) \(x=2\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','D')">D) no inflection point</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r30',this)">Show Solution</button><span class="fm" id="fb-p-r30"></span></div>
+    <div class="sb" id="s-r30"><strong>Answer: C) \(x=2\)</strong><br>An inflection point occurs where \(f''\) changes sign. Since \((x-2)^3\) is negative for \(x<2\) and positive for \(x>2\), the sign changes at <strong>\(x=2\)</strong>.</div>
+  </div>
+</div>
+
 </main>
 </div>
 
 <script>
 const ANS = {
+  'p-r1':'A','p-r2':'B','p-r3':'B','p-r4':'C','p-r5':'B',
+  'p-r6':'C','p-r7':'B','p-r8':'B','p-r9':'B','p-r10':'B',
+  'p-r11':'A','p-r12':'A','p-r13':'B','p-r14':'C','p-r15':'B',
+  'p-r16':'A','p-r17':'A','p-r18':'A','p-r19':'A','p-r20':'B',
+  'p-r21':'A','p-r22':'B','p-r23':'C','p-r24':'C','p-r25':'C',
+  'p-r26':'A','p-r27':'A','p-r28':'B','p-r29':'B','p-r30':'C',
   'p-l1':'C','p-l2':'C','p-l3':'A','p-l4':'B','p-l5':'C',
   'p-d1':'A','p-d2':'B','p-d3':'A','p-d4':'A',
   'p-c1':'B','p-c2':'C','p-c3':'B','p-c4':'B','p-c5':'C',
