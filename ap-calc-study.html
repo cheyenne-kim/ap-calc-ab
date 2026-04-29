@@ -95,6 +95,10 @@ main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
 h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
 .btn-sec { background: white; color: #4a4adf; border: 2px solid #4a4adf; padding: 0.45rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.15s; }
 .btn-sec:hover { background: #eef2ff; }
+
+.diagram-wrap { margin: 0.95rem 0 1rem; background: #f8faff; border: 1px solid #d0d8ff; border-radius: 10px; padding: 0.8rem; overflow-x: auto; }
+.diagram-wrap svg { display: block; width: 100%; height: auto; }
+.diagram-note { font-size: 0.78rem; color: #666; margin-top: 0.45rem; line-height: 1.45; }
 .wys-grid { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.1fr); gap: 0; border: 1px solid #d0d8ff; border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
 .wys-row { display: contents; }
 .wys-row > div { padding: 0.6rem 0.85rem; font-size: 0.83rem; border-bottom: 1px solid #e8eeff; line-height: 1.5; }
@@ -162,6 +166,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <a href="#optimization" data-section="optimization">📦 Optimization</a>
   <a href="#areavol" data-section="areavol">🧊 Area &amp; Volume</a>
   <a href="ap-calc-review.html">📝 Review</a>
+  <a href="#mcq429" data-section="mcq429">🧾 4/29 MCQ Set</a>
   <a href="#mixed" data-section="mixed">🎯 Mixed Practice</a>
   <a href="#frq" data-section="frq">✍️ FRQ Practice</a>
   <a id="btn-mistakes" href="ap-calc-mistakes.html">⚠️ Common Mistakes</a>
@@ -2635,6 +2640,728 @@ So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
   </div>
 </div>
 
+<!-- 4/29 MCQ SET -->
+<div class="section" id="sec-mcq429">
+  <h2>4/29 MCQ Set</h2>
+  <div class="intro">This section recreates the full batch of MCQs from your 4/29 packet, including the graph-based questions. I kept the original question numbers from the packet so it is easy to cross-check with the PDF.</div>
+
+  <div class="pc" id="p-4293">
+    <div class="ph"><div class="pn">3</div><span class="diff dm">Medium</span><span class="topic-tag">Chain Rule</span></div>
+    <div class="pt">Evaluate \( \dfrac{d}{dx}\left[2(\sin\sqrt{x})^2\right] \).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-4293','A')">A) \(4\cos\!\left(\dfrac{1}{2\sqrt{x}}\right)\)</button>
+      <button class="cb" onclick="chk(this,'p-4293','B')">B) \(4\sin(\sqrt{x})\cos(\sqrt{x})\)</button>
+      <button class="cb" onclick="chk(this,'p-4293','C')">C) \(\dfrac{2\sin(\sqrt{x})}{\sqrt{x}}\)</button>
+      <button class="cb" onclick="chk(this,'p-4293','D')">D) \(\dfrac{2\sin(\sqrt{x})\cos(\sqrt{x})}{\sqrt{x}}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-4293',this)">Show Solution</button><span class="fm" id="fb-p-4293"></span></div>
+    <div class="sb" id="s-4293"><strong>Answer: D)</strong><br>Use the chain rule twice:
+    \[
+    \frac{d}{dx}\left[2(\sin\sqrt{x})^2\right]=4\sin(\sqrt{x})\cos(\sqrt{x})\cdot\frac{1}{2\sqrt{x}}
+    =\frac{2\sin(\sqrt{x})\cos(\sqrt{x})}{\sqrt{x}}.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-4294">
+    <div class="ph"><div class="pn">4</div><span class="diff dh">Hard</span><span class="topic-tag">u-Substitution</span></div>
+    <div class="pt">Evaluate \( \displaystyle \int \frac{x^2+1}{(x^3+3x-5)^3}\,dx \).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-4294','A')">A) \(-\dfrac{3}{2(3x^2+3)^2}+C\)</button>
+      <button class="cb" onclick="chk(this,'p-4294','B')">B) \(-\dfrac{1}{6(3x^2+3)^2}+C\)</button>
+      <button class="cb" onclick="chk(this,'p-4294','C')">C) \(-\dfrac{3}{2(x^3+3x-5)^2}+C\)</button>
+      <button class="cb" onclick="chk(this,'p-4294','D')">D) \(-\dfrac{1}{6(x^3+3x-5)^2}+C\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-4294',this)">Show Solution</button><span class="fm" id="fb-p-4294"></span></div>
+    <div class="sb" id="s-4294"><strong>Answer: D)</strong><br>Let \(u=x^3+3x-5\), so \(du=3(x^2+1)\,dx\). Then
+    \[
+    \int \frac{x^2+1}{(x^3+3x-5)^3}\,dx
+    =\frac13\int u^{-3}\,du
+    =\frac13\cdot\frac{u^{-2}}{-2}+C
+    =-\frac{1}{6u^2}+C.
+    \]
+    Substitute back.</div>
+  </div>
+
+  <div class="pc" id="p-4296">
+    <div class="ph"><div class="pn">6</div><span class="diff dm">Medium</span><span class="topic-tag">Implicit Differentiation</span></div>
+    <div class="pt">If \(x+3y^{1/3}=y\), what is \(\dfrac{dy}{dx}\) at the point \((2,8)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-4296','A')">A) \(\dfrac13\)</button>
+      <button class="cb" onclick="chk(this,'p-4296','B')">B) \(\dfrac34\)</button>
+      <button class="cb" onclick="chk(this,'p-4296','C')">C) \(\dfrac54\)</button>
+      <button class="cb" onclick="chk(this,'p-4296','D')">D) \(\dfrac43\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-4296',this)">Show Solution</button><span class="fm" id="fb-p-4296"></span></div>
+    <div class="sb" id="s-4296"><strong>Answer: D)</strong><br>Differentiate:
+    \[
+    1+3\left(\frac13y^{-2/3}\right)\frac{dy}{dx}=\frac{dy}{dx}
+    \Rightarrow 1+y^{-2/3}y' = y'.
+    \]
+    At \(y=8\), \(y^{-2/3}=1/4\). So
+    \[
+    1+\frac14y'=y' \Rightarrow 1=\frac34y' \Rightarrow y'=\frac43.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-4298">
+    <div class="ph"><div class="pn">8</div><span class="diff de">Easy</span><span class="topic-tag">Limits at Infinity</span></div>
+    <div class="pt">Evaluate \( \displaystyle \lim_{x\to\infty}\frac{10-6x^2}{5+3e^x} \).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-4298','A')">A) \(-2\)</button>
+      <button class="cb" onclick="chk(this,'p-4298','B')">B) \(0\)</button>
+      <button class="cb" onclick="chk(this,'p-4298','C')">C) \(2\)</button>
+      <button class="cb" onclick="chk(this,'p-4298','D')">D) nonexistent</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-4298',this)">Show Solution</button><span class="fm" id="fb-p-4298"></span></div>
+    <div class="sb" id="s-4298"><strong>Answer: B)</strong><br>The exponential \(e^x\) grows much faster than the polynomial \(x^2\), so the denominator dominates and the ratio goes to <strong>0</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-4299">
+    <div class="ph"><div class="pn">9</div><span class="diff dm">Medium</span><span class="topic-tag">Area Between Curves</span></div>
+    <div class="pt">Let \(R\) be the region bounded by \(y=2x\) and \(y=4x-x^2\). What is the area of \(R\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-4299','A')">A) \(\dfrac23\)</button>
+      <button class="cb" onclick="chk(this,'p-4299','B')">B) \(\dfrac43\)</button>
+      <button class="cb" onclick="chk(this,'p-4299','C')">C) \(\dfrac{16}{3}\)</button>
+      <button class="cb" onclick="chk(this,'p-4299','D')">D) \(\dfrac{28}{3}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-4299',this)">Show Solution</button><span class="fm" id="fb-p-4299"></span></div>
+    <div class="sb" id="s-4299"><strong>Answer: B)</strong><br>Set the curves equal:
+    \[
+    2x=4x-x^2 \Rightarrow x(2-x)=0 \Rightarrow x=0,2.
+    \]
+    On \([0,2]\), the parabola is above the line, so
+    \[
+    \text{Area}=\int_0^2\big[(4x-x^2)-2x\big]\,dx
+    =\int_0^2(2x-x^2)\,dx
+    =\frac43.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42910">
+    <div class="ph"><div class="pn">10</div><span class="diff dh">Hard</span><span class="topic-tag">Graph + Quotient Rule</span></div>
+    <div class="pt">The graph below represents \(f\). If \(g(x)=\dfrac{x^2+1}{f(x)}\), what is \(g'(2)\)?</div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 360 240" aria-label="Piecewise linear graph for question 10">
+        <rect x="0" y="0" width="360" height="240" rx="10" fill="#ffffff"/>
+        <g stroke="#d9e2ff" stroke-width="1">
+          <line x1="40" y1="200" x2="330" y2="200"/>
+          <line x1="40" y1="170" x2="330" y2="170"/>
+          <line x1="40" y1="140" x2="330" y2="140"/>
+          <line x1="40" y1="110" x2="330" y2="110"/>
+          <line x1="40" y1="80" x2="330" y2="80"/>
+          <line x1="40" y1="50" x2="330" y2="50"/>
+          <line x1="70" y1="20" x2="70" y2="210"/>
+          <line x1="120" y1="20" x2="120" y2="210"/>
+          <line x1="170" y1="20" x2="170" y2="210"/>
+          <line x1="220" y1="20" x2="220" y2="210"/>
+          <line x1="270" y1="20" x2="270" y2="210"/>
+        </g>
+        <g stroke="#1a1a2e" stroke-width="2">
+          <line x1="40" y1="110" x2="330" y2="110"/>
+          <line x1="70" y1="210" x2="70" y2="20"/>
+        </g>
+        <g fill="#666" font-size="11">
+          <text x="116" y="126">1</text>
+          <text x="166" y="126">2</text>
+          <text x="216" y="126">3</text>
+          <text x="266" y="126">4</text>
+          <text x="316" y="126">5</text>
+          <text x="55" y="84">2</text>
+          <text x="55" y="54">4</text>
+          <text x="55" y="144">-2</text>
+        </g>
+        <polyline points="70,185 220,65 320,110" fill="none" stroke="#4a4adf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="170" cy="105" r="4.5" fill="#7c3aed"/>
+      </svg>
+      <div class="diagram-note">This recreates the packet graph with key points \((0,-5)\), \((3,7)\), and \((5,0)\).</div>
+    </div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42910','A')">A) \(-\dfrac89\)</button>
+      <button class="cb" onclick="chk(this,'p-42910','B')">B) \(\dfrac19\)</button>
+      <button class="cb" onclick="chk(this,'p-42910','C')">C) \(1\)</button>
+      <button class="cb" onclick="chk(this,'p-42910','D')">D) \(\dfrac{32}{9}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42910',this)">Show Solution</button><span class="fm" id="fb-p-42910"></span></div>
+    <div class="sb" id="s-42910"><strong>Answer: A)</strong><br>On the segment from \((0,-5)\) to \((3,7)\), the slope is \(4\), so \(f'(2)=4\). Also \(f(2)=3\). Then
+    \[
+    g'(2)=\frac{(2\cdot2)f(2)-(2^2+1)f'(2)}{[f(2)]^2}
+    =\frac{4\cdot3-5\cdot4}{3^2}
+    =-\frac89.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42911">
+    <div class="ph"><div class="pn">11</div><span class="diff dm">Medium</span><span class="topic-tag">Definite Integral</span></div>
+    <div class="pt">Evaluate \( \displaystyle \int_{-1}^{1}\frac{x^2-x}{x}\,dx \).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42911','A')">A) \(-2\)</button>
+      <button class="cb" onclick="chk(this,'p-42911','B')">B) \(0\)</button>
+      <button class="cb" onclick="chk(this,'p-42911','C')">C) \(\dfrac43\)</button>
+      <button class="cb" onclick="chk(this,'p-42911','D')">D) nonexistent</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42911',this)">Show Solution</button><span class="fm" id="fb-p-42911"></span></div>
+    <div class="sb" id="s-42911"><strong>Answer: A)</strong><br>For \(x\neq0\),
+    \[
+    \frac{x^2-x}{x}=x-1.
+    \]
+    So
+    \[
+    \int_{-1}^{1}(x-1)\,dx=\left[\frac{x^2}{2}-x\right]_{-1}^{1}
+    =\left(\frac12-1\right)-\left(\frac12+1\right)=-2.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42914">
+    <div class="ph"><div class="pn">14</div><span class="diff de">Easy</span><span class="topic-tag">Particle Motion</span></div>
+    <div class="pt">A particle moves along a straight line so that for \(t\ge 0\), its acceleration is \(a(t)=12t\). If \(v(0)=2\) and \(s(0)=5\), which expression gives the position \(s(t)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42914','A')">A) \(6t^2+5\)</button>
+      <button class="cb" onclick="chk(this,'p-42914','B')">B) \(6t^3+2t+5\)</button>
+      <button class="cb" onclick="chk(this,'p-42914','C')">C) \(2t^3+5\)</button>
+      <button class="cb" onclick="chk(this,'p-42914','D')">D) \(2t^3+2t+5\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42914',this)">Show Solution</button><span class="fm" id="fb-p-42914"></span></div>
+    <div class="sb" id="s-42914"><strong>Answer: D)</strong><br>Integrate acceleration:
+    \[
+    v(t)=\int 12t\,dt=6t^2+C.
+    \]
+    Since \(v(0)=2\), \(C=2\), so \(v(t)=6t^2+2\). Integrate again:
+    \[
+    s(t)=\int(6t^2+2)\,dt=2t^3+2t+C.
+    \]
+    Use \(s(0)=5\) to get \(C=5\).</div>
+  </div>
+
+  <div class="pc" id="p-42915">
+    <div class="ph"><div class="pn">15</div><span class="diff dm">Medium</span><span class="topic-tag">Continuity + Differentiability</span></div>
+    <div class="pt">Let
+    \[
+    f(x)=\begin{cases}
+    -x^2+3 & \text{if } x\le 5\\
+    -10x+28 & \text{if } x&gt;5
+    \end{cases}
+    \]
+    Which statement about \(f\) is true?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42915','A')">A) \(f\) is continuous and differentiable at \(x=5\)</button>
+      <button class="cb" onclick="chk(this,'p-42915','B')">B) \(f\) is continuous but not differentiable at \(x=5\)</button>
+      <button class="cb" onclick="chk(this,'p-42915','C')">C) \(f\) is differentiable but not continuous at \(x=5\)</button>
+      <button class="cb" onclick="chk(this,'p-42915','D')">D) \(f\) is defined but neither continuous nor differentiable at \(x=5\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42915',this)">Show Solution</button><span class="fm" id="fb-p-42915"></span></div>
+    <div class="sb" id="s-42915"><strong>Answer: A)</strong><br>At \(x=5\),
+    \[
+    -5^2+3=-22,\qquad -10(5)+28=-22,
+    \]
+    so \(f\) is continuous. The derivatives match too:
+    \[
+    \frac{d}{dx}(-x^2+3)=-2x \Rightarrow -10 \text{ at } x=5,
+    \]
+    and \(\dfrac{d}{dx}(-10x+28)=-10\). So \(f\) is differentiable there.</div>
+  </div>
+
+  <div class="pc" id="p-42916">
+    <div class="ph"><div class="pn">16</div><span class="diff dm">Medium</span><span class="topic-tag">Differential Equations</span></div>
+    <div class="pt">If \( \dfrac{dy}{dx}=2-y \) and \(y=1\) when \(x=1\), then \(y=\)</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42916','A')">A) \(2-e^{x-1}\)</button>
+      <button class="cb" onclick="chk(this,'p-42916','B')">B) \(2-e^{1-x}\)</button>
+      <button class="cb" onclick="chk(this,'p-42916','C')">C) \(2-e^{-x}\)</button>
+      <button class="cb" onclick="chk(this,'p-42916','D')">D) \(2+e^{-x}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42916',this)">Show Solution</button><span class="fm" id="fb-p-42916"></span></div>
+    <div class="sb" id="s-42916"><strong>Answer: B)</strong><br>Solve \(y'=2-y\) as \(y'+y=2\). A convenient form is \(y=2+Ce^{-x}\). Use \(y(1)=1\):
+    \[
+    1=2+Ce^{-1}\Rightarrow C=-e.
+    \]
+    So \(y=2-e^{1-x}\).</div>
+  </div>
+
+  <div class="pc" id="p-42917">
+    <div class="ph"><div class="pn">17</div><span class="diff dm">Medium</span><span class="topic-tag">Inflection Points</span></div>
+    <div class="pt">Let \( g(x)=\displaystyle\int_3^x (t^2-5t-14)\,dt \). What is the \(x\)-coordinate of the point of inflection of the graph of \(g\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42917','A')">A) \(-2\)</button>
+      <button class="cb" onclick="chk(this,'p-42917','B')">B) \(\dfrac52\)</button>
+      <button class="cb" onclick="chk(this,'p-42917','C')">C) \(3\)</button>
+      <button class="cb" onclick="chk(this,'p-42917','D')">D) \(7\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42917',this)">Show Solution</button><span class="fm" id="fb-p-42917"></span></div>
+    <div class="sb" id="s-42917"><strong>Answer: B)</strong><br>By the FTC,
+    \[
+    g'(x)=x^2-5x-14,\qquad g''(x)=2x-5.
+    \]
+    Inflection happens where \(g''(x)=0\):
+    \[
+    2x-5=0 \Rightarrow x=\frac52.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42919">
+    <div class="ph"><div class="pn">19</div><span class="diff dm">Medium</span><span class="topic-tag">Particle Motion</span></div>
+    <div class="pt">A particle moves along the \(y\)-axis with position \(y(t)=t^3-4t^2+4t+3\). Which statement describes the motion at \(t=1\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42919','A')">A) The particle is moving down the \(y\)-axis with decreasing velocity.</button>
+      <button class="cb" onclick="chk(this,'p-42919','B')">B) The particle is moving down the \(y\)-axis with increasing velocity.</button>
+      <button class="cb" onclick="chk(this,'p-42919','C')">C) The particle is moving up the \(y\)-axis with decreasing velocity.</button>
+      <button class="cb" onclick="chk(this,'p-42919','D')">D) The particle is moving up the \(y\)-axis with increasing velocity.</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42919',this)">Show Solution</button><span class="fm" id="fb-p-42919"></span></div>
+    <div class="sb" id="s-42919"><strong>Answer: B)</strong><br>
+    \[
+    v(t)=y'(t)=3t^2-8t+4,\qquad a(t)=y''(t)=6t-8.
+    \]
+    At \(t=1\), \(v(1)=-1\) and \(a(1)=-2\). Negative velocity means moving down, and because velocity and acceleration have the same sign, the particle is speeding up.</div>
+  </div>
+
+  <div class="pc" id="p-42920">
+    <div class="ph"><div class="pn">20</div><span class="diff de">Easy</span><span class="topic-tag">Integral Properties</span></div>
+    <div class="pt">If \( \int_1^4 f(x)\,dx=8 \) and \( \int_1^4 g(x)\,dx=-2 \), which quantity cannot be determined from the information given?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42920','A')">A) \(\int_4^1 g(x)\,dx\)</button>
+      <button class="cb" onclick="chk(this,'p-42920','B')">B) \(\int_1^4 3f(x)\,dx\)</button>
+      <button class="cb" onclick="chk(this,'p-42920','C')">C) \(\int_1^4 3f(x)g(x)\,dx\)</button>
+      <button class="cb" onclick="chk(this,'p-42920','D')">D) \(\int_1^4 (3f(x)+g(x))\,dx\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42920',this)">Show Solution</button><span class="fm" id="fb-p-42920"></span></div>
+    <div class="sb" id="s-42920"><strong>Answer: C)</strong><br>We can use linearity for A, B, and D:
+    \[
+    \int_4^1 g(x)\,dx=2,\quad \int_1^4 3f(x)\,dx=24,\quad \int_1^4 (3f+g)\,dx=24-2=22.
+    \]
+    But \(\int 3fg\) cannot be found from just \(\int f\) and \(\int g\).</div>
+  </div>
+
+  <div class="pc" id="p-42921">
+    <div class="ph"><div class="pn">21</div><span class="diff dm">Medium</span><span class="topic-tag">Derivative from Definition</span></div>
+    <div class="pt">For any real number \(x\),
+    \[
+    \lim_{h\to0}\frac{\sin(2(x+h))-\sin(2x)}{h}=
+    \]</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42921','A')">A) \(0\)</button>
+      <button class="cb" onclick="chk(this,'p-42921','B')">B) \(1\)</button>
+      <button class="cb" onclick="chk(this,'p-42921','C')">C) \(\cos(2x)\)</button>
+      <button class="cb" onclick="chk(this,'p-42921','D')">D) \(2\cos(2x)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42921',this)">Show Solution</button><span class="fm" id="fb-p-42921"></span></div>
+    <div class="sb" id="s-42921"><strong>Answer: D)</strong><br>This is the derivative of \(\sin(2x)\), so
+    \[
+    \frac{d}{dx}[\sin(2x)]=2\cos(2x).
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42922">
+    <div class="ph"><div class="pn">22</div><span class="diff dh">Hard</span><span class="topic-tag">Slope Fields</span></div>
+    <div class="pt">The slope field below corresponds to which differential equation?</div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 360 260" aria-label="Slope field for question 22">
+        <rect x="0" y="0" width="360" height="260" rx="10" fill="#ffffff"/>
+        <g stroke="#d9e2ff" stroke-width="1">
+          <line x1="40" y1="130" x2="330" y2="130"/>
+          <line x1="185" y1="25" x2="185" y2="235"/>
+        </g>
+        <g stroke="#1a1a2e" stroke-width="2">
+          <line x1="35" y1="130" x2="335" y2="130"/>
+          <line x1="185" y1="20" x2="185" y2="240"/>
+        </g>
+        <g stroke="#4a4adf" stroke-width="2.3" stroke-linecap="round">
+          <line x1="58" y1="63" x2="68" y2="27"/><line x1="90" y1="64" x2="100" y2="28"/><line x1="122" y1="64" x2="132" y2="28"/><line x1="154" y1="64" x2="164" y2="28"/><line x1="186" y1="64" x2="196" y2="28"/><line x1="218" y1="64" x2="228" y2="28"/><line x1="250" y1="64" x2="260" y2="28"/><line x1="282" y1="64" x2="292" y2="28"/>
+          <line x1="58" y1="105" x2="68" y2="85"/><line x1="90" y1="105" x2="100" y2="85"/><line x1="122" y1="105" x2="132" y2="85"/><line x1="154" y1="105" x2="164" y2="85"/><line x1="186" y1="105" x2="196" y2="85"/><line x1="218" y1="105" x2="228" y2="85"/><line x1="250" y1="105" x2="260" y2="85"/><line x1="282" y1="105" x2="292" y2="85"/>
+          <line x1="58" y1="131" x2="68" y2="129"/><line x1="90" y1="131" x2="100" y2="129"/><line x1="122" y1="131" x2="132" y2="129"/><line x1="154" y1="131" x2="164" y2="129"/><line x1="186" y1="131" x2="196" y2="129"/><line x1="218" y1="131" x2="228" y2="129"/><line x1="250" y1="131" x2="260" y2="129"/><line x1="282" y1="131" x2="292" y2="129"/>
+          <line x1="58" y1="175" x2="68" y2="155"/><line x1="90" y1="175" x2="100" y2="155"/><line x1="122" y1="175" x2="132" y2="155"/><line x1="154" y1="175" x2="164" y2="155"/><line x1="186" y1="175" x2="196" y2="155"/><line x1="218" y1="175" x2="228" y2="155"/><line x1="250" y1="175" x2="260" y2="155"/><line x1="282" y1="175" x2="292" y2="155"/>
+          <line x1="58" y1="217" x2="68" y2="181"/><line x1="90" y1="217" x2="100" y2="181"/><line x1="122" y1="217" x2="132" y2="181"/><line x1="154" y1="217" x2="164" y2="181"/><line x1="186" y1="217" x2="196" y2="181"/><line x1="218" y1="217" x2="228" y2="181"/><line x1="250" y1="217" x2="260" y2="181"/><line x1="282" y1="217" x2="292" y2="181"/>
+        </g>
+      </svg>
+      <div class="diagram-note">The slopes depend only on \(y\), are zero at \(y=0\), and are positive for both positive and negative \(y\).</div>
+    </div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42922','A')">A) \(\dfrac{dy}{dx}=|x+y|\)</button>
+      <button class="cb" onclick="chk(this,'p-42922','B')">B) \(\dfrac{dy}{dx}=x^3\)</button>
+      <button class="cb" onclick="chk(this,'p-42922','C')">C) \(\dfrac{dy}{dx}=y^3\)</button>
+      <button class="cb" onclick="chk(this,'p-42922','D')">D) \(\dfrac{dy}{dx}=y^2\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42922',this)">Show Solution</button><span class="fm" id="fb-p-42922"></span></div>
+    <div class="sb" id="s-42922"><strong>Answer: D)</strong><br>The field is constant along horizontal lines, so the slope depends only on \(y\). It is zero at \(y=0\) and positive above and below the axis, which matches \(y^2\), not \(y^3\).</div>
+  </div>
+
+  <div class="pc" id="p-42923">
+    <div class="ph"><div class="pn">23</div><span class="diff dm">Medium</span><span class="topic-tag">Cross Sections</span></div>
+    <div class="pt">The base of a solid is the region in the first quadrant bounded by the \(y\)-axis, the \(x\)-axis, the graph of \(y=e^x\), and the vertical line \(x=1\). Each cross section perpendicular to the \(x\)-axis is a square. What is the volume?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42923','A')">A) \(e-1\)</button>
+      <button class="cb" onclick="chk(this,'p-42923','B')">B) \(\dfrac12e^2-\dfrac12\)</button>
+      <button class="cb" onclick="chk(this,'p-42923','C')">C) \(e^2-1\)</button>
+      <button class="cb" onclick="chk(this,'p-42923','D')">D) \(2e^2-2\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42923',this)">Show Solution</button><span class="fm" id="fb-p-42923"></span></div>
+    <div class="sb" id="s-42923"><strong>Answer: B)</strong><br>Each square has side length \(e^x\), so area \(A(x)=e^{2x}\). Then
+    \[
+    V=\int_0^1 e^{2x}\,dx=\left[\frac12e^{2x}\right]_0^1=\frac12e^2-\frac12.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42924">
+    <div class="ph"><div class="pn">24</div><span class="diff dh">Hard</span><span class="topic-tag">Integral from Graph</span></div>
+    <div class="pt">The graph below is a piecewise linear graph of \(f\). Find \( \displaystyle \int_0^{12} f(x)\,dx \).</div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 430 250" aria-label="Piecewise linear graph for question 24">
+        <rect x="0" y="0" width="430" height="250" rx="10" fill="#ffffff"/>
+        <g stroke="#d9e2ff" stroke-width="1">
+          <line x1="40" y1="200" x2="400" y2="200"/>
+          <line x1="40" y1="170" x2="400" y2="170"/>
+          <line x1="40" y1="140" x2="400" y2="140"/>
+          <line x1="40" y1="110" x2="400" y2="110"/>
+          <line x1="40" y1="80" x2="400" y2="80"/>
+          <line x1="40" y1="50" x2="400" y2="50"/>
+          <line x1="70" y1="20" x2="70" y2="220"/>
+          <line x1="100" y1="20" x2="100" y2="220"/>
+          <line x1="130" y1="20" x2="130" y2="220"/>
+          <line x1="160" y1="20" x2="160" y2="220"/>
+          <line x1="190" y1="20" x2="190" y2="220"/>
+          <line x1="220" y1="20" x2="220" y2="220"/>
+          <line x1="250" y1="20" x2="250" y2="220"/>
+          <line x1="280" y1="20" x2="280" y2="220"/>
+          <line x1="310" y1="20" x2="310" y2="220"/>
+          <line x1="340" y1="20" x2="340" y2="220"/>
+          <line x1="370" y1="20" x2="370" y2="220"/>
+        </g>
+        <g stroke="#1a1a2e" stroke-width="2">
+          <line x1="35" y1="110" x2="405" y2="110"/>
+          <line x1="70" y1="20" x2="70" y2="220"/>
+        </g>
+        <g fill="#666" font-size="11">
+          <text x="127" y="126">3</text>
+          <text x="217" y="126">6</text>
+          <text x="307" y="126">9</text>
+          <text x="392" y="126">12</text>
+          <text x="54" y="83">2</text>
+          <text x="54" y="53">4</text>
+          <text x="50" y="173">-2</text>
+          <text x="50" y="203">-4</text>
+        </g>
+        <polyline points="70,50 250,170 280,110 400,200" fill="none" stroke="#4a4adf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="diagram-note">The rebuilt graph uses the same intercepts and turning points as the packet graph.</div>
+    </div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42924','A')">A) \(-8\)</button>
+      <button class="cb" onclick="chk(this,'p-42924','B')">B) \(-6\)</button>
+      <button class="cb" onclick="chk(this,'p-42924','C')">C) \(0\)</button>
+      <button class="cb" onclick="chk(this,'p-42924','D')">D) \(22\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42924',this)">Show Solution</button><span class="fm" id="fb-p-42924"></span></div>
+    <div class="sb" id="s-42924"><strong>Answer: B)</strong><br>Break the graph into signed geometric pieces:
+    positive triangle from \(0\) to \(4\): \(8\); negative triangle from \(4\) to \(7\): \(-\dfrac92\); negative triangle from \(7\) to \(8\): \(-\dfrac32\); negative triangle from \(8\) to \(12\): \(-8\). Sum:
+    \[
+    8-\frac92-\frac32-8=-6.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42925">
+    <div class="ph"><div class="pn">25</div><span class="diff dm">Medium</span><span class="topic-tag">Differential Equations</span></div>
+    <div class="pt">The equation \(y=2e^{6x}-5\) is a particular solution to which differential equation?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42925','A')">A) \(y'-6y-30=0\)</button>
+      <button class="cb" onclick="chk(this,'p-42925','B')">B) \(2y'-12y+5=0\)</button>
+      <button class="cb" onclick="chk(this,'p-42925','C')">C) \(y''-5y'-6y=0\)</button>
+      <button class="cb" onclick="chk(this,'p-42925','D')">D) \(y''-2y'+y+5=0\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42925',this)">Show Solution</button><span class="fm" id="fb-p-42925"></span></div>
+    <div class="sb" id="s-42925"><strong>Answer: A)</strong><br>\(y'=12e^{6x}\). Also \(6y+30=6(2e^{6x}-5)+30=12e^{6x}\). So \(y'-6y-30=0\).</div>
+  </div>
+
+  <div class="pc" id="p-42926">
+    <div class="ph"><div class="pn">26</div><span class="diff dm">Medium</span><span class="topic-tag">Absolute Minimum</span></div>
+    <div class="pt">For what value of \(x\) does the minimum value of \(y=3x^{4/3}-2x\) occur on the closed interval \([0,1]\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42926','A')">A) \(0\)</button>
+      <button class="cb" onclick="chk(this,'p-42926','B')">B) \(\dfrac18\)</button>
+      <button class="cb" onclick="chk(this,'p-42926','C')">C) \(\dfrac12\)</button>
+      <button class="cb" onclick="chk(this,'p-42926','D')">D) \(1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42926',this)">Show Solution</button><span class="fm" id="fb-p-42926"></span></div>
+    <div class="sb" id="s-42926"><strong>Answer: B)</strong><br>
+    \[
+    y'(x)=4x^{1/3}-2.
+    \]
+    Set \(y'(x)=0\):
+    \[
+    4x^{1/3}=2 \Rightarrow x^{1/3}=\frac12 \Rightarrow x=\frac18.
+    \]
+    Checking \(x=0,\frac18,1\) shows the smallest value occurs at \(x=\frac18\).</div>
+  </div>
+
+  <div class="pc" id="p-42927">
+    <div class="ph"><div class="pn">27</div><span class="diff dm">Medium</span><span class="topic-tag">Interpretation of Derivatives</span></div>
+    <div class="pt">A storage tank begins filling with water at \(t=0\). For \(t&gt;0\), the depth of the water is increasing at a rate of \(W(t)\) feet per hour. Which statement best interprets \(W'(2)&gt;3\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42927','A')">A) Two hours after the tank begins filling, the depth of the water is increasing at a rate greater than 3 feet per hour.</button>
+      <button class="cb" onclick="chk(this,'p-42927','B')">B) Over the first two hours after the tank begins filling, the depth of the water is always increasing at a rate greater than 3 feet per hour.</button>
+      <button class="cb" onclick="chk(this,'p-42927','C')">C) Two hours after the tank begins filling, the rate at which the depth of the water is rising is increasing at a rate greater than 3 feet per hour per hour.</button>
+      <button class="cb" onclick="chk(this,'p-42927','D')">D) Over the first two hours after the tank begins filling, the rate at which the depth of the water is rising is always increasing at a rate greater than 3 feet per hour per hour.</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42927',this)">Show Solution</button><span class="fm" id="fb-p-42927"></span></div>
+    <div class="sb" id="s-42927"><strong>Answer: C)</strong><br>\(W(t)\) is already a rate. Therefore \(W'(2)\) is how fast that rate is changing at \(t=2\), in feet per hour per hour.</div>
+  </div>
+
+  <div class="pc" id="p-42928">
+    <div class="ph"><div class="pn">28</div><span class="diff dh">Hard</span><span class="topic-tag">Related Rates</span></div>
+    <div class="pt">A person stands 30 feet from point \(P\) and watches a balloon rise vertically from \(P\). The balloon rises at 2 feet per second. What is the rate of change of angle \(\theta\) when the balloon is 40 feet above \(P\)?</div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 330 190" aria-label="Balloon triangle for question 28">
+        <rect x="0" y="0" width="330" height="190" rx="10" fill="#ffffff"/>
+        <g stroke="#1a1a2e" stroke-width="2">
+          <line x1="35" y1="150" x2="240" y2="150"/>
+          <line x1="240" y1="150" x2="240" y2="30"/>
+          <line x1="35" y1="150" x2="240" y2="30"/>
+        </g>
+        <circle cx="240" cy="30" r="7" fill="#c084fc"/>
+        <circle cx="35" cy="150" r="4" fill="#4a4adf"/>
+        <circle cx="240" cy="150" r="4" fill="#4a4adf"/>
+        <path d="M60 150 A25 25 0 0 1 55 132" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+        <text x="56" y="144" font-size="14" fill="#7c3aed">θ</text>
+        <text x="125" y="167" font-size="13" fill="#666">30</text>
+        <text x="247" y="92" font-size="13" fill="#666">y</text>
+        <text x="245" y="166" font-size="13" fill="#666">P</text>
+      </svg>
+    </div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42928','A')">A) \(\dfrac{3}{100}\)</button>
+      <button class="cb" onclick="chk(this,'p-42928','B')">B) \(\dfrac{3}{125}\)</button>
+      <button class="cb" onclick="chk(this,'p-42928','C')">C) \(\dfrac{1}{12}\)</button>
+      <button class="cb" onclick="chk(this,'p-42928','D')">D) \(\dfrac{2}{27}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42928',this)">Show Solution</button><span class="fm" id="fb-p-42928"></span></div>
+    <div class="sb" id="s-42928"><strong>Answer: B)</strong><br>Use \(\tan\theta=\dfrac{y}{30}\). Differentiate:
+    \[
+    \sec^2\theta\frac{d\theta}{dt}=\frac1{30}\frac{dy}{dt}.
+    \]
+    When \(y=40\), the triangle is \(30\text{-}40\text{-}50\), so \(\sec^2\theta=\left(\frac{50}{30}\right)^2=\frac{25}{9}\). Then
+    \[
+    \frac{d\theta}{dt}=\frac{(1/30)\cdot 2}{25/9}=\frac{3}{125}.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42930">
+    <div class="ph"><div class="pn">30</div><span class="diff dh">Hard</span><span class="topic-tag">Riemann Sums</span></div>
+    <div class="pt">For what value of \(b\) does
+    \[
+    \int_1^b x^2\,dx
+    \]
+    equal
+    \[
+    \lim_{n\to\infty}\sum_{k=1}^{n}\left(1+\frac{2k}{n}\right)^2\frac{2}{n}\,?
+    \]</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42930','A')">A) \(b=2\) only</button>
+      <button class="cb" onclick="chk(this,'p-42930','B')">B) \(b=3\) only</button>
+      <button class="cb" onclick="chk(this,'p-42930','C')">C) \(b\) could be any real number.</button>
+      <button class="cb" onclick="chk(this,'p-42930','D')">D) There is no such value of \(b\).</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42930',this)">Show Solution</button><span class="fm" id="fb-p-42930"></span></div>
+    <div class="sb" id="s-42930"><strong>Answer: B)</strong><br>The sum is a right-endpoint Riemann sum for
+    \[
+    \int_1^3 x^2\,dx
+    \]
+    because \(\Delta x=\dfrac{2}{n}\) and \(x_k=1+\dfrac{2k}{n}\). So the matching upper limit is \(b=3\).</div>
+  </div>
+
+  <div class="pc" id="p-42933">
+    <div class="ph"><div class="pn">33</div><span class="diff de">Easy</span><span class="topic-tag">Linear Approximation</span></div>
+    <div class="pt">The function \(g\) is differentiable with \(g(-1)=4\) and \(g'(-1)=2\). Use the tangent line at \(x=-1\) to approximate \(g(-1.2)\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42933','A')">A) 3.6</button>
+      <button class="cb" onclick="chk(this,'p-42933','B')">B) 3.8</button>
+      <button class="cb" onclick="chk(this,'p-42933','C')">C) 4.2</button>
+      <button class="cb" onclick="chk(this,'p-42933','D')">D) 4.4</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42933',this)">Show Solution</button><span class="fm" id="fb-p-42933"></span></div>
+    <div class="sb" id="s-42933"><strong>Answer: A)</strong><br>The tangent-line approximation is
+    \[
+    L(x)=g(-1)+g'(-1)(x+1)=4+2(x+1).
+    \]
+    Then \(L(-1.2)=4+2(-0.2)=3.6\).</div>
+  </div>
+
+  <div class="pc" id="p-42935">
+    <div class="ph"><div class="pn">35</div><span class="diff dh">Hard</span><span class="topic-tag">FTC + Calculator</span></div>
+    <div class="pt">Let \(g\) have first derivative \(g'(x)=\sqrt{x^3+x}\) for \(x&gt;0\). If \(g(2)=-7\), what is the value of \(g(5)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42935','A')">A) 4.402</button>
+      <button class="cb" onclick="chk(this,'p-42935','B')">B) 11.402</button>
+      <button class="cb" onclick="chk(this,'p-42935','C')">C) 13.899</button>
+      <button class="cb" onclick="chk(this,'p-42935','D')">D) 20.899</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42935',this)">Show Solution</button><span class="fm" id="fb-p-42935"></span></div>
+    <div class="sb" id="s-42935"><strong>Answer: C)</strong><br>By the FTC,
+    \[
+    g(5)=g(2)+\int_2^5 g'(x)\,dx=-7+\int_2^5\sqrt{x^3+x}\,dx.
+    \]
+    This integral is evaluated numerically on a calculator:
+    \[
+    \int_2^5\sqrt{x^3+x}\,dx \approx 20.899.
+    \]
+    Therefore \(g(5)\approx -7+20.899=13.899\).</div>
+  </div>
+
+  <div class="pc" id="p-42937">
+    <div class="ph"><div class="pn">37</div><span class="diff dm">Medium</span><span class="topic-tag">Integral Properties</span></div>
+    <div class="pt">Let \(f\) be continuous such that \( \int_0^{17}f(x)\,dx=8\), \( \int_{17}^{20}f(x)\,dx=-3\), and \( \int_{13}^{20}f(x)\,dx=7\). Find \( \int_0^{13}f(x)\,dx\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42937','A')">A) \(-2\)</button>
+      <button class="cb" onclick="chk(this,'p-42937','B')">B) \(4\)</button>
+      <button class="cb" onclick="chk(this,'p-42937','C')">C) \(12\)</button>
+      <button class="cb" onclick="chk(this,'p-42937','D')">D) \(18\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42937',this)">Show Solution</button><span class="fm" id="fb-p-42937"></span></div>
+    <div class="sb" id="s-42937"><strong>Answer: A)</strong><br>
+    \[
+    \int_{13}^{17}f(x)\,dx=\int_{13}^{20}f(x)\,dx-\int_{17}^{20}f(x)\,dx=7-(-3)=10.
+    \]
+    Then
+    \[
+    \int_0^{13}f(x)\,dx=\int_0^{17}f(x)\,dx-\int_{13}^{17}f(x)\,dx=8-10=-2.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42938">
+    <div class="ph"><div class="pn">38</div><span class="diff dh">Hard</span><span class="topic-tag">Continuity</span></div>
+    <div class="pt">Let
+    \[
+    f(x)=\begin{cases}
+    k^3+x & \text{for } x&lt;3\\[0.2rem]
+    \dfrac{16}{k^2-x} & \text{for } x\ge 3
+    \end{cases}
+    \]
+    where \(k\) is a positive constant. For what value of \(k\), if any, is \(f\) continuous?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42938','A')">A) 2.081</button>
+      <button class="cb" onclick="chk(this,'p-42938','B')">B) 2.646</button>
+      <button class="cb" onclick="chk(this,'p-42938','C')">C) 8.550</button>
+      <button class="cb" onclick="chk(this,'p-42938','D')">D) There is no such value of \(k\).</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42938',this)">Show Solution</button><span class="fm" id="fb-p-42938"></span></div>
+    <div class="sb" id="s-42938"><strong>Answer: A)</strong><br>Continuity at \(x=3\) requires
+    \[
+    k^3+3=\frac{16}{k^2-3}.
+    \]
+    Solving numerically gives the positive root
+    \[
+    k\approx 2.081.
+    \]</div>
+  </div>
+
+  <div class="pc" id="p-42939">
+    <div class="ph"><div class="pn">39</div><span class="diff dm">Medium</span><span class="topic-tag">IVT / MVT</span></div>
+    <div class="pt">The table gives values of a continuous function \(f\): \(f(-5)=-9\), \(f(0)=1\), and \(f(2)=5\). Which statement must be true?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42939','A')">A) \(f\) has at most one zero.</button>
+      <button class="cb" onclick="chk(this,'p-42939','B')">B) \(f\) has a relative maximum at \(x=2\).</button>
+      <button class="cb" onclick="chk(this,'p-42939','C')">C) There exists \(c\), where \(-5&lt;c&lt;2\), such that \(f(c)=4\).</button>
+      <button class="cb" onclick="chk(this,'p-42939','D')">D) There exists \(c\), where \(-5&lt;c&lt;2\), such that \(f'(c)=2\).</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42939',this)">Show Solution</button><span class="fm" id="fb-p-42939"></span></div>
+    <div class="sb" id="s-42939"><strong>Answer: C)</strong><br>\(f\) is continuous and takes values \(1\) at \(x=0\) and \(5\) at \(x=2\). Since \(4\) lies between \(1\) and \(5\), the IVT guarantees some \(c\in(0,2)\subset(-5,2)\) with \(f(c)=4\).</div>
+  </div>
+
+  <div class="pc" id="p-42940">
+    <div class="ph"><div class="pn">40</div><span class="diff dh">Hard</span><span class="topic-tag">Antiderivatives + Sign Changes</span></div>
+    <div class="pt">The function \(f\) is an antiderivative of \(g(x)=3-\sqrt{x^2+x+4\cos x}\). Which choice is the \(x\)-coordinate of a local maximum of \(f\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42940','A')">A) \(-3.961\)</button>
+      <button class="cb" onclick="chk(this,'p-42940','B')">B) \(-2.161\)</button>
+      <button class="cb" onclick="chk(this,'p-42940','C')">C) \(1.494\)</button>
+      <button class="cb" onclick="chk(this,'p-42940','D')">D) \(3.140\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42940',this)">Show Solution</button><span class="fm" id="fb-p-42940"></span></div>
+    <div class="sb" id="s-42940"><strong>Answer: D)</strong><br>Because \(f'=g\), a local maximum of \(f\) occurs where \(g\) changes from positive to negative. Checking the choices numerically, \(g(x)=0\) near both \(-3.961\) and \(3.140\), but only near \(x\approx 3.140\) does \(g\) switch from \(+\) to \(-\).</div>
+  </div>
+
+  <div class="pc" id="p-42942">
+    <div class="ph"><div class="pn">42</div><span class="diff dh">Hard</span><span class="topic-tag">Particle Motion + Calculator</span></div>
+    <div class="pt">For \(0&lt;t&lt;2\), a particle has velocity \(v(t)=t\sin(t^3)\). Let \(t=b\) be the time when the particle changes direction from moving left to moving right. What is the total distance traveled on \(0&lt;t&lt;b\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42942','A')">A) 0.212</button>
+      <button class="cb" onclick="chk(this,'p-42942','B')">B) 0.612</button>
+      <button class="cb" onclick="chk(this,'p-42942','C')">C) 1.011</button>
+      <button class="cb" onclick="chk(this,'p-42942','D')">D) 1.208</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42942',this)">Show Solution</button><span class="fm" id="fb-p-42942"></span></div>
+    <div class="sb" id="s-42942"><strong>Answer: C)</strong><br>The change from left to right happens when \(v\) changes from negative to positive, which occurs at
+    \[
+    b=\sqrt[3]{2\pi}.
+    \]
+    Total distance is
+    \[
+    \int_0^b |t\sin(t^3)|\,dt,
+    \]
+    which must be evaluated numerically. The calculator value is \(\approx 1.011\).</div>
+  </div>
+
+  <div class="pc" id="p-42943">
+    <div class="ph"><div class="pn">43</div><span class="diff dh">Hard</span><span class="topic-tag">Mean Value Theorem</span></div>
+    <div class="pt">Let \(f(x)=\dfrac14x^4-\dfrac23x^3+\dfrac12x^2-\dfrac12x\). For how many values of \(x\) in \((0,1.565)\) is the instantaneous rate of change equal to the average rate of change on \([0,1.565]\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42943','A')">A) Zero</button>
+      <button class="cb" onclick="chk(this,'p-42943','B')">B) One</button>
+      <button class="cb" onclick="chk(this,'p-42943','C')">C) Three</button>
+      <button class="cb" onclick="chk(this,'p-42943','D')">D) Four</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42943',this)">Show Solution</button><span class="fm" id="fb-p-42943"></span></div>
+    <div class="sb" id="s-42943"><strong>Answer: C)</strong><br>We solve
+    \[
+    f'(x)=\frac{f(1.565)-f(0)}{1.565}.
+    \]
+    Here \(f'(x)=x^3-2x^2+x-\frac12\), and the secant slope is about \(-0.3921\). Solving the cubic equation
+    \[
+    x^3-2x^2+x-\frac12=-0.3921
+    \]
+    gives three solutions in \((0,1.565)\), so there are <strong>three</strong> such values.</div>
+  </div>
+
+  <div class="pc" id="p-42944">
+    <div class="ph"><div class="pn">44</div><span class="diff dm">Medium</span><span class="topic-tag">Concavity + Average Rate</span></div>
+    <div class="pt">Let \(g\) be twice differentiable with \(g'(x)&gt;0\) and \(g''(x)&gt;0\) for all real \(x\), and suppose \(g(3)=12\) and \(g(5)=18\). Which of 20, 21, and 22 are possible values for \(g(6)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42944','A')">A) 21 only</button>
+      <button class="cb" onclick="chk(this,'p-42944','B')">B) 22 only</button>
+      <button class="cb" onclick="chk(this,'p-42944','C')">C) 20 and 21 only</button>
+      <button class="cb" onclick="chk(this,'p-42944','D')">D) 21 and 22 only</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42944',this)">Show Solution</button><span class="fm" id="fb-p-42944"></span></div>
+    <div class="sb" id="s-42944"><strong>Answer: B)</strong><br>The average rate of change from \(x=3\) to \(x=5\) is
+    \[
+    \frac{18-12}{5-3}=3.
+    \]
+    Since \(g''(x)&gt;0\), slopes are increasing, so the slope from \(5\) to \(6\) must be greater than 3. Therefore
+    \[
+    g(6)&gt;g(5)+3=21.
+    \]
+    So 20 and 21 are impossible, but 22 is possible.</div>
+  </div>
+
+  <div class="pc" id="p-42945">
+    <div class="ph"><div class="pn">45</div><span class="diff dm">Medium</span><span class="topic-tag">Inverse Functions</span></div>
+    <div class="pt">The table gives \(f(2)=1\), \(f(3)=2\), \(f(4)=6\), and \(f'(3)=5\). If \(g\) is the inverse of \(f\), which equation is the tangent line to \(g\) at the point where \(x=2\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-42945','A')">A) \(y=-\dfrac15(x-2)+3\)</button>
+      <button class="cb" onclick="chk(this,'p-42945','B')">B) \(y=-\dfrac14(x-2)+1\)</button>
+      <button class="cb" onclick="chk(this,'p-42945','C')">C) \(y=\dfrac15(x-2)+3\)</button>
+      <button class="cb" onclick="chk(this,'p-42945','D')">D) \(y=4(x-2)+1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-42945',this)">Show Solution</button><span class="fm" id="fb-p-42945"></span></div>
+    <div class="sb" id="s-42945"><strong>Answer: C)</strong><br>If \(g=f^{-1}\), then \(g(2)=3\) because \(f(3)=2\). Also
+    \[
+    g'(2)=\frac{1}{f'(3)}=\frac15.
+    \]
+    So the tangent line at \((2,3)\) is
+    \[
+    y-3=\frac15(x-2).
+    \]</div>
+  </div>
+</div>
+
 <!-- MIXED PRACTICE -->
 <div class="section" id="sec-mixed">
   <h2>Mixed Practice</h2>
@@ -4172,6 +4899,7 @@ const ANS = {
   'p-g3-1':'B','p-g3-2':'A','p-g3-3':'C','p-g3-4':'B','p-g3-5':'A','p-g3-6':'D','p-g3-7':'C',
   'p-rr1':'B','p-rr2':'C','p-rr3':'B','p-rr4':'A','p-rr5':'C','p-rr6':'A',
   'p-av1':'B','p-av2':'C','p-av3':'B','p-av4':'A','p-av5':'C','p-av6':'B',
+  'p-4293':'D','p-4294':'D','p-4296':'D','p-4298':'B','p-4299':'B','p-42910':'A','p-42911':'A','p-42914':'D','p-42915':'A','p-42916':'B','p-42917':'B','p-42919':'B','p-42920':'C','p-42921':'D','p-42922':'D','p-42923':'B','p-42924':'B','p-42925':'A','p-42926':'B','p-42927':'C','p-42928':'B','p-42930':'B','p-42933':'A','p-42935':'C','p-42937':'A','p-42938':'A','p-42939':'C','p-42940':'D','p-42942':'C','p-42943':'C','p-42944':'B','p-42945':'C',
   'p-opt1':'B','p-opt2':'A','p-opt3':'A','p-opt4':'B','p-opt5':'B','p-opt6':'A',
   'p-id1':'A','p-id2':'C','p-id3':'B','p-id4':'B','p-id5':'B','p-id6':'C','p-id7':'C'
 };
