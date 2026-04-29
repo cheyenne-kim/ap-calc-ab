@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Calculus AB Study Guide</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false})"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; min-height: 100vh; }
+.katex { font-size: 1.03em; }
+.katex-display { margin: 0.55rem 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.08rem; }
+header { background: linear-gradient(135deg, #1a1a6e 0%, #2d2d9e 50%, #4a4adf 100%); color: white; padding: 1.5rem 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+header h1 { font-size: 2rem; letter-spacing: 1px; }
+header p { opacity: 0.85; margin-top: 0.25rem; font-size: 1rem; }
+.progress-banner { background: #fff; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 2px solid #e0e7ff; font-size: 0.9rem; color: #444; }
+.progress-bar-wrap { flex: 1; height: 10px; background: #e0e7ff; border-radius: 99px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, #4a4adf, #7c3aed); border-radius: 99px; transition: width 0.4s ease; }
+.progress-label { font-weight: 700; color: #4a4adf; white-space: nowrap; }
+.container { display: flex; min-height: calc(100vh - 130px); }
+nav { width: 240px; background: #fff; border-right: 2px solid #e0e7ff; padding: 1rem 0; position: sticky; top: 0; height: calc(100vh - 130px); overflow-y: auto; flex-shrink: 0; }
+nav h3 { padding: 0.5rem 1.1rem 0.3rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; }
+nav a { display: flex; align-items: center; justify-content: space-between; gap: 0.45rem; width: 100%; text-align: left; padding: 0.55rem 1.1rem; border: none; background: none; cursor: pointer; font-size: 0.85rem; color: #333; transition: all 0.15s; border-left: 3px solid transparent; line-height: 1.3; text-decoration: none; }
+nav a:hover { background: #f0f4ff; color: #4a4adf; }
+nav a.active { background: #eef2ff; color: #4a4adf; font-weight: 700; border-left-color: #4a4adf; }
+nav .pct { font-size: 0.7rem; color: #aaa; flex-shrink: 0; margin-left: auto; }
+nav .nav-div { border-top: 1px solid #e0e7ff; margin: 0.5rem 0; }
+main { flex: 1; padding: 2rem; max-width: 1120px; min-width: 0; }
+.section { display: none; }
+.section.active { display: block; }
+.section h2 { font-size: 1.5rem; margin-bottom: 0.4rem; color: #1a1a6e; }
+.unit-weight { display: inline-block; background: #eef2ff; color: #4a4adf; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; margin-bottom: 0.75rem; }
+.intro { background: #eef2ff; border-left: 4px solid #4a4adf; padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.25rem; font-size: 0.92rem; line-height: 1.6; }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin: 0 0 1.25rem; }
+.video-card { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 0.85rem; align-items: center; background: #fff; border: 1px solid #d0d8ff; border-radius: 10px; padding: 0.75rem; color: #1a1a2e; text-decoration: none; box-shadow: 0 2px 8px rgba(74,74,223,0.06); transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.video-card:hover { transform: translateY(-1px); border-color: #4a4adf; box-shadow: 0 8px 18px rgba(74,74,223,0.12); }
+.video-thumb { position: relative; aspect-ratio: 16 / 9; border-radius: 7px; overflow: hidden; background: #1a1a2e; }
+.video-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-play { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 1.35rem; text-shadow: 0 1px 4px rgba(0,0,0,0.45); background: rgba(26,26,110,0.12); }
+.video-copy { min-width: 0; }
+.video-label { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.7px; font-weight: 800; color: #7c3aed; margin-bottom: 0.25rem; }
+.video-title { display: block; font-size: 0.92rem; font-weight: 750; line-height: 1.35; color: #1a1a6e; }
+.video-meta { display: block; margin-top: 0.3rem; font-size: 0.76rem; line-height: 1.35; color: #666; }
+.fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
+.fc { background: white; border-radius: 10px; padding: 0.9rem 1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 8px rgba(74,74,223,0.05); }
+.fc h4 { font-size: 0.72rem; text-transform: uppercase; color: #7c3aed; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
+.fc .f { font-size: 1rem; color: #1a1a6e; background: #f5f3ff; padding: 0.65rem 0.75rem; border-radius: 5px; min-height: 3rem; display: block; line-height: 1.65; overflow-x: auto; overflow-y: hidden; max-width: 100%; white-space: normal; }
+.fc .f .katex { margin: 0 0.08rem; }
+.fc p { font-size: 0.78rem; color: #666; margin-top: 0.35rem; line-height: 1.4; }
+.pc { background: white; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.1rem; border: 1px solid #d0d8ff; box-shadow: 0 2px 10px rgba(74,74,223,0.06); overflow: hidden; }
+.ph { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+.pn { background: #4a4adf; color: white; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.diff { font-size: 0.7rem; padding: 0.18rem 0.55rem; border-radius: 99px; font-weight: 700; }
+.de { background: #dcfce7; color: #166534; }
+.dm { background: #fef9c3; color: #854d0e; }
+.dh { background: #fee2e2; color: #991b1b; }
+.topic-tag { font-size: 0.7rem; color: #888; }
+.pt { font-size: 0.96rem; line-height: 1.8; color: #222; margin-bottom: 1rem; overflow-wrap: break-word; }
+.pt .katex { line-height: 1.45; }
+.pt .katex-display { margin-top: 0.7rem; }
+.m { background: #f5f3ff; padding: 0.16rem 0.5rem; border-radius: 4px; color: #3730a3; display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); align-items: stretch; gap: 0.55rem; margin-bottom: 0.95rem; }
+.cb { min-height: 3.2rem; padding: 0.72rem 0.9rem; border: 2px solid #d0d8ff; border-radius: 8px; background: #fafafe; cursor: pointer; text-align: left; font-family: inherit; font-size: 0.9rem; line-height: 1.55; transition: all 0.15s; color: #333; overflow-wrap: break-word; overflow-x: auto; }
+.cb .katex { line-height: 1.35; white-space: nowrap; }
+.cb:hover { border-color: #4a4adf; background: #eef2ff; }
+.cb.correct { border-color: #16a34a; background: #dcfce7; color: #14532d; font-weight: 600; }
+.cb.wrong { border-color: #dc2626; background: #fee2e2; color: #7f1d1d; }
+.cb:disabled { cursor: default; }
+.pa { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.st { background: none; border: 2px solid #4a4adf; color: #4a4adf; padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: all 0.15s; }
+.st:hover { background: #4a4adf; color: white; }
+.sb { display: none; margin-top: 0.9rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 1.05rem 1.15rem; font-size: 0.9rem; line-height: 1.85; color: #14532d; overflow-x: auto; }
+.sb.vis { display: block; }
+.sb strong { color: #166534; }
+.sb .katex { line-height: 1.45; }
+.sb .katex-display { margin: 0.75rem 0; }
+#sec-frq .pc { padding: 1.35rem 1.5rem; border-left: 4px solid #7c3aed; }
+#sec-frq .pt { background: #fafafe; border: 1px solid #e0e7ff; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 0.9rem; }
+#sec-frq .sb { background: #f8fff9; border-color: #bbf7d0; color: #17462a; }
+.frq-parts { margin: 0.85rem 0 0; padding-left: 1.15rem; }
+.frq-parts li { margin: 0.45rem 0; line-height: 1.7; padding-left: 0.2rem; }
+.frq-table { width: 100%; border-collapse: collapse; margin: 0.85rem 0; font-size: 0.9rem; overflow: hidden; border-radius: 8px; }
+.frq-table th, .frq-table td { border: 1px solid #d0d8ff; padding: 0.55rem 0.7rem; text-align: center; }
+.frq-table th { background: #eef2ff; color: #1a1a6e; font-weight: 750; }
+.frq-table td { background: #fff; }
+.frq-answer { display: inline-block; background: #dcfce7; border: 1px solid #86efac; color: #166534; border-radius: 6px; padding: 0.08rem 0.45rem; font-weight: 750; }
+.fm { font-size: 0.82rem; font-weight: 600; }
+.fc-ok { color: #16a34a; }
+.fc-no { color: #dc2626; }
+.tip { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 0.9rem; font-size: 0.88rem; line-height: 1.6; }
+.tip strong { color: #9a3412; display: block; margin-bottom: 0.3rem; }
+h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
+.btn-sec { background: white; color: #4a4adf; border: 2px solid #4a4adf; padding: 0.45rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.15s; }
+.btn-sec:hover { background: #eef2ff; }
+.wys-grid { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.1fr); gap: 0; border: 1px solid #d0d8ff; border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
+.wys-row { display: contents; }
+.wys-row > div { padding: 0.6rem 0.85rem; font-size: 0.83rem; border-bottom: 1px solid #e8eeff; line-height: 1.5; }
+.wys-row > div:first-child { background: #f5f7ff; font-weight: 600; color: #1a1a6e; border-right: 1px solid #d0d8ff; }
+.wys-row > div:last-child { color: #333; background: #fff; }
+.wys-row:last-child > div { border-bottom: none; }
+.wys-section-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #7c3aed; font-weight: 700; padding: 0.5rem 0.85rem; background: #f5f3ff; grid-column: 1 / -1; border-bottom: 1px solid #d0d8ff; }
+.graph-wrap { background: #fff; border: 1px solid #d0d8ff; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; }
+.graph-wrap figcaption { text-align: center; font-size: 0.82rem; color: #666; margin-top: 0.5rem; }
+.graph-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 0.65rem 0.9rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; margin-bottom: 1.25rem; line-height: 1.5; }
+@media (max-width: 700px) {
+  .container { flex-direction: column; }
+  nav { width: 100%; height: auto; position: static; display: flex; flex-wrap: wrap; padding: 0.4rem; gap: 0.2rem; }
+  nav h3, .nav-div { display: none; }
+  nav a { width: auto; justify-content: flex-start; border-left: none; border-bottom: 3px solid transparent; padding: 0.4rem 0.6rem; font-size: 0.75rem; }
+  nav a.active { border-bottom-color: #4a4adf; border-left-color: transparent; }
+  nav .pct { display: none; }
+  main { padding: 1rem; }
+  .video-card { grid-template-columns: 96px minmax(0, 1fr); gap: 0.7rem; }
+  .video-title { font-size: 0.86rem; }
+  .choices { grid-template-columns: 1fr; }
+  .fgrid { grid-template-columns: 1fr; }
+  .wys-grid { display: block; overflow: visible; }
+  .wys-row { display: block; }
+  .wys-row > div:first-child { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AP Calculus AB Study Guide</h1>
+  <p>All 8 units · Practice problems · Formulas · Exam strategies</p>
+</header>
+
+<div class="progress-banner">
+  <span>Progress:</span>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+  <span class="progress-label" id="progressLabel">0 correct</span>
+  <button class="btn-sec" style="padding:0.3rem 0.7rem;font-size:0.78rem;" onclick="resetAll()">Reset All</button>
+</div>
+
+<main style="max-width:1120px;margin:0 auto;padding:2rem;">
+<div class="tip"><strong>Back to main guide</strong><a href="ap-calc-study.html#mixed" style="color:#4a4adf;font-weight:700;text-decoration:none;">Return to AP Calc AB Study Guide</a></div>
+<div class="section active" id="sec-review" style="display:block;">
+  <h2>Review</h2>
+  <span class="unit-weight">Focused final review · area/volume, optimization, related rates, implicit diff, motion, and curve analysis</span>
+  <div class="intro">This page is built as a last big pass through the highest-friction AP Calc AB ideas: geometry setup, rate relationships, particle interpretation, and derivative-based reasoning about extrema and concavity. The set is intentionally mixed in difficulty so it feels closer to a real review day than a worksheet of one-note problems.</div>
+
+  <div class="fgrid">
+    <div class="fc"><h4>Best Habit</h4><span class="f">Set up the quantity before you compute it.</span><p>That matters especially for volume, optimization, and related rates.</p></div>
+    <div class="fc"><h4>For Motion</h4><span class="f">Velocity, acceleration, distance, displacement are different.</span><p>Distance uses \(|v|\); speeding up needs \(v\) and \(a\) with the same sign.</p></div>
+    <div class="fc"><h4>For Curve Analysis</h4><span class="f">Local extrema come from \(f'\); concavity comes from \(f''\).</span><p>Keep those tests separate.</p></div>
+  </div>
+
+  <h3 class="sh">Area &amp; Volume</h3>
+  <div class="pc" id="p-r1">
+    <div class="ph"><div class="pn">1</div><span class="diff de">Easy</span><span class="topic-tag">Area</span></div>
+    <div class="pt">Find the area between \(y=x\) and \(y=x^2\) on \([0,1]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r1','A')">A) \(1/6\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','B')">B) \(1/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','C')">C) \(1/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r1','D')">D) \(2/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r1',this)">Show Solution</button><span class="fm" id="fb-p-r1"></span></div>
+    <div class="sb" id="s-r1"><strong>Answer: A) \(1/6\)</strong><br>On \([0,1]\), \(x\ge x^2\). Area \(=\int_0^1(x-x^2)\,dx=\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1=\frac12-\frac13=\)<strong>\(\frac16\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r2">
+    <div class="ph"><div class="pn">2</div><span class="diff dm">Medium</span><span class="topic-tag">Disc Method</span></div>
+    <div class="pt">Find the volume when the region under \(y=2x\) from \(x=0\) to \(x=1\) is revolved about the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r2','A')">A) \(2\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','B')">B) \(4\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','C')">C) \(2\pi\)</button>
+      <button class="cb" onclick="chk(this,'p-r2','D')">D) \(4\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r2',this)">Show Solution</button><span class="fm" id="fb-p-r2"></span></div>
+    <div class="sb" id="s-r2"><strong>Answer: B) \(4\pi/3\)</strong><br>\(V=\pi\int_0^1(2x)^2\,dx=4\pi\int_0^1x^2\,dx=4\pi\left[\frac{x^3}{3}\right]_0^1=\)<strong>\(\frac{4\pi}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r3">
+    <div class="ph"><div class="pn">3</div><span class="diff dh">Hard</span><span class="topic-tag">Washer Method</span></div>
+    <div class="pt">Find the volume when the region between \(y=x\) and \(y=0\) on \([0,2]\) is rotated about \(y=2\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r3','A')">A) \(8\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','B')">B) \(16\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','C')">C) \(20\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r3','D')">D) \(8\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r3',this)">Show Solution</button><span class="fm" id="fb-p-r3"></span></div>
+    <div class="sb" id="s-r3"><strong>Answer: B) \(16\pi/3\)</strong><br>Outer radius \(R=2\), inner radius \(r=2-x\).<br>\(V=\pi\int_0^2\left(4-(2-x)^2\right)dx=\pi\int_0^2(4x-x^2)\,dx\)<br>\(=\pi\left[2x^2-\frac{x^3}{3}\right]_0^2=\pi\left(8-\frac83\right)=\)<strong>\(\frac{16\pi}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r4">
+    <div class="ph"><div class="pn">4</div><span class="diff de">Easy</span><span class="topic-tag">Total Area</span></div>
+    <div class="pt">Find the total area enclosed by \(y=4-x^2\) and the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r4','A')">A) 8</button>
+      <button class="cb" onclick="chk(this,'p-r4','B')">B) \(16/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r4','C')">C) \(32/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r4','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r4',this)">Show Solution</button><span class="fm" id="fb-p-r4"></span></div>
+    <div class="sb" id="s-r4"><strong>Answer: C) \(32/3\)</strong><br>Zeros at \(x=\pm2\). Area \(=\int_{-2}^{2}(4-x^2)\,dx=\left[4x-\frac{x^3}{3}\right]_{-2}^{2}=\)<strong>\(\frac{32}{3}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r5">
+    <div class="ph"><div class="pn">5</div><span class="diff dh">Hard</span><span class="topic-tag">Volume</span></div>
+    <div class="pt">Find the volume when the region between \(y=x^2\) and \(y=2x\) is rotated about the \(x\)-axis.</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r5','A')">A) \(32\pi/15\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','B')">B) \(64\pi/15\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','C')">C) \(16\pi/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r5','D')">D) \(8\pi/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r5',this)">Show Solution</button><span class="fm" id="fb-p-r5"></span></div>
+    <div class="sb" id="s-r5"><strong>Answer: B) \(64\pi/15\)</strong><br>Intersections at \(x=0,2\). Outer radius \(R=2x\), inner radius \(r=x^2\).<br>\(V=\pi\int_0^2((2x)^2-(x^2)^2)\,dx=\pi\int_0^2(4x^2-x^4)\,dx=\)<strong>\(\frac{64\pi}{15}\)</strong>.</div>
+  </div>
+
+  <h3 class="sh">Optimization</h3>
+  <div class="pc" id="p-r6">
+    <div class="ph"><div class="pn">6</div><span class="diff de">Easy</span><span class="topic-tag">Optimization</span></div>
+    <div class="pt">A rectangle has perimeter 20. What is its maximum possible area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r6','A')">A) 16</button>
+      <button class="cb" onclick="chk(this,'p-r6','B')">B) 20</button>
+      <button class="cb" onclick="chk(this,'p-r6','C')">C) 25</button>
+      <button class="cb" onclick="chk(this,'p-r6','D')">D) 40</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r6',this)">Show Solution</button><span class="fm" id="fb-p-r6"></span></div>
+    <div class="sb" id="s-r6"><strong>Answer: C) 25</strong><br>The maximum area rectangle for a fixed perimeter is a square. Side \(=20/4=5\), so area \(=5^2=\)<strong>25</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r7">
+    <div class="ph"><div class="pn">7</div><span class="diff dm">Medium</span><span class="topic-tag">Fencing</span></div>
+    <div class="pt">A farmer has 100 meters of fencing for three sides of a rectangle along a river. What dimensions maximize the area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r7','A')">A) \(20\) by \(60\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','B')">B) \(25\) by \(50\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','C')">C) \(30\) by \(40\)</button>
+      <button class="cb" onclick="chk(this,'p-r7','D')">D) \(10\) by \(80\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r7',this)">Show Solution</button><span class="fm" id="fb-p-r7"></span></div>
+    <div class="sb" id="s-r7"><strong>Answer: B) \(25\) by \(50\)</strong><br>Let \(x\) be each side perpendicular to the river and \(y\) the side along the river. Then \(2x+y=100\Rightarrow y=100-2x\).<br>\(A=x(100-2x)\), so \(A'=100-4x=0\Rightarrow x=25\). Then \(y=50\).</div>
+  </div>
+
+  <div class="pc" id="p-r8">
+    <div class="ph"><div class="pn">8</div><span class="diff dh">Hard</span><span class="topic-tag">Open-Top Box</span></div>
+    <div class="pt">An open-top box with a square base has volume \(108\text{ cm}^3\). What dimensions minimize surface area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r8','A')">A) side \(=3\), height \(=12\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','B')">B) side \(=6\), height \(=3\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','C')">C) side \(=9\), height \(=4/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r8','D')">D) side \(=4\), height \(=27/4\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r8',this)">Show Solution</button><span class="fm" id="fb-p-r8"></span></div>
+    <div class="sb" id="s-r8"><strong>Answer: B) side \(=6\), height \(=3\)</strong><br>Let base side \(x\), height \(h\). Volume: \(x^2h=108\Rightarrow h=108/x^2\).<br>Surface area: \(S=x^2+4xh=x^2+432/x\). Then \(S'=2x-432/x^2=0\Rightarrow 2x^3=432\Rightarrow x^3=216\Rightarrow x=6\). Then \(h=108/36=3\).</div>
+  </div>
+
+  <div class="pc" id="p-r9">
+    <div class="ph"><div class="pn">9</div><span class="diff dm">Medium</span><span class="topic-tag">Inscribed Rectangle</span></div>
+    <div class="pt">A rectangle is inscribed under the line \(y=8-2x\) in the first quadrant with sides on the axes. What is the maximum area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r9','A')">A) 6</button>
+      <button class="cb" onclick="chk(this,'p-r9','B')">B) 8</button>
+      <button class="cb" onclick="chk(this,'p-r9','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-r9','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r9',this)">Show Solution</button><span class="fm" id="fb-p-r9"></span></div>
+    <div class="sb" id="s-r9"><strong>Answer: B) 8</strong><br>\(A=x(8-2x)=8x-2x^2\). Then \(A'=8-4x=0\Rightarrow x=2\), and \(y=4\). Max area \(=2\cdot4=\)<strong>8</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r10">
+    <div class="ph"><div class="pn">10</div><span class="diff dh">Hard</span><span class="topic-tag">Closest Point</span></div>
+    <div class="pt">Which point on the line \(y=2x+3\) is closest to the origin?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r10','A')">A) \((-1,1)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','B')">B) \((-6/5,3/5)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','C')">C) \((0,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r10','D')">D) \((1,5)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r10',this)">Show Solution</button><span class="fm" id="fb-p-r10"></span></div>
+    <div class="sb" id="s-r10"><strong>Answer: B) \((-6/5,3/5)\)</strong><br>Minimize distance squared: \(D^2=x^2+(2x+3)^2=5x^2+12x+9\).<br>\((D^2)'=10x+12=0\Rightarrow x=-6/5\). Then \(y=2(-6/5)+3=3/5\).</div>
+  </div>
+
+  <h3 class="sh">Related Rates</h3>
+  <div class="pc" id="p-r11">
+    <div class="ph"><div class="pn">11</div><span class="diff de">Easy</span><span class="topic-tag">Sphere</span></div>
+    <div class="pt">Air is pumped into a sphere so that its volume increases at \(36\pi\text{ cm}^3/\text{s}\). How fast is the radius increasing when \(r=3\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r11','A')">A) \(1\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','B')">B) \(2\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','C')">C) \(3\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r11','D')">D) \(4\) cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r11',this)">Show Solution</button><span class="fm" id="fb-p-r11"></span></div>
+    <div class="sb" id="s-r11"><strong>Answer: A) \(1\) cm/s</strong><br>\(V=\frac43\pi r^3\Rightarrow \frac{dV}{dt}=4\pi r^2\frac{dr}{dt}\).<br>At \(r=3\): \(36\pi=36\pi \frac{dr}{dt}\), so \(\frac{dr}{dt}=1\).</div>
+  </div>
+
+  <div class="pc" id="p-r12">
+    <div class="ph"><div class="pn">12</div><span class="diff dm">Medium</span><span class="topic-tag">Ladder</span></div>
+    <div class="pt">A 13-ft ladder leans against a wall. The base slides away at \(5\) ft/s. How fast is the top sliding down when the base is \(5\) ft from the wall?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r12','A')">A) \(25/12\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','B')">B) \(5/12\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','C')">C) \(12/5\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r12','D')">D) \(5\) ft/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r12',this)">Show Solution</button><span class="fm" id="fb-p-r12"></span></div>
+    <div class="sb" id="s-r12"><strong>Answer: A) \(25/12\) ft/s</strong><br>\(x^2+y^2=169\). Differentiate: \(2x\frac{dx}{dt}+2y\frac{dy}{dt}=0\Rightarrow \frac{dy}{dt}=-\frac{x}{y}\frac{dx}{dt}\).<br>When \(x=5\), \(y=12\). Thus \(\frac{dy}{dt}=-(5/12)(5)=-25/12\). The top slides <strong>down</strong> at \(25/12\) ft/s.</div>
+  </div>
+
+  <div class="pc" id="p-r13">
+    <div class="ph"><div class="pn">13</div><span class="diff dh">Hard</span><span class="topic-tag">Cone</span></div>
+    <div class="pt">A cone satisfies \(h=2r\). If its volume is increasing at \(6\pi\text{ cm}^3/\text{s}\), find \(\dfrac{dr}{dt}\) when \(r=3\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r13','A')">A) \(1/6\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','B')">B) \(1/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','C')">C) \(2/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r13','D')">D) \(1\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r13',this)">Show Solution</button><span class="fm" id="fb-p-r13"></span></div>
+    <div class="sb" id="s-r13"><strong>Answer: B) \(1/3\)</strong><br>\(V=\frac13\pi r^2h=\frac13\pi r^2(2r)=\frac23\pi r^3\). Then \(\frac{dV}{dt}=2\pi r^2\frac{dr}{dt}\).<br>At \(r=3\): \(6\pi=18\pi\frac{dr}{dt}\), so \(\frac{dr}{dt}=1/3\).</div>
+  </div>
+
+  <div class="pc" id="p-r14">
+    <div class="ph"><div class="pn">14</div><span class="diff dm">Medium</span><span class="topic-tag">Circle</span></div>
+    <div class="pt">The area of a circle is increasing at \(8\pi\text{ cm}^2/\text{s}\). How fast is the radius increasing when \(r=4\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r14','A')">A) \(1/4\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','B')">B) \(1/2\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','C')">C) \(1\) cm/s</button>
+      <button class="cb" onclick="chk(this,'p-r14','D')">D) \(2\) cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r14',this)">Show Solution</button><span class="fm" id="fb-p-r14"></span></div>
+    <div class="sb" id="s-r14"><strong>Answer: C) \(1\) cm/s</strong><br>\(A=\pi r^2\Rightarrow \frac{dA}{dt}=2\pi r\frac{dr}{dt}\).<br>At \(r=4\): \(8\pi=8\pi\frac{dr}{dt}\), so \(\frac{dr}{dt}=1\).</div>
+  </div>
+
+  <div class="pc" id="p-r15">
+    <div class="ph"><div class="pn">15</div><span class="diff dh">Hard</span><span class="topic-tag">Shadow</span></div>
+    <div class="pt">A 20-ft streetlight casts a shadow of a 5-ft person walking away from the light at \(4\) ft/s. How fast is the shadow length increasing?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r15','A')">A) \(1\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','B')">B) \(4/3\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','C')">C) \(5/3\) ft/s</button>
+      <button class="cb" onclick="chk(this,'p-r15','D')">D) \(4\) ft/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r15',this)">Show Solution</button><span class="fm" id="fb-p-r15"></span></div>
+    <div class="sb" id="s-r15"><strong>Answer: B) \(4/3\) ft/s</strong><br>Similar triangles: \(\dfrac{20}{x+s}=\dfrac{5}{s}\Rightarrow 20s=5x+5s\Rightarrow 15s=5x\Rightarrow s=x/3\).<br>Differentiate: \(\frac{ds}{dt}=\frac13\frac{dx}{dt}=\frac13(4)=\)<strong>\(4/3\)</strong> ft/s.</div>
+  </div>
+
+  <h3 class="sh">Implicit Differentiation</h3>
+  <div class="pc" id="p-r16">
+    <div class="ph"><div class="pn">16</div><span class="diff de">Easy</span><span class="topic-tag">Slope</span></div>
+    <div class="pt">For \(x^2+y^2=25\), what is \(\dfrac{dy}{dx}\) at the point \((3,4)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r16','A')">A) \(-3/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','B')">B) \(-4/3\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','C')">C) \(3/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r16','D')">D) \(4/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r16',this)">Show Solution</button><span class="fm" id="fb-p-r16"></span></div>
+    <div class="sb" id="s-r16"><strong>Answer: A) \(-3/4\)</strong><br>Differentiate: \(2x+2y\frac{dy}{dx}=0\Rightarrow \frac{dy}{dx}=-x/y\). At \((3,4)\), slope \(=-3/4\).</div>
+  </div>
+
+  <div class="pc" id="p-r17">
+    <div class="ph"><div class="pn">17</div><span class="diff dm">Medium</span><span class="topic-tag">Formula</span></div>
+    <div class="pt">If \(x^2y+y^3=10\), then \(\dfrac{dy}{dx}=\)</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r17','A')">A) \(-\dfrac{2xy}{x^2+3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','B')">B) \(-\dfrac{x^2}{3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','C')">C) \(\dfrac{2xy}{x^2+3y^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-r17','D')">D) \(-\dfrac{2x+y}{x+2y}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r17',this)">Show Solution</button><span class="fm" id="fb-p-r17"></span></div>
+    <div class="sb" id="s-r17"><strong>Answer: A) \(-\dfrac{2xy}{x^2+3y^2}\)</strong><br>Differentiate: \(2xy+x^2\frac{dy}{dx}+3y^2\frac{dy}{dx}=0\).<br>\((x^2+3y^2)\frac{dy}{dx}=-2xy\), so \(\frac{dy}{dx}=-\dfrac{2xy}{x^2+3y^2}\).</div>
+  </div>
+
+  <div class="pc" id="p-r18">
+    <div class="ph"><div class="pn">18</div><span class="diff dm">Medium</span><span class="topic-tag">Tangent Line</span></div>
+    <div class="pt">For the curve \(x^2+xy+y^2=7\), what is the slope of the tangent line at \((1,2)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r18','A')">A) \(-4/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','B')">B) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','C')">C) \(-5/4\)</button>
+      <button class="cb" onclick="chk(this,'p-r18','D')">D) \(4/5\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r18',this)">Show Solution</button><span class="fm" id="fb-p-r18"></span></div>
+    <div class="sb" id="s-r18"><strong>Answer: A) \(-4/5\)</strong><br>\((x+2y)\frac{dy}{dx}=-(2x+y)\), so \(\frac{dy}{dx}=-\dfrac{2x+y}{x+2y}\).<br>At \((1,2)\): \(-\dfrac{4}{5}\).</div>
+  </div>
+
+  <div class="pc" id="p-r19">
+    <div class="ph"><div class="pn">19</div><span class="diff dh">Hard</span><span class="topic-tag">Second Derivative</span></div>
+    <div class="pt">For the circle \(x^2+y^2=25\), what is \(\dfrac{d^2y}{dx^2}\) at the point \((0,5)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r19','A')">A) \(-1/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','B')">B) \(1/5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','C')">C) \(-5\)</button>
+      <button class="cb" onclick="chk(this,'p-r19','D')">D) \(0\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r19',this)">Show Solution</button><span class="fm" id="fb-p-r19"></span></div>
+    <div class="sb" id="s-r19"><strong>Answer: A) \(-1/5\)</strong><br>For \(x^2+y^2=25\), one useful result is \(\dfrac{d^2y}{dx^2}=-\dfrac{25}{y^3}\). At \((0,5)\), this becomes \(-25/125=\)<strong>\(-1/5\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r20">
+    <div class="ph"><div class="pn">20</div><span class="diff dh">Hard</span><span class="topic-tag">Horizontal Tangents</span></div>
+    <div class="pt">For the curve \(x^2+xy+y^2=3\), which \(x\)-values give horizontal tangents?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r20','A')">A) \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','B')">B) \(x=\pm1\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','C')">C) \(x=\pm\sqrt3\)</button>
+      <button class="cb" onclick="chk(this,'p-r20','D')">D) \(x=1\) only</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r20',this)">Show Solution</button><span class="fm" id="fb-p-r20"></span></div>
+    <div class="sb" id="s-r20"><strong>Answer: B) \(x=\pm1\)</strong><br>Horizontal tangents mean \(\frac{dy}{dx}=0\), so \(2x+y=0\Rightarrow y=-2x\). Substitute into the curve:<br>\(x^2-2x^2+4x^2=3\Rightarrow 3x^2=3\Rightarrow x=\pm1\).</div>
+  </div>
+
+  <h3 class="sh">Particle Motion</h3>
+  <div class="pc" id="p-r21">
+    <div class="ph"><div class="pn">21</div><span class="diff de">Easy</span><span class="topic-tag">Velocity</span></div>
+    <div class="pt">If \(s(t)=t^3-3t^2\), what is the velocity at \(t=1\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r21','A')">A) \(-3\)</button>
+      <button class="cb" onclick="chk(this,'p-r21','B')">B) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-r21','C')">C) 0</button>
+      <button class="cb" onclick="chk(this,'p-r21','D')">D) 3</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r21',this)">Show Solution</button><span class="fm" id="fb-p-r21"></span></div>
+    <div class="sb" id="s-r21"><strong>Answer: A) \(-3\)</strong><br>\(v(t)=s'(t)=3t^2-6t\). At \(t=1\), \(v=3-6=\)<strong>\(-3\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r22">
+    <div class="ph"><div class="pn">22</div><span class="diff dm">Medium</span><span class="topic-tag">Distance</span></div>
+    <div class="pt">A particle has velocity \(v(t)=t-2\) on \([0,5]\). What is the total distance traveled?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r22','A')">A) \(11/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','B')">B) \(13/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','C')">C) \(15/2\)</button>
+      <button class="cb" onclick="chk(this,'p-r22','D')">D) 7</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r22',this)">Show Solution</button><span class="fm" id="fb-p-r22"></span></div>
+    <div class="sb" id="s-r22"><strong>Answer: B) \(13/2\)</strong><br>Velocity changes sign at \(t=2\). Distance \(=\int_0^2(2-t)\,dt+\int_2^5(t-2)\,dt=2+\frac92=\)<strong>\(\frac{13}{2}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r23">
+    <div class="ph"><div class="pn">23</div><span class="diff dh">Hard</span><span class="topic-tag">Speeding Up</span></div>
+    <div class="pt">A particle has position \(s(t)=t^3-3t^2-9t\). On which interval is the particle speeding up for \(t>0\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r23','A')">A) \((0,1)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','B')">B) \((1,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','C')">C) \((3,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r23','D')">D) \((0,\infty)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r23',this)">Show Solution</button><span class="fm" id="fb-p-r23"></span></div>
+    <div class="sb" id="s-r23"><strong>Answer: C) \((3,\infty)\)</strong><br>\(v(t)=3t^2-6t-9=3(t-3)(t+1)\), so for \(t>0\), \(v<0\) on \((0,3)\) and \(v>0\) on \((3,\infty)\).<br>\(a(t)=6t-6\), so \(a>0\) for \(t>1\). Speeding up requires same sign. That happens on <strong>\((3,\infty)\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r24">
+    <div class="ph"><div class="pn">24</div><span class="diff dm">Medium</span><span class="topic-tag">Direction Change</span></div>
+    <div class="pt">If \(v(t)=(t-1)(t-3)\), at what times does the particle change direction?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r24','A')">A) \(t=1\) only</button>
+      <button class="cb" onclick="chk(this,'p-r24','B')">B) \(t=3\) only</button>
+      <button class="cb" onclick="chk(this,'p-r24','C')">C) \(t=1\) and \(t=3\)</button>
+      <button class="cb" onclick="chk(this,'p-r24','D')">D) never</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r24',this)">Show Solution</button><span class="fm" id="fb-p-r24"></span></div>
+    <div class="sb" id="s-r24"><strong>Answer: C) \(t=1\) and \(t=3\)</strong><br>The sign of \(v\) is positive for \(t<1\), negative for \(1<t<3\), and positive again for \(t>3\). So the particle changes direction at <strong>both</strong> zeros.</div>
+  </div>
+
+  <div class="pc" id="p-r25">
+    <div class="ph"><div class="pn">25</div><span class="diff de">Easy</span><span class="topic-tag">Displacement</span></div>
+    <div class="pt">A particle has velocity \(v(t)=2t-2\) on \([0,3]\). What is its displacement?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r25','A')">A) 1</button>
+      <button class="cb" onclick="chk(this,'p-r25','B')">B) 2</button>
+      <button class="cb" onclick="chk(this,'p-r25','C')">C) 3</button>
+      <button class="cb" onclick="chk(this,'p-r25','D')">D) 4</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r25',this)">Show Solution</button><span class="fm" id="fb-p-r25"></span></div>
+    <div class="sb" id="s-r25"><strong>Answer: C) 3</strong><br>Displacement \(=\int_0^3(2t-2)\,dt=[t^2-2t]_0^3=9-6=\)<strong>3</strong>.</div>
+  </div>
+
+  <h3 class="sh">Min / Max / Concavity</h3>
+  <div class="pc" id="p-r26">
+    <div class="ph"><div class="pn">26</div><span class="diff dm">Medium</span><span class="topic-tag">First Derivative Test</span></div>
+    <div class="pt">If \(f'(x)=(x-1)(x+2)\), where does \(f\) have a local maximum?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r26','A')">A) \(x=-2\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','B')">B) \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','C')">C) both \(x=-2\) and \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r26','D')">D) neither</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r26',this)">Show Solution</button><span class="fm" id="fb-p-r26"></span></div>
+    <div class="sb" id="s-r26"><strong>Answer: A) \(x=-2\)</strong><br>\(f'\) changes from positive to negative at \(x=-2\), so \(f\) has a local maximum there. At \(x=1\), \(f'\) changes from negative to positive, so \(f\) has a local minimum there.</div>
+  </div>
+
+  <div class="pc" id="p-r27">
+    <div class="ph"><div class="pn">27</div><span class="diff de">Easy</span><span class="topic-tag">Concavity</span></div>
+    <div class="pt">If \(f''(x)=x-3\), on what interval is \(f\) concave down?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r27','A')">A) \((-\infty,3)\)</button>
+      <button class="cb" onclick="chk(this,'p-r27','B')">B) \((3,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r27','C')">C) all real numbers</button>
+      <button class="cb" onclick="chk(this,'p-r27','D')">D) nowhere</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r27',this)">Show Solution</button><span class="fm" id="fb-p-r27"></span></div>
+    <div class="sb" id="s-r27"><strong>Answer: A) \((-\infty,3)\)</strong><br>Concave down means \(f''<0\). Since \(x-3<0\) when \(x<3\), the answer is <strong>\((-\infty,3)\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r28">
+    <div class="ph"><div class="pn">28</div><span class="diff dm">Medium</span><span class="topic-tag">Absolute Maximum</span></div>
+    <div class="pt">Find the absolute maximum value of \(f(x)=-x^2+6x+1\) on \([0,5]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r28','A')">A) 9</button>
+      <button class="cb" onclick="chk(this,'p-r28','B')">B) 10</button>
+      <button class="cb" onclick="chk(this,'p-r28','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-r28','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r28',this)">Show Solution</button><span class="fm" id="fb-p-r28"></span></div>
+    <div class="sb" id="s-r28"><strong>Answer: B) 10</strong><br>Vertex at \(x=-\frac{b}{2a}=3\). Then \(f(3)=-9+18+1=10\). Endpoints give \(f(0)=1\), \(f(5)=6\), so the absolute maximum is <strong>10</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-r29">
+    <div class="ph"><div class="pn">29</div><span class="diff dh">Hard</span><span class="topic-tag">Increasing / Decreasing</span></div>
+    <div class="pt">If \(f'(x)=x^2-4\), on which interval is \(f\) decreasing?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r29','A')">A) \((-\infty,-2)\cup(2,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','B')">B) \((-2,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','C')">C) \((-\infty,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-r29','D')">D) \((-2,\infty)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r29',this)">Show Solution</button><span class="fm" id="fb-p-r29"></span></div>
+    <div class="sb" id="s-r29"><strong>Answer: B) \((-2,2)\)</strong><br>\(f\) is decreasing where \(f'<0\). Solve \(x^2-4<0\Rightarrow x^2<4\Rightarrow -2<x<2\).</div>
+  </div>
+
+  <div class="pc" id="p-r30">
+    <div class="ph"><div class="pn">30</div><span class="diff dh">Hard</span><span class="topic-tag">Inflection Point</span></div>
+    <div class="pt">If \(f''(x)=(x-2)^3\), at which \(x\)-value does \(f\) have an inflection point?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-r30','A')">A) \(x=0\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','B')">B) \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','C')">C) \(x=2\)</button>
+      <button class="cb" onclick="chk(this,'p-r30','D')">D) no inflection point</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-r30',this)">Show Solution</button><span class="fm" id="fb-p-r30"></span></div>
+    <div class="sb" id="s-r30"><strong>Answer: C) \(x=2\)</strong><br>An inflection point occurs where \(f''\) changes sign. Since \((x-2)^3\) is negative for \(x<2\) and positive for \(x>2\), the sign changes at <strong>\(x=2\)</strong>.</div>
+  </div>
+</div>
+
+
+</main>
+<script>
+const ANS = {
+  'p-r1':'A','p-r2':'B','p-r3':'B','p-r4':'C','p-r5':'B',
+  'p-r6':'C','p-r7':'B','p-r8':'B','p-r9':'B','p-r10':'B',
+  'p-r11':'A','p-r12':'A','p-r13':'B','p-r14':'C','p-r15':'B',
+  'p-r16':'A','p-r17':'A','p-r18':'A','p-r19':'A','p-r20':'B',
+  'p-r21':'A','p-r22':'B','p-r23':'C','p-r24':'C','p-r25':'C',
+  'p-r26':'A','p-r27':'A','p-r28':'B','p-r29':'B','p-r30':'C'
+};
+const total = Object.keys(ANS).length;
+let done = JSON.parse(localStorage.getItem('apcalc_done') || '{}');
+const answerIds = Object.keys(ANS);
+function saveDone() { localStorage.setItem('apcalc_done', JSON.stringify(done)); }
+function chk(btn, pid, chosen) {
+  if (done.hasOwnProperty(pid)) return;
+  const correct = ANS[pid];
+  const card = document.getElementById(pid);
+  const btns = card.querySelectorAll('.cb');
+  btns.forEach(b => {
+    b.disabled = true;
+    if (b === btn && chosen !== correct) b.classList.add('wrong');
+    if (b.textContent.trim()[0] === correct) b.classList.add('correct');
+  });
+  const ok = chosen === correct;
+  done[pid] = ok;
+  if (!ok) done[pid + '_chosen'] = chosen;
+  saveDone();
+  const fb = document.getElementById('fb-' + pid);
+  fb.textContent = ok ? '✓ Correct!' : '✗ Incorrect';
+  fb.className = 'fm ' + (ok ? 'fc-ok' : 'fc-no');
+  updateProgress();
+}
+function sol(id, btn) {
+  const box = document.getElementById(id);
+  const v = box.classList.toggle('vis');
+  btn.textContent = v ? 'Hide Solution' : 'Show Solution';
+}
+function updateProgress() {
+  const answeredIds = answerIds.filter(id => done.hasOwnProperty(id));
+  const answered = answeredIds.length;
+  const correct = answeredIds.filter(id => done[id] === true).length;
+  document.getElementById('progressFill').style.width = (answered / total * 100) + '%';
+  document.getElementById('progressLabel').textContent = correct + ' correct · ' + answered + ' / ' + total + ' answered';
+}
+function restoreAnswers() {
+  answerIds.forEach(pid => {
+    if (!done.hasOwnProperty(pid)) return;
+    const ok = done[pid];
+    const card = document.getElementById(pid);
+    if (!card) return;
+    const correctLetter = ANS[pid];
+    card.querySelectorAll('.cb').forEach(b => {
+      b.disabled = true;
+      const letter = b.textContent.trim()[0];
+      if (letter === correctLetter) {
+        b.classList.add('correct');
+      } else if (!ok && done[pid + '_chosen'] === letter) {
+        b.classList.add('wrong');
+      }
+    });
+    const fb = document.getElementById('fb-' + pid);
+    if (fb) { fb.textContent = ok ? '✓ Correct!' : '✗ Incorrect'; fb.className = 'fm ' + (ok ? 'fc-ok' : 'fc-no'); }
+  });
+  updateProgress();
+}
+function resetAll() {
+  if (!confirm('Reset all progress?')) return;
+  done = {};
+  saveDone();
+  updateProgress();
+  document.querySelectorAll('.cb').forEach(b => { b.disabled = false; b.classList.remove('correct','wrong'); });
+  document.querySelectorAll('.fm').forEach(e => e.textContent = '');
+  document.querySelectorAll('.sb').forEach(b => b.classList.remove('vis'));
+  document.querySelectorAll('.st').forEach(b => b.textContent = 'Show Solution');
+}
+restoreAnswers();
+</script></body></html>

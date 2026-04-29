@@ -161,7 +161,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
   <a href="#implicit" data-section="implicit">∂ Implicit Differentiation</a>
   <a href="#optimization" data-section="optimization">📦 Optimization</a>
   <a href="#areavol" data-section="areavol">🧊 Area &amp; Volume</a>
-  <a href="#review" data-section="review">📝 Review</a>
+  <a href="ap-calc-review.html">📝 Review</a>
   <a href="#mixed" data-section="mixed">🎯 Mixed Practice</a>
   <a href="#frq" data-section="frq">✍️ FRQ Practice</a>
   <a id="btn-mistakes" href="ap-calc-mistakes.html">⚠️ Common Mistakes</a>
@@ -3677,47 +3677,6 @@ So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
   </div>
 </div>
 
-<div class="section" id="sec-mistakes">
-  <h2>Common Mistakes to Avoid</h2>
-  <div class="intro">Quick reminders for the errors that cost the most points on AP Calculus AB. Read this section before timed practice or FRQs.</div>
-
-  <h3 class="sh">Derivatives</h3>
-  <div class="fgrid">
-    <div class="fc"><h4>Chain Rule</h4><span class="f">Differentiate the inside</span><p>For sin(x²), e^(3x), ln(2x), and (x²+1)^5, multiply by the derivative of the inner function.</p></div>
-    <div class="fc"><h4>Product Rule</h4><span class="f">(fg)' = f'g + fg'</span><p>Do not differentiate each factor and multiply the answers. Keep both product-rule terms.</p></div>
-    <div class="fc"><h4>Constants</h4><span class="f">d/dx[5] = 0</span><p>Constants disappear. e² is a constant; e^x is not.</p></div>
-    <div class="fc"><h4>Trig Signs</h4><span class="f">d/dx[cos x] = -sin x</span><p>The negative on cosine is easy to drop. Also remember d/dx[tan x] = sec²x.</p></div>
-    <div class="fc"><h4>Implicit Diff</h4><span class="f">d/dx[y²] = 2y dy/dx</span><p>Every term with y needs a dy/dx factor unless y is treated as a constant by the problem.</p></div>
-    <div class="fc"><h4>Quotient Rule</h4><span class="f">(f'g - fg') / g²</span><p>The subtraction order matters. A sign error can flip the whole numerator.</p></div>
-  </div>
-
-  <h3 class="sh">Integrals</h3>
-  <div class="fgrid">
-    <div class="fc"><h4>Missing + C</h4><span class="f">Indefinite integral</span><p>Add + C until an initial condition or definite bound removes it.</p></div>
-    <div class="fc"><h4>u-Sub Bounds</h4><span class="f">Change the limits</span><p>For definite integrals, convert x-bounds to u-bounds or substitute back before evaluating.</p></div>
-    <div class="fc"><h4>dx Replacement</h4><span class="f">Replace the whole differential</span><p>If u = x², then du = 2x dx. Do not leave unmatched x terms behind.</p></div>
-    <div class="fc"><h4>Power Rule Exception</h4><span class="f">Integral of 1/x</span><p>Integral of x^-1 is ln|x| + C, not x^0 / 0.</p></div>
-    <div class="fc"><h4>FTC Chain Rule</h4><span class="f">Upper bound x²</span><p>d/dx of integral from 0 to x² of f(t) dt is f(x²) times 2x.</p></div>
-    <div class="fc"><h4>Flipped Limits</h4><span class="f">Reverse means negative</span><p>Integral from b to a equals the negative of the integral from a to b.</p></div>
-  </div>
-
-  <h3 class="sh">Theorems and FRQs</h3>
-  <div class="fgrid">
-    <div class="fc"><h4>MVT / EVT</h4><span class="f">Check hypotheses</span><p>State continuity on the closed interval and differentiability on the open interval when needed.</p></div>
-    <div class="fc"><h4>Critical Points</h4><span class="f">f' = 0 is not enough</span><p>Use a sign change or another test before calling something a max or min.</p></div>
-    <div class="fc"><h4>Concavity</h4><span class="f">Use f''</span><p>Increasing and concave up are different ideas. Concavity comes from the second derivative.</p></div>
-    <div class="fc"><h4>Units</h4><span class="f">Always include them</span><p>Velocity, acceleration, area, volume, and rates all need correct units in context problems.</p></div>
-    <div class="fc"><h4>Distance vs. Displacement</h4><span class="f">Use absolute value for distance</span><p>Integral of velocity is displacement. Integral of speed is total distance.</p></div>
-    <div class="fc"><h4>Speeding Up</h4><span class="f">Same sign</span><p>A particle speeds up when velocity and acceleration have the same sign.</p></div>
-  </div>
-
-  <h3 class="sh">Top 5 Quick Checks</h3>
-  <div class="tip">
-    <strong>Before submitting:</strong>
-    Check for + C, chain rule, changed u-sub bounds, theorem hypotheses, and units. Those five habits save a surprising number of points.
-  </div>
-</div>
-
 <!-- REVIEW PAGE -->
 <div class="section" id="sec-review">
   <h2>Review</h2>
@@ -4124,6 +4083,47 @@ So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
     </div>
     <div class="pa"><button class="st" onclick="sol('s-r30',this)">Show Solution</button><span class="fm" id="fb-p-r30"></span></div>
     <div class="sb" id="s-r30"><strong>Answer: C) \(x=2\)</strong><br>An inflection point occurs where \(f''\) changes sign. Since \((x-2)^3\) is negative for \(x<2\) and positive for \(x>2\), the sign changes at <strong>\(x=2\)</strong>.</div>
+  </div>
+</div>
+
+<div class="section" id="sec-mistakes">
+  <h2>Common Mistakes to Avoid</h2>
+  <div class="intro">Quick reminders for the errors that cost the most points on AP Calculus AB. Read this section before timed practice or FRQs.</div>
+
+  <h3 class="sh">Derivatives</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>Chain Rule</h4><span class="f">Differentiate the inside</span><p>For sin(x²), e^(3x), ln(2x), and (x²+1)^5, multiply by the derivative of the inner function.</p></div>
+    <div class="fc"><h4>Product Rule</h4><span class="f">(fg)' = f'g + fg'</span><p>Do not differentiate each factor and multiply the answers. Keep both product-rule terms.</p></div>
+    <div class="fc"><h4>Constants</h4><span class="f">d/dx[5] = 0</span><p>Constants disappear. e² is a constant; e^x is not.</p></div>
+    <div class="fc"><h4>Trig Signs</h4><span class="f">d/dx[cos x] = -sin x</span><p>The negative on cosine is easy to drop. Also remember d/dx[tan x] = sec²x.</p></div>
+    <div class="fc"><h4>Implicit Diff</h4><span class="f">d/dx[y²] = 2y dy/dx</span><p>Every term with y needs a dy/dx factor unless y is treated as a constant by the problem.</p></div>
+    <div class="fc"><h4>Quotient Rule</h4><span class="f">(f'g - fg') / g²</span><p>The subtraction order matters. A sign error can flip the whole numerator.</p></div>
+  </div>
+
+  <h3 class="sh">Integrals</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>Missing + C</h4><span class="f">Indefinite integral</span><p>Add + C until an initial condition or definite bound removes it.</p></div>
+    <div class="fc"><h4>u-Sub Bounds</h4><span class="f">Change the limits</span><p>For definite integrals, convert x-bounds to u-bounds or substitute back before evaluating.</p></div>
+    <div class="fc"><h4>dx Replacement</h4><span class="f">Replace the whole differential</span><p>If u = x², then du = 2x dx. Do not leave unmatched x terms behind.</p></div>
+    <div class="fc"><h4>Power Rule Exception</h4><span class="f">Integral of 1/x</span><p>Integral of x^-1 is ln|x| + C, not x^0 / 0.</p></div>
+    <div class="fc"><h4>FTC Chain Rule</h4><span class="f">Upper bound x²</span><p>d/dx of integral from 0 to x² of f(t) dt is f(x²) times 2x.</p></div>
+    <div class="fc"><h4>Flipped Limits</h4><span class="f">Reverse means negative</span><p>Integral from b to a equals the negative of the integral from a to b.</p></div>
+  </div>
+
+  <h3 class="sh">Theorems and FRQs</h3>
+  <div class="fgrid">
+    <div class="fc"><h4>MVT / EVT</h4><span class="f">Check hypotheses</span><p>State continuity on the closed interval and differentiability on the open interval when needed.</p></div>
+    <div class="fc"><h4>Critical Points</h4><span class="f">f' = 0 is not enough</span><p>Use a sign change or another test before calling something a max or min.</p></div>
+    <div class="fc"><h4>Concavity</h4><span class="f">Use f''</span><p>Increasing and concave up are different ideas. Concavity comes from the second derivative.</p></div>
+    <div class="fc"><h4>Units</h4><span class="f">Always include them</span><p>Velocity, acceleration, area, volume, and rates all need correct units in context problems.</p></div>
+    <div class="fc"><h4>Distance vs. Displacement</h4><span class="f">Use absolute value for distance</span><p>Integral of velocity is displacement. Integral of speed is total distance.</p></div>
+    <div class="fc"><h4>Speeding Up</h4><span class="f">Same sign</span><p>A particle speeds up when velocity and acceleration have the same sign.</p></div>
+  </div>
+
+  <h3 class="sh">Top 5 Quick Checks</h3>
+  <div class="tip">
+    <strong>Before submitting:</strong>
+    Check for + C, chain rule, changed u-sub bounds, theorem hypotheses, and units. Those five habits save a surprising number of points.
   </div>
 </div>
 
