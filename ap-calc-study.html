@@ -832,7 +832,7 @@ h3.sh { margin: 1.1rem 0 0.65rem; color: #4a4adf; font-size: 1.05rem; }
       <button class="cb" onclick="chk(this,'p-aa4','D')">D) f = −4 at x = 5</button>
     </div>
     <div class="pa"><button class="st" onclick="sol('s-aa4',this)">Show Solution</button><span class="fm" id="fb-p-aa4"></span></div>
-    <div class="sb" id="s-aa4"><strong>Answer: C) f = 6 at x = 2</strong><br>f′(x) = −2x+4 = 0 → x = 2 (critical point).<br>Evaluate: f(0)=1, f(2)=−4+8+1=<strong>5</strong>... wait: f(2)=−4+8+1=5. f(5)=−25+20+1=−4.<br><em>Correction: f(2) = −(4)+8+1 = 5. Answer is B) f=5 at x=2.</em></div>
+    <div class="sb" id="s-aa4"><strong>Answer: B) f = 5 at x = 2</strong><br>f′(x) = −2x+4 = 0, so the critical point is \(x=2\).<br>Check the critical point and endpoints: \(f(0)=1\), \(f(2)=-4+8+1=5\), and \(f(5)=-25+20+1=-4\).<br>The absolute maximum on \([0,5]\) is <strong>\(f=5\) at \(x=2\)</strong>.</div>
   </div>
 
   <div class="pc" id="p-aa5">
@@ -3041,6 +3041,396 @@ So the volume is <strong>\(\frac{512}{15}\)</strong>.</div>
     <div class="pa"><button class="st" onclick="sol('s-m31',this)">Show Solution</button><span class="fm" id="fb-p-m31"></span></div>
     <div class="sb" id="s-m31"><strong>Answer: C) \(2\)</strong><br>Separate: \(y^{-2}dy=x\,dx\). Integrate: \(-\dfrac{1}{y}=\dfrac{x^2}{2}+C\).<br>Use \(y(0)=1\): \(-1=C\). Thus \(-\dfrac{1}{y}=\dfrac{x^2}{2}-1\), so \(\dfrac{1}{y}=1-\dfrac{x^2}{2}\).<br>At \(x=1\), \(\dfrac1y=\dfrac12\Rightarrow y=\)<strong>2</strong>.</div>
   </div>
+
+  <div class="pc" id="p-m32">
+    <div class="ph"><div class="pn">32</div><span class="diff de">Easy</span><span class="topic-tag">Unit 1 · Limits</span></div>
+    <div class="pt">Evaluate: \(\displaystyle\lim_{x\to2}\frac{x^2-4}{x-2}\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m32','A')">A) 2</button>
+      <button class="cb" onclick="chk(this,'p-m32','B')">B) 4</button>
+      <button class="cb" onclick="chk(this,'p-m32','C')">C) 6</button>
+      <button class="cb" onclick="chk(this,'p-m32','D')">D) DNE</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m32',this)">Show Solution</button><span class="fm" id="fb-p-m32"></span></div>
+    <div class="sb" id="s-m32"><strong>Answer: B) 4</strong><br>Factor: \(x^2-4=(x-2)(x+2)\). The quotient becomes \(x+2\), so the limit is <strong>4</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m33">
+    <div class="ph"><div class="pn">33</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 2 · Log Derivatives</span></div>
+    <div class="pt">If \(f(x)=x\ln x\), what is \(f'(e)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m33','A')">A) 2</button>
+      <button class="cb" onclick="chk(this,'p-m33','B')">B) \(e\)</button>
+      <button class="cb" onclick="chk(this,'p-m33','C')">C) \(e+1\)</button>
+      <button class="cb" onclick="chk(this,'p-m33','D')">D) 1</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m33',this)">Show Solution</button><span class="fm" id="fb-p-m33"></span></div>
+    <div class="sb" id="s-m33"><strong>Answer: A) 2</strong><br>Product rule: \(d/dx[x\ln x]=1\cdot\ln x+x\cdot(1/x)=\ln x+1\). At \(x=e\): \(1+1=\)<strong>2</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m34">
+    <div class="ph"><div class="pn">34</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 3 · Implicit Tangent</span></div>
+    <div class="pt">For the curve \(x^2+xy+y^2=7\), what is the slope of the tangent line at \((1,2)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m34','A')">A) \(-\dfrac{4}{5}\)</button>
+      <button class="cb" onclick="chk(this,'p-m34','B')">B) \(-1\)</button>
+      <button class="cb" onclick="chk(this,'p-m34','C')">C) \(-\dfrac{5}{4}\)</button>
+      <button class="cb" onclick="chk(this,'p-m34','D')">D) \(\dfrac{5}{4}\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m34',this)">Show Solution</button><span class="fm" id="fb-p-m34"></span></div>
+    <div class="sb" id="s-m34"><strong>Answer: A) \(-4/5\)</strong><br>Differentiate: \(2x+y+x\dfrac{dy}{dx}+2y\dfrac{dy}{dx}=0\).<br>\((x+2y)\dfrac{dy}{dx}=-(2x+y)\), so \(\dfrac{dy}{dx}=-\dfrac{2x+y}{x+2y}\). At \((1,2)\): slope \(=-\dfrac{4}{5}\).</div>
+  </div>
+
+  <div class="pc" id="p-m35">
+    <div class="ph"><div class="pn">35</div><span class="diff de">Easy</span><span class="topic-tag">Unit 4 · Motion</span></div>
+    <div class="pt">If \(s(t)=t^2-6t\), what is the particle's velocity at \(t=4\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m35','A')">A) \(-2\)</button>
+      <button class="cb" onclick="chk(this,'p-m35','B')">B) \(2\)</button>
+      <button class="cb" onclick="chk(this,'p-m35','C')">C) \(8\)</button>
+      <button class="cb" onclick="chk(this,'p-m35','D')">D) \(10\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m35',this)">Show Solution</button><span class="fm" id="fb-p-m35"></span></div>
+    <div class="sb" id="s-m35"><strong>Answer: B) \(2\)</strong><br>\(v(t)=s'(t)=2t-6\). At \(t=4\), \(v=8-6=\)<strong>2</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m36">
+    <div class="ph"><div class="pn">36</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 8 · Area</span></div>
+    <div class="pt">Find the area between \(y=3x\) and \(y=x^2\) on \([0,3]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m36','A')">A) \( \dfrac{9}{2} \)</button>
+      <button class="cb" onclick="chk(this,'p-m36','B')">B) \( \dfrac{27}{2} \)</button>
+      <button class="cb" onclick="chk(this,'p-m36','C')">C) \( 9 \)</button>
+      <button class="cb" onclick="chk(this,'p-m36','D')">D) \( 18 \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m36',this)">Show Solution</button><span class="fm" id="fb-p-m36"></span></div>
+    <div class="sb" id="s-m36"><strong>Answer: A) \(9/2\)</strong><br>On \([0,3]\), \(3x\ge x^2\). Area \(=\int_0^3(3x-x^2)\,dx=\left[\frac{3x^2}{2}-\frac{x^3}{3}\right]_0^3=\frac{27}{2}-9=\)<strong>\(\frac{9}{2}\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m37">
+    <div class="ph"><div class="pn">37</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 6 · FTC + Chain</span></div>
+    <div class="pt">If \(F(x)=\displaystyle\int_1^{x^3}\ln t\,dt\), what is \(F'(1)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m37','A')">A) 0</button>
+      <button class="cb" onclick="chk(this,'p-m37','B')">B) 1</button>
+      <button class="cb" onclick="chk(this,'p-m37','C')">C) 3</button>
+      <button class="cb" onclick="chk(this,'p-m37','D')">D) \(\ln 3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m37',this)">Show Solution</button><span class="fm" id="fb-p-m37"></span></div>
+    <div class="sb" id="s-m37"><strong>Answer: A) 0</strong><br>FTC + chain rule: \(F'(x)=\ln(x^3)\cdot3x^2\). At \(x=1\): \(\ln(1)\cdot3=0\).</div>
+  </div>
+
+  <div class="pc" id="p-m38">
+    <div class="ph"><div class="pn">38</div><span class="diff de">Easy</span><span class="topic-tag">Unit 8 · Average Value</span></div>
+    <div class="pt">What is the average value of \(f(x)=x\) on \([0,6]\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m38','A')">A) 2</button>
+      <button class="cb" onclick="chk(this,'p-m38','B')">B) 3</button>
+      <button class="cb" onclick="chk(this,'p-m38','C')">C) 6</button>
+      <button class="cb" onclick="chk(this,'p-m38','D')">D) 9</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m38',this)">Show Solution</button><span class="fm" id="fb-p-m38"></span></div>
+    <div class="sb" id="s-m38"><strong>Answer: B) 3</strong><br>\(f_{\text{avg}}=\dfrac{1}{6}\int_0^6x\,dx=\dfrac{1}{6}\left[\frac{x^2}{2}\right]_0^6=\dfrac{18}{6}=\)<strong>3</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m39">
+    <div class="ph"><div class="pn">39</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 5 · Optimization</span></div>
+    <div class="pt">A rectangle has perimeter 24. What is its maximum possible area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m39','A')">A) 24</button>
+      <button class="cb" onclick="chk(this,'p-m39','B')">B) 32</button>
+      <button class="cb" onclick="chk(this,'p-m39','C')">C) 36</button>
+      <button class="cb" onclick="chk(this,'p-m39','D')">D) 48</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m39',this)">Show Solution</button><span class="fm" id="fb-p-m39"></span></div>
+    <div class="sb" id="s-m39"><strong>Answer: C) 36</strong><br>The rectangle with maximum area for a fixed perimeter is a square. Side \(=24/4=6\), so max area \(=6^2=\)<strong>36</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m40">
+    <div class="ph"><div class="pn">40</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 7 · Euler's Method</span></div>
+    <div class="pt">Use Euler's method with step size \(0.5\) to approximate \(y(1)\) if \(\dfrac{dy}{dx}=x+y\) and \(y(0)=1\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m40','A')">A) 2</button>
+      <button class="cb" onclick="chk(this,'p-m40','B')">B) 2.25</button>
+      <button class="cb" onclick="chk(this,'p-m40','C')">C) 2.5</button>
+      <button class="cb" onclick="chk(this,'p-m40','D')">D) 3</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m40',this)">Show Solution</button><span class="fm" id="fb-p-m40"></span></div>
+    <div class="sb" id="s-m40"><strong>Answer: C) 2.5</strong><br>Start \((0,1)\). Step 1: slope \(=0+1=1\), so \(y(0.5)\approx1+0.5(1)=1.5\).<br>Step 2: slope \(=0.5+1.5=2\), so \(y(1)\approx1.5+0.5(2)=\)<strong>2.5</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m41">
+    <div class="ph"><div class="pn">41</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 3 · Inverse Derivative</span></div>
+    <div class="pt">If \(f(3)=1\) and \(f'(3)=5\), what is \((f^{-1})'(1)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m41','A')">A) \(1/5\)</button>
+      <button class="cb" onclick="chk(this,'p-m41','B')">B) \(3\)</button>
+      <button class="cb" onclick="chk(this,'p-m41','C')">C) \(5\)</button>
+      <button class="cb" onclick="chk(this,'p-m41','D')">D) \(1/3\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m41',this)">Show Solution</button><span class="fm" id="fb-p-m41"></span></div>
+    <div class="sb" id="s-m41"><strong>Answer: A) \(1/5\)</strong><br>Since \(f(3)=1\), we have \(f^{-1}(1)=3\). Then \((f^{-1})'(1)=1/f'(3)=\)<strong>\(1/5\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m42">
+    <div class="ph"><div class="pn">42</div><span class="diff de">Easy</span><span class="topic-tag">Unit 1 · Continuity</span></div>
+    <div class="pt">For what value of \(k\) is \(f(x)=\begin{cases}x+k,&x<1\\3,&x\ge1\end{cases}\) continuous at \(x=1\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m42','A')">A) 1</button>
+      <button class="cb" onclick="chk(this,'p-m42','B')">B) 2</button>
+      <button class="cb" onclick="chk(this,'p-m42','C')">C) 3</button>
+      <button class="cb" onclick="chk(this,'p-m42','D')">D) 4</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m42',this)">Show Solution</button><span class="fm" id="fb-p-m42"></span></div>
+    <div class="sb" id="s-m42"><strong>Answer: B) 2</strong><br>Continuity requires \(1+k=3\), so <strong>\(k=2\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m43">
+    <div class="ph"><div class="pn">43</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 8 · Washer Volume</span></div>
+    <div class="pt">Find the volume when the region between \(y=x\) and \(y=0\) on \([0,2]\) is rotated about \(y=3\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m43','A')">A) \( \dfrac{14\pi}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m43','B')">B) \( \dfrac{28\pi}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m43','C')">C) \( \dfrac{46\pi}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m43','D')">D) \(18\pi\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m43',this)">Show Solution</button><span class="fm" id="fb-p-m43"></span></div>
+    <div class="sb" id="s-m43"><strong>Answer: B) \(28\pi/3\)</strong><br>Outer radius \(R=3\), inner radius \(r=3-x\).<br>\(V=\pi\int_0^2(9-(3-x)^2)\,dx=\pi\int_0^2(6x-x^2)\,dx\).<br>\(\left[3x^2-\frac{x^3}{3}\right]_0^2=12-\frac83=\)<strong>\(\frac{28}{3}\pi\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m44">
+    <div class="ph"><div class="pn">44</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 1 · L'Hôpital</span></div>
+    <div class="pt">Evaluate \(\displaystyle\lim_{x\to0}\frac{e^{2x}-1}{x}\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m44','A')">A) 0</button>
+      <button class="cb" onclick="chk(this,'p-m44','B')">B) 1</button>
+      <button class="cb" onclick="chk(this,'p-m44','C')">C) 2</button>
+      <button class="cb" onclick="chk(this,'p-m44','D')">D) \(e^2\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m44',this)">Show Solution</button><span class="fm" id="fb-p-m44"></span></div>
+    <div class="sb" id="s-m44"><strong>Answer: C) 2</strong><br>Use L'Hôpital or the standard exponential limit: derivative of numerator is \(2e^{2x}\). At \(x=0\), limit \(=\)<strong>2</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m45">
+    <div class="ph"><div class="pn">45</div><span class="diff de">Easy</span><span class="topic-tag">Unit 6 · U-Sub</span></div>
+    <div class="pt">Evaluate: \(\displaystyle\int 3x^2\cos(x^3)\,dx\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m45','A')">A) \(\sin(x^3)+C\)</button>
+      <button class="cb" onclick="chk(this,'p-m45','B')">B) \(\cos(x^3)+C\)</button>
+      <button class="cb" onclick="chk(this,'p-m45','C')">C) \(3\sin(x^2)+C\)</button>
+      <button class="cb" onclick="chk(this,'p-m45','D')">D) \(\dfrac{\sin(x^3)}{3}+C\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m45',this)">Show Solution</button><span class="fm" id="fb-p-m45"></span></div>
+    <div class="sb" id="s-m45"><strong>Answer: A) \(\sin(x^3)+C\)</strong><br>Let \(u=x^3\), so \(du=3x^2dx\). Then the integral is \(\int \cos u\,du=\)<strong>\(\sin u+C=\sin(x^3)+C\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m46">
+    <div class="ph"><div class="pn">46</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 5 · First Derivative</span></div>
+    <div class="pt">If \(f'(x)=(x-1)(x+2)^3\), at which \(x\)-value does \(f\) have a local minimum?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m46','A')">A) \(x=-2\) only</button>
+      <button class="cb" onclick="chk(this,'p-m46','B')">B) \(x=1\) only</button>
+      <button class="cb" onclick="chk(this,'p-m46','C')">C) \(x=-2\) and \(x=1\)</button>
+      <button class="cb" onclick="chk(this,'p-m46','D')">D) neither</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m46',this)">Show Solution</button><span class="fm" id="fb-p-m46"></span></div>
+    <div class="sb" id="s-m46"><strong>Answer: B) \(x=1\) only</strong><br>Since \((x+2)^3\) has the sign of \(x+2\), \(f'\) is positive on \((-\infty,-2)\), negative on \((-2,1)\), and positive on \((1,\infty)\). So \(-2\) is a local max and \(1\) is a local min.</div>
+  </div>
+
+  <div class="pc" id="p-m47">
+    <div class="ph"><div class="pn">47</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 6 · Net Change</span></div>
+    <div class="pt">If \(r(t)\) is measured in liters per minute, what are the units of \(\displaystyle\int_0^5 r(t)\,dt\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m47','A')">A) liters</button>
+      <button class="cb" onclick="chk(this,'p-m47','B')">B) liters per minute</button>
+      <button class="cb" onclick="chk(this,'p-m47','C')">C) minutes per liter</button>
+      <button class="cb" onclick="chk(this,'p-m47','D')">D) no units</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m47',this)">Show Solution</button><span class="fm" id="fb-p-m47"></span></div>
+    <div class="sb" id="s-m47"><strong>Answer: A) liters</strong><br>Rate \(\times\) time = amount, so \((\text{liters/min})(\text{min})=\)<strong>liters</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m48">
+    <div class="ph"><div class="pn">48</div><span class="diff de">Easy</span><span class="topic-tag">Unit 2 · Chain Rule</span></div>
+    <div class="pt">Find \(\dfrac{d}{dx}[\sin(5x)]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m48','A')">A) \(\cos(5x)\)</button>
+      <button class="cb" onclick="chk(this,'p-m48','B')">B) \(5\cos(5x)\)</button>
+      <button class="cb" onclick="chk(this,'p-m48','C')">C) \(-5\sin(5x)\)</button>
+      <button class="cb" onclick="chk(this,'p-m48','D')">D) \(5\sin(5x)\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m48',this)">Show Solution</button><span class="fm" id="fb-p-m48"></span></div>
+    <div class="sb" id="s-m48"><strong>Answer: B) \(5\cos(5x)\)</strong><br>Use the chain rule: derivative of \(\sin(u)\) is \(\cos(u)\cdot u'\). Here \(u=5x\), so the derivative is <strong>\(5\cos(5x)\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m49">
+    <div class="ph"><div class="pn">49</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 4 · Related Rates</span></div>
+    <div class="pt">Air is pumped into a sphere so that its volume increases at \(36\pi\) cm\(^3\)/s. How fast is the radius increasing when \(r=3\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m49','A')">A) 1 cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m49','B')">B) 2 cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m49','C')">C) 3 cm/s</button>
+      <button class="cb" onclick="chk(this,'p-m49','D')">D) 4 cm/s</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m49',this)">Show Solution</button><span class="fm" id="fb-p-m49"></span></div>
+    <div class="sb" id="s-m49"><strong>Answer: A) 1 cm/s</strong><br>\(V=\frac43\pi r^3\), so \(\dfrac{dV}{dt}=4\pi r^2\dfrac{dr}{dt}\). At \(r=3\): \(36\pi=36\pi\dfrac{dr}{dt}\), hence \(\dfrac{dr}{dt}=\)<strong>1</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m50">
+    <div class="ph"><div class="pn">50</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 4 · Linearization</span></div>
+    <div class="pt">Use linearization of \(f(x)=\sqrt{x}\) at \(x=4\) to approximate \(\sqrt{4.1}\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m50','A')">A) 2.0125</button>
+      <button class="cb" onclick="chk(this,'p-m50','B')">B) 2.025</button>
+      <button class="cb" onclick="chk(this,'p-m50','C')">C) 2.05</button>
+      <button class="cb" onclick="chk(this,'p-m50','D')">D) 2.1</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m50',this)">Show Solution</button><span class="fm" id="fb-p-m50"></span></div>
+    <div class="sb" id="s-m50"><strong>Answer: B) 2.025</strong><br>\(f(4)=2\), \(f'(x)=1/(2\sqrt{x})\), so \(f'(4)=1/4\).<br>\(L(x)=2+\frac14(x-4)\). Then \(L(4.1)=2+\frac14(0.1)=\)<strong>2.025</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m51">
+    <div class="ph"><div class="pn">51</div><span class="diff de">Easy</span><span class="topic-tag">Unit 2 · Tangent Line</span></div>
+    <div class="pt">Find the slope of the tangent line to \(y=x^3\) at \(x=2\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m51','A')">A) 4</button>
+      <button class="cb" onclick="chk(this,'p-m51','B')">B) 8</button>
+      <button class="cb" onclick="chk(this,'p-m51','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-m51','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m51',this)">Show Solution</button><span class="fm" id="fb-p-m51"></span></div>
+    <div class="sb" id="s-m51"><strong>Answer: C) 12</strong><br>\(y'=3x^2\). At \(x=2\), the slope is \(3(4)=\)<strong>12</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m52">
+    <div class="ph"><div class="pn">52</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 8 · Total Area</span></div>
+    <div class="pt">Find the total area between \(y=x^2-1\) and the \(x\)-axis on \([-2,2]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m52','A')">A) \( \dfrac{8}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m52','B')">B) \(4\)</button>
+      <button class="cb" onclick="chk(this,'p-m52','C')">C) \( \dfrac{10}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m52','D')">D) \( \dfrac{14}{3} \)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m52',this)">Show Solution</button><span class="fm" id="fb-p-m52"></span></div>
+    <div class="sb" id="s-m52"><strong>Answer: B) 4</strong><br>The curve crosses the axis at \(x=\pm1\).<br>Total area \(=\int_{-2}^{-1}(x^2-1)\,dx+\int_{-1}^{1}(1-x^2)\,dx+\int_1^2(x^2-1)\,dx\).<br>By symmetry this is \(2\int_1^2(x^2-1)\,dx+\int_{-1}^{1}(1-x^2)\,dx=2\cdot\frac43+\frac43=\)<strong>4</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m53">
+    <div class="ph"><div class="pn">53</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 5 · Concavity</span></div>
+    <div class="pt">If \(f''(x)=6x-12\), where is \(f\) concave down?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m53','A')">A) \((-\infty,2)\)</button>
+      <button class="cb" onclick="chk(this,'p-m53','B')">B) \((2,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-m53','C')">C) \((-\infty,\infty)\)</button>
+      <button class="cb" onclick="chk(this,'p-m53','D')">D) nowhere</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m53',this)">Show Solution</button><span class="fm" id="fb-p-m53"></span></div>
+    <div class="sb" id="s-m53"><strong>Answer: A) \((-\infty,2)\)</strong><br>Concave down means \(f''<0\). Solve \(6x-12<0\Rightarrow x<2\).</div>
+  </div>
+
+  <div class="pc" id="p-m54">
+    <div class="ph"><div class="pn">54</div><span class="diff de">Easy</span><span class="topic-tag">Unit 7 · Logistic Idea</span></div>
+    <div class="pt">If \(\dfrac{dy}{dt}=y(5-y)\), what can be said when \(y=5\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m54','A')">A) \(y\) is decreasing fastest</button>
+      <button class="cb" onclick="chk(this,'p-m54','B')">B) \(\dfrac{dy}{dt}=0\)</button>
+      <button class="cb" onclick="chk(this,'p-m54','C')">C) \(\dfrac{dy}{dt}=5\)</button>
+      <button class="cb" onclick="chk(this,'p-m54','D')">D) \(y\) must be negative</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m54',this)">Show Solution</button><span class="fm" id="fb-p-m54"></span></div>
+    <div class="sb" id="s-m54"><strong>Answer: B) \(\dfrac{dy}{dt}=0\)</strong><br>Substitute \(y=5\): \(\dfrac{dy}{dt}=5(5-5)=0\). So \(y=5\) is an equilibrium value.</div>
+  </div>
+
+  <div class="pc" id="p-m55">
+    <div class="ph"><div class="pn">55</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 6 · FTC Composition</span></div>
+    <div class="pt">If \(G(x)=\displaystyle\int_0^{\sin x}\frac{1}{1+t^2}\,dt\), find \(G'(0)\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m55','A')">A) 0</button>
+      <button class="cb" onclick="chk(this,'p-m55','B')">B) 1</button>
+      <button class="cb" onclick="chk(this,'p-m55','C')">C) \(\cos 1\)</button>
+      <button class="cb" onclick="chk(this,'p-m55','D')">D) \(1/2\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m55',this)">Show Solution</button><span class="fm" id="fb-p-m55"></span></div>
+    <div class="sb" id="s-m55"><strong>Answer: B) 1</strong><br>FTC + chain rule: \(G'(x)=\dfrac{1}{1+\sin^2x}\cdot\cos x\). At \(x=0\), this is \(\dfrac{1}{1+0}\cdot1=\)<strong>1</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m56">
+    <div class="ph"><div class="pn">56</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 4 · Distance vs Displacement</span></div>
+    <div class="pt">A particle has velocity \(v(t)=2t-2\) on \([0,3]\). What is its displacement?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m56','A')">A) 1</button>
+      <button class="cb" onclick="chk(this,'p-m56','B')">B) 3</button>
+      <button class="cb" onclick="chk(this,'p-m56','C')">C) 4</button>
+      <button class="cb" onclick="chk(this,'p-m56','D')">D) 5</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m56',this)">Show Solution</button><span class="fm" id="fb-p-m56"></span></div>
+    <div class="sb" id="s-m56"><strong>Answer: B) 3</strong><br>Displacement \(=\int_0^3(2t-2)\,dt=[t^2-2t]_0^3=9-6=\)<strong>3</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m57">
+    <div class="ph"><div class="pn">57</div><span class="diff de">Easy</span><span class="topic-tag">Unit 6 · Definite Integral</span></div>
+    <div class="pt">Evaluate: \(\displaystyle\int_1^3 2x\,dx\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m57','A')">A) 4</button>
+      <button class="cb" onclick="chk(this,'p-m57','B')">B) 6</button>
+      <button class="cb" onclick="chk(this,'p-m57','C')">C) 8</button>
+      <button class="cb" onclick="chk(this,'p-m57','D')">D) 12</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m57',this)">Show Solution</button><span class="fm" id="fb-p-m57"></span></div>
+    <div class="sb" id="s-m57"><strong>Answer: C) 8</strong><br>\(\int_1^3 2x\,dx=[x^2]_1^3=9-1=\)<strong>8</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m58">
+    <div class="ph"><div class="pn">58</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 5 · Optimization</span></div>
+    <div class="pt">A rectangle is inscribed under the line \(y=12-2x\) in the first quadrant, with sides along the axes. What is the maximum area?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m58','A')">A) 12</button>
+      <button class="cb" onclick="chk(this,'p-m58','B')">B) 16</button>
+      <button class="cb" onclick="chk(this,'p-m58','C')">C) 18</button>
+      <button class="cb" onclick="chk(this,'p-m58','D')">D) 24</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m58',this)">Show Solution</button><span class="fm" id="fb-p-m58"></span></div>
+    <div class="sb" id="s-m58"><strong>Answer: C) 18</strong><br>Area \(A=x(12-2x)=12x-2x^2\). Then \(A'=12-4x=0\Rightarrow x=3\), so \(y=6\). Maximum area \(=3\cdot6=\)<strong>18</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m59">
+    <div class="ph"><div class="pn">59</div><span class="diff dm">Medium</span><span class="topic-tag">Unit 7 · Separable DE</span></div>
+    <div class="pt">Solve \(\dfrac{dy}{dx}=3x^2\) with \(y(0)=4\). What is \(y(2)\)?</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m59','A')">A) 8</button>
+      <button class="cb" onclick="chk(this,'p-m59','B')">B) 10</button>
+      <button class="cb" onclick="chk(this,'p-m59','C')">C) 12</button>
+      <button class="cb" onclick="chk(this,'p-m59','D')">D) 16</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m59',this)">Show Solution</button><span class="fm" id="fb-p-m59"></span></div>
+    <div class="sb" id="s-m59"><strong>Answer: C) 12</strong><br>Integrate: \(y=x^3+C\). Since \(y(0)=4\), \(C=4\). Thus \(y(2)=8+4=\)<strong>12</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m60">
+    <div class="ph"><div class="pn">60</div><span class="diff de">Easy</span><span class="topic-tag">Unit 3 · Inverse Trig</span></div>
+    <div class="pt">Find \(\dfrac{d}{dx}[\arctan x]\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m60','A')">A) \(\dfrac{1}{1+x^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-m60','B')">B) \(\dfrac{1}{\sqrt{1-x^2}}\)</button>
+      <button class="cb" onclick="chk(this,'p-m60','C')">C) \(-\dfrac{1}{1+x^2}\)</button>
+      <button class="cb" onclick="chk(this,'p-m60','D')">D) \(\sec^2x\)</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m60',this)">Show Solution</button><span class="fm" id="fb-p-m60"></span></div>
+    <div class="sb" id="s-m60"><strong>Answer: A) \(\dfrac{1}{1+x^2}\)</strong><br>This is the standard derivative formula for <strong>\(\arctan x\)</strong>.</div>
+  </div>
+
+  <div class="pc" id="p-m61">
+    <div class="ph"><div class="pn">61</div><span class="diff dh">Hard</span><span class="topic-tag">Unit 6 · Trapezoidal Rule</span></div>
+    <div class="pt">For \(f(x)=x^2\) on \([0,2]\), use the trapezoidal rule with two equal subintervals to approximate \(\int_0^2x^2\,dx\).</div>
+    <div class="choices">
+      <button class="cb" onclick="chk(this,'p-m61','A')">A) 2</button>
+      <button class="cb" onclick="chk(this,'p-m61','B')">B) 3</button>
+      <button class="cb" onclick="chk(this,'p-m61','C')">C) \( \dfrac{8}{3} \)</button>
+      <button class="cb" onclick="chk(this,'p-m61','D')">D) 4</button>
+    </div>
+    <div class="pa"><button class="st" onclick="sol('s-m61',this)">Show Solution</button><span class="fm" id="fb-p-m61"></span></div>
+    <div class="sb" id="s-m61"><strong>Answer: B) 3</strong><br>\(\Delta x=1\), so \(T=\dfrac{1}{2}[f(0)+2f(1)+f(2)]=\dfrac12[0+2(1)+4]=\dfrac12(6)=\)<strong>3</strong>.</div>
+  </div>
 </div>
 
 <!-- FRQ PRACTICE -->
@@ -3346,6 +3736,12 @@ const ANS = {
   'p-m17':'B','p-m18':'C','p-m19':'B','p-m20':'B','p-m21':'B',
   'p-m22':'B','p-m23':'C','p-m24':'A','p-m25':'B','p-m26':'C',
   'p-m27':'A','p-m28':'D','p-m29':'B','p-m30':'C','p-m31':'C',
+  'p-m32':'B','p-m33':'A','p-m34':'A','p-m35':'B','p-m36':'A',
+  'p-m37':'A','p-m38':'B','p-m39':'C','p-m40':'C','p-m41':'A',
+  'p-m42':'B','p-m43':'B','p-m44':'C','p-m45':'A','p-m46':'B',
+  'p-m47':'A','p-m48':'B','p-m49':'A','p-m50':'B','p-m51':'C',
+  'p-m52':'B','p-m53':'A','p-m54':'B','p-m55':'B','p-m56':'B',
+  'p-m57':'C','p-m58':'C','p-m59':'C','p-m60':'A','p-m61':'B',
   'p-gp1':'B','p-gp2':'C','p-gp3':'B','p-gp4':'D','p-gp5':'C','p-gp6':'D',
   'p-gp7':'C','p-gp8':'B','p-gp9':'B','p-gp10':'C','p-gp11':'B','p-gp12':'D','p-gp13':'A','p-gp14':'B',
   'p-l6':'C','p-l7':'A','p-l8':'B','p-l9':'C','p-l10':'B',
